@@ -44,8 +44,8 @@ body {
     width: 100%;
 }
 .hd_chonrap_top_components {
-    align-items: center; /**/
-    display: flex; /**/
+    align-items: center; /*Vị trí bắt đầu + Căn chỉnh của các items là từ trung tâm*/
+    display: flex; /*Giúp các phần tử linh hoạt hơn với tất cả các loại màn hình*/
     gap: 3.2rem;
     height: 100%;
 }
@@ -69,7 +69,7 @@ img {
     display: flex;
     flex: 1;
     gap: 1rem;
-    justify-content: center; /**/
+    justify-content: center; /*Các phần tử được căn chỉnh chính giữa container theo trục chính.*/
 }
 .hd_left_action .btn {
     font-size: 1.4rem; 
@@ -161,9 +161,9 @@ img {
     z-index: 1; 
 }
 .btn {
-    -ms-align-items: center; /**/
-    -webkit-align-items: center; /**/
-    background-color: transparent; /**/
+    -ms-align-items: center; 
+    -webkit-align-items: center;
+    background-color: transparent; 
     border: none;
     border-radius: .4rem;
     cursor: pointer;
@@ -480,8 +480,6 @@ ol, ul {
     padding: 8px;
     text-align: center;
 }
-
-
 /*Footer_body tab chọn rạp*/
 .footer {
     padding-bottom: 4rem;
