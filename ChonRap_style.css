@@ -10,8 +10,8 @@ body {
     overflow-x: hidden;
     overflow-y: scroll;
     color: #f8fafc;
-    background-color:#0f172a;
-    font-family: '';
+    background-color:#000000;
+    font-family: 'Times New Roman', Times, serif;
     font-weight: 400;
     line-height: 1.55;
     max-height: 100px;
@@ -20,21 +20,73 @@ body {
     display: flex;
     flex-direction: column;
 }
-/*Header_body tab chọn rạp*/
+
+/*Objects are used*/
+img {
+    display: block;
+    height: auto;
+    transition: all .2s;
+    max-width: 100%;
+} /*Images*/
+.btn {
+    -ms-align-items: center; /**/
+    -webkit-align-items: center; /**/
+    -webkit-justify-content: center; /**/
+    background-color: transparent; /**/
+    border: none;
+    border-radius: .4rem;
+    cursor: pointer; /**/
+    display: flex; /**/
+    overflow: hidden;
+    gap: 1rem;
+    font-family: 'Times New Roman', Times, serif;
+    letter-spacing: .8px;
+    outline: none;
+    padding: .8rem 1.2rem;
+    text-align: center;
+    text-transform: uppercase;
+}/*Button*/
+a {
+    text-decoration: none;
+}/*Anchor*/
+button {
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0;
+}/*Button*/
+button, select {
+    -webkit-appearance: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    text-transform: none;
+}/*Button+Select*/
+button, input, optgroup, select, textarea {
+    color: inherit;
+    font-family: inherit;
+    font-size: 100%;
+    font-weight: inherit;
+    line-height: inherit;
+    margin: 0;
+    padding: 0;
+}/*Button, input, optgroup, select, textarea*/
+
+/*Header_body tab khuyến mãi*/
 .hd_chonrap {
-    background-color: #000;
+    background-color: #000000;
     display: inline-block; /*Các items được xếp cùng nhau trên một dòng + Có các yếu tố của 1 block*/
+    position: relative; /**/
     left: 0;
     top: 0;
-    position: relative;
-    width: 100%;
-    height: 12.8rem !important;
-    transition: all .4s;
+    width: 100%; /*Chiều rộng lấy toàn bộ chiều rộng màn hình*/
+    height: 12.8rem !important; /*Tổng chiều cao phần header body là 12.8rem*/
+    transition: all .4s; /**/
     padding: 20px;
 }
-    /*Top of Header*/
+/*Top of Header*/
 .hd_chonrap_top {
-    height: 7.8rem;
+    height: 7.8rem; /*Phần top của header phần body chiếm 7.8/12.8rem chiều cao*/
+    width: 100%;
 }
 .container {
     height: 100%;
@@ -44,60 +96,33 @@ body {
     width: 100%;
 }
 .hd_chonrap_top_components {
-    align-items: center; /**/
-    display: flex; /**/
-    gap: 3.2rem;
+    align-items: center; /*Điểm xuất phát + điểm căn chỉnh của các thành phần nằm ở trung tâm - theo chiều dọc.*/
+    justify-content: stretch; /*Điểm xuất phát + điểm căn chỉnh của các thành phần nằm ở trung tâm - theo chiều ngang.*/
+    display: flex; /*Các thành phần được hiển thị linh hoạt theo hết chiều rộng*/
+    gap: 3.0rem;
     height: 100%;
+    width: 100%;
 }
-/*Logo*/
+    /*1.Logo*/
 .hd_chonrap_top .main_logo_link {
     display: flex;
-    width: 13rem;
+    width: 15%; /*Phần logo chiếm 20% tổng chiều rộng*/
 }
 .hd_chonrap_top .main_logo_link img {
     width: 100%
 }
-img {
-    display: block;
-    height: auto;
-    transition: all .2s;
-    max-width: 100%;
-}
-/*Nút ĐẶT VÉ NGAY*/
+    /*2.Nút "ĐẶT VÉ NGAY"*/
 .hd_left_action {
-    align-items: center;
+    align-items: center; 
+    justify-content: center;
     display: flex;
-    flex: 1;
-    gap: 1rem;
-    justify-content: center; /**/
+    width: 20%; 
+    height: auto;
 }
 .hd_left_action .btn {
-    font-size: 1.4rem; 
-}
-
-.book_btn:before {
-    background: #f3ea28;
-    right: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -2;
-}
-.book_btn:after {
-    background: linear-gradient(106deg, #639, #36c 102.69%);
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    width: 0;
-    z-index: -1;
-}
-.book_btn:after, .book_btn:before {
-    content: "";
-    height: 100%;
-    position: absolute;
-    transition: all .4s ease-in-out;
-    width: 100%;
+    font-size: 1.2rem;
+    font-weight: bold; 
+    font-family: 'Times New Roman', Times, serif;
 }
 *, :after, :before {
     --tw-border-spacing-x: 0;
@@ -145,68 +170,90 @@ img {
     --tw-backdrop-saturate: ;
     --tw-backdrop-sepia: ;
 }
-:after, :before {
-    --tw-content: "";
-}
-
 *, :after, :before {
     border: 0 solid #edf2f7;
     box-sizing: border-box;
 }
-
+:after, :before {
+    --tw-content: "";
+}
+.book_btn:before {
+    background: #f3ea28;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+.book_btn:after {
+    background: linear-gradient(106deg, #639, #36c 102.69%);
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+.book_btn:after, .book_btn:before {
+    content: "";
+    height: 100%;
+    position: absolute;
+    transition: all .4s ease-in-out;
+    width: 100%;
+}
 .book_btn {
     color: #0f172a;
     position: relative;
+    justify-content: center;
+    flex-wrap: nowrap;
     transition: color .3s ease-in-out; 
     z-index: 1; 
-}
-.btn {
-    -ms-align-items: center; /**/
-    -webkit-align-items: center; /**/
-    background-color: transparent; /**/
-    border: none;
-    border-radius: .4rem;
-    cursor: pointer;
-    display: flex;
-    font-family: 'Times New Roman', Times, serif;
-    gap: 1rem;
-    -webkit-justify-content: center;
-    letter-spacing: .8px;
-    outline: none;
-    overflow: hidden;
-    padding: .8rem 1.2rem;
-    text-align: center;
-    text-transform: uppercase;
-}
-
-a {
-    text-decoration: none;
+    width: 100%;
+    height: auto;
 }
 /*Thanh tìm kiếm*/
 .hd_right_action {
     align-items: center;
+    justify-content: space-between;
     display: flex;
-    gap: 3.6rem;
+    flex: 1;
+    width: auto;
+    height: auto;
+    position: relative;
+    padding: 0.1rem;
+    margin: auto;
+    gap: 0.01rem;
 }
 .hd_search {
     position: relative;
+    width: 55%;
+    justify-content: left !important;
+    display: flex;
+    flex: 3;
 }
 .search_icon {
     --sz: 2.4rem;
     align-items: center;
+    justify-content: center;
     border: .2rem solid #fff;
     border-radius: 100rem;
     cursor: pointer;
     display: none;
+    position: relative;
     height: 2.4rem;
-    justify-content: center;
-    width: 2.4rem;
+    width: 20%;
+}
+.search_panel {
+    width: 100%;
+}
+.search_panel_form {
+    width: 100%;
 }
 .search_panel_form_content {
     align-items: center;
+    justify-content: center;
     display: flex;
     position: relative;
-    width: 25rem;
+    width: 90%;
     color: #252525;
 }
 .search_panel_form_content input {
@@ -223,80 +270,87 @@ a {
     position: absolute;
     right: 1rem;
     top: 50%;
+    width: 1.6rem;
     transform: translateY(-50%);
     -webkit-transform: translateY(-50%);
     -moz-transform: translateY(-50%);
     -o-transform: translateY(-50%);
-    width: 1.6rem;
 }
 [type=button], [type=reset], [type=submit], button {
-    -webkit-appearance: button; /**/
+    -webkit-appearance: button;
     background-color: transparent;
     background-image: none;
-}
-button {
-    background-color: transparent;
-    cursor: pointer;
-    padding: 0;
-}
-button, select {
-    -webkit-appearance: none;
-    border: none;
-    cursor: pointer;
-    outline: none;
 }
 [role=button], button {
     cursor: pointer;
 }
-button, select {
-    text-transform: none;
-}
-button, input, optgroup, select, textarea {
-    color: inherit;
-    font-family: inherit;
-    font-size: 100%;
-    font-weight: inherit;
-    line-height: inherit;
-    margin: 0;
-    padding: 0;
-}
 /*Register+Login*/
+.hd_register_login {
+    display: flex;
+    justify-content: center !important;
+    flex: 2;
+}
 .hd_register_login_content {
     align-items: center;
-    cursor: pointer;
+    justify-content: center;
     display: flex;
-    flex-shrink: 0;
-    gap: 1rem;
+    flex: 1; 
     position: relative;
+    cursor: pointer;
+    width: 40%; 
+    height: auto;
+    flex-shrink: 0;
+    font-size: 1rem;
+    font-weight: bold;
 }
 .hd_register_login_ava {
     flex-shrink: 0;
     height: 2.4rem;
+    width: 2.4rem;
     position: relative;
     top: -.2rem;
-    width: 2.4rem;
 }
 .hd_register_login_ava img {
     height: 100%;
-    -o-object-fit: cover;
-    object-fit: cover;
     width: 100%;
 }
 .hd_register_login_list {
+    justify-content: center;
     align-items: center;
     display: flex;
-    gap: .4rem;
+    flex: 0.8;
+    gap: .2rem;
+    padding: 0 !important;
+    flex-wrap: wrap;
+}
+.hd_register_login_list .separate {
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hd_register_login_list .link {
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: left !important;
+    align-items: center;
 }
 a {
     color: inherit;
     text-decoration: none;
 }
-.hd_language_action {
+/*Language*/
+.hd_language {
     cursor: pointer;
-    gap: 0 .8rem;
-    position: relative;
     align-items: center;
+    justify-content: right !important;
     display: flex;
+    flex-wrap: nowrap;
+    flex: 1; 
+    position: relative;
+    width: 10%; 
+    height: auto;
+    padding: 0;
 }
 .hd_language_popup {
     display: flex;
@@ -304,18 +358,20 @@ a {
 }
 .hd_language_option {
     font-size: 1.4rem;
+    font-weight: bold;
     align-items: center;
+    justify-content: center;
     display: flex;
     gap: 0 .8rem;
 }
-.hd_language_option .image {
+.hd_language_option .image_flag {
     border-radius: 100rem;
     display: inline-block;
     flex-shrink: 0;
     height: 2.4rem;
     width: 2.4rem;
 }
-.hd_language_option .image img {
+.hd_language_option .image_flag img {
     height: 100%;
     -o-object-fit: cover;
     object-fit: cover;
@@ -325,21 +381,26 @@ a {
     position: relative;
     top: .2rem;
 }
-    /*Mid of Header*/
+
+/*Mid of Header*/
 .hd_chonrap_mid {
     height: 5rem;
+    width: 100%;
 }
 .hd_chonrap_mid_components {
     align-items: center;
+    justify-content: space-between;
     display: flex;
-    border-top: .1rem solid rgba(248, 250, 252, .1);
+    border-top: .2rem solid rgba(248, 250, 252, .1);
     gap: 1rem;
     height: 100%;
-    justify-content: space-between;
+    font-size: 1.2rem;
+    font-weight: bold;
 }
 .local {
     gap: .6rem;
     align-items: center;
+    justify-content: space-between;
     display: flex;
 }
 .local .text_chonrap {
@@ -349,6 +410,7 @@ a {
 }
 .other {
     align-items: center;
+    justify-content: space-between;
     display: flex;
     gap: 2.4rem;
 }
@@ -357,6 +419,7 @@ a {
     text-underline-position: under;
     transition: .3s ease-in-out;
 }
+
 
 /*Body_body tab chọn rạp*/
 .app-main-chonrap {
@@ -480,10 +543,9 @@ ol, ul {
     padding: 8px;
     text-align: center;
 }
-
-
 /*Footer_body tab chọn rạp*/
 .footer {
+    padding-top: 4rem;
     padding-bottom: 4rem;
     position: relative;
     display: flex;
