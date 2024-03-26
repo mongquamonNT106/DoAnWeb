@@ -72,7 +72,7 @@ button, input, optgroup, select, textarea {
 }/*Button, input, optgroup, select, textarea*/
 
 /*Header_body tab khuyến mãi*/
-.hd_chonrap {
+.hd_khuyenmai {
     background-color: #000000;
     display: inline-block; /*Các items được xếp cùng nhau trên một dòng + Có các yếu tố của 1 block*/
     position: relative; /**/
@@ -84,7 +84,7 @@ button, input, optgroup, select, textarea {
     padding: 20px;
 }
 /*Top of Header*/
-.hd_chonrap_top {
+.hd_khuyenmai_top {
     height: 7.8rem; /*Phần top của header phần body chiếm 7.8/12.8rem chiều cao*/
     width: 100%;
 }
@@ -95,7 +95,7 @@ button, input, optgroup, select, textarea {
     padding: 0 1.5rem;
     width: 100%;
 }
-.hd_chonrap_top_components {
+.hd_khuyenmai_top_components {
     align-items: center; /*Điểm xuất phát + điểm căn chỉnh của các thành phần nằm ở trung tâm - theo chiều dọc.*/
     justify-content: stretch; /*Điểm xuất phát + điểm căn chỉnh của các thành phần nằm ở trung tâm - theo chiều ngang.*/
     display: flex; /*Các thành phần được hiển thị linh hoạt theo hết chiều rộng*/
@@ -104,11 +104,11 @@ button, input, optgroup, select, textarea {
     width: 100%;
 }
     /*1.Logo*/
-.hd_chonrap_top .main_logo_link {
+.hd_khuyenmai_top .main_logo_link {
     display: flex;
     width: 15%; /*Phần logo chiếm 20% tổng chiều rộng*/
 }
-.hd_chonrap_top .main_logo_link img {
+.hd_khuyenmai_top .main_logo_link img {
     width: 100%
 }
     /*2.Nút "ĐẶT VÉ NGAY"*/
@@ -383,11 +383,11 @@ a {
 }
 
 /*Mid of Header*/
-.hd_chonrap_mid {
+.hd_khuyenmai_mid {
     height: 5rem;
     width: 100%;
 }
-.hd_chonrap_mid_components {
+.hd_khuyenmai_mid_components {
     align-items: center;
     justify-content: space-between;
     display: flex;
@@ -421,8 +421,8 @@ a {
 }
 
 
-/*Body_body tab chọn rạp*/
-.app-main-chonrap {
+/*Body_body tab KhuyenMai*/
+.app-main-khuyenmai {
     flex: 1;
     position: relative;
     left: 0;
@@ -431,119 +431,142 @@ a {
     top: 4rem;
     height: auto !important;
 }
-.chonrap-components {
+.khuyenmai-components {
+    position: relative;
     display: flex;
     flex-wrap: wrap;
-}
-.chonrap-item {
-    width: calc(33.333333% - 20px);
-    height: auto;
-    margin: 10px;
-    padding: 20px;
-    box-sizing: border-box;
-    text-align: center;
-}
-.chonrap-item-img img {
-    max-height: 100%;
-    width: auto;
-    -o-object-fit: cover;
-    object-fit: cover;
-}
-.chonrap-item-info {
-    bottom: 0;
-    left: 0;
-    position: relative;
-    transition: all .3s ease-in-out;
-    width: 100%;
-    height: 70%;
-}
-.chonrap-components .address-box {
-    pointer-events: visible;
-}
-.address-box {
-    background: linear-gradient(106deg, rgba(102, 51, 153, .8), rgba(51, 102, 204, .8) 102.69%);
+    align-items: center; 
+    justify-content: space-between;
+    gap: 3.2rem;
     height: 100%;
     width: 100%;
-    padding: 1rem;
-    text-align: left;
 }
-.hd_address-box {
+.ht {
+    padding: 10rem;
+    padding-top: 5rem;
+}
+.banner {
+    position: relative;
+    height: 15rem;
+    margin: 0 auto;
+    max-width: 120rem; 
+    width: 100%;
+    padding: 5rem;
+    flex: auto;
+}
+.banner img {
+    height: 100%;
+    width: 94% !important;
     align-items: center;
-    text-align: left;
+    left: 50%;
+    top: 50%;
+    object-fit: cover; /*Thuộc tính này làm cho ảnh tự căn chỉnh để rõ nét khi kích thước trình duyệt thay đổi => Ảnh có thể bị cắt xén*/
+    position: absolute;
+    transform: translate(-50%,-50%);
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-bottom: .8rem;
+    flex-wrap: nowrap;
 }
-.address-box .link {
-    align-items: center;
-    color: #f8fafc;
+.khuyenmai-list {
+    justify-content: space-between; /*Khoảng cách giữa các phần tử được căn đều*/
+    height: 100%;
+    width: 100%;
+    position: relative;
+    padding: 1.5rem;
+}
+.khuyenmai-item-row {
     display: flex;
-    gap: 0 .8rem;
-    pointer-events: visible;
-}
-.sub-tittle {
-    color: #f8fafc;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 2.4rem;
-    text-transform: uppercase;
-    text-align: left;
-}
-.chonrap-components .body_address-box {
-    overflow: hidden !important;
-}
-.body_address-box {
-    max-height: 50%;
+    flex-wrap: wrap;
+    margin-bottom: 1.25rem;
+    padding: 2rem;
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
 }
 ol, ul {
     list-style: none;
 }
-.address-box .item {
+.content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem 0;
+    width: 49%;
+    height: 15rem;
+    padding: 2rem;
+}
+.head .sub-title {
+    text-transform: uppercase;
+}
+.sub-title {
+    color: #f8fafc;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2.4rem;
+}
+.head .des {
+    font-weight: 600;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.4rem;
+}
+.inner .tt {
+    font-size: 1.4rem;
     margin-bottom: 1.2rem;
 }
-.body_address-box .link {
-    align-items: flex-start !important;
+.inner .list {
+    list-style-type: square;
+    margin-left: 1.6rem;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.4rem;
 }
-.address-box .link {
-    color: #f8fafc;
+.content .btn {
+    background-color: #f3ea28;
+    width: 25rem;
+    height: 10rem;
+    border: 2rem #f3ea28;
+    border-radius: .4rem;
+    margin-top: 1.25rem;
+    cursor: pointer;
     display: flex;
-    gap: 0 .8rem;
-    pointer-events: visible;
-}
-.body_address-box .ic {
-    flex-shrink: 0;
-    position: relative;
-    top: .2rem;
-}
-.address-box .link .ic img {
-    height: 1.6rem;
-    width: 1.6rem;
-}
-.address-box .body_address-box .item .text {
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-    display: -webkit-box;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    gap: 3rem;
+    outline: none;
     overflow: hidden;
-    text-overflow: ellipsis;
-    word-break: break-word;
-}
-.chonrap-components .address-box .book-immediately-btn {
-    min-width: 15rem;
-    transition: all .2s;
-    width: fit-content;
+    padding: 1.5rem 1.2rem;
+    text-align: center;
+    text-transform: uppercase;
 }
 .book-immediately-btn {
-    border: 3px color(#f3ea28);
-    background-color: #f3ea28;
-    height: 16px;
-    width: 24px;
-    color: #000;
-    font-weight: 800;
-    font-size: 20px;
-    padding: 8px;
-    text-align: center;
+    color: #0f172a;
+    position: relative;
+    transition: all .3s ease-in-out;
+    z-index: 1;
 }
-/*Footer_body tab chọn rạp*/
+.image {
+    position: relative;
+    width: 49%;
+    height: 33rem;
+    object-fit: fill;
+    padding: 1.5rem;
+    align-items: center; 
+    justify-content: center;
+}
+.image img {
+    display: block;
+    position: relative;
+    align-items: center; 
+    justify-content: center;
+    left: 50%;
+    object-fit: cover;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+    height: 100%;
+}
+.khuyenmai-item-row:nth-child(2n) {
+    flex-direction: row-reverse;
+}
+
+/*Footer_body tab khuyến mãi*/
 .footer {
     padding-top: 4rem;
     padding-bottom: 4rem;
@@ -581,6 +604,8 @@ ol, ul {
 .footer .footer_list-item .main_logo_link_footer {
     display: block;
     width: 100%;
+    position: relative;
+    left: 0;
 }
 .row {
     --col-gap: 2.4rem;
