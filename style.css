@@ -30,6 +30,30 @@
     margin-right: 100px;
     
 }
+.box{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    color: black;
+    background-color: yellow;
+    border-radius: 4px;
+    align-items: center;
+    height: 100px;
+    width: 100px;
+    font-size: 150%;
+    font-weight: bold;
+    align-content: stretch;
+    justify-content: center;
+    margin: 0px auto;
+    
+}
+.lichchieu{
+    display: flex;
+    margin: 0px auto;
+    border: 5px ;
+    width: 30%;
+    margin: 0px auto;
+}
 .menu-search{
     width: 300px;
     margin-left: 50px;
@@ -147,6 +171,7 @@
     align-content: center;
     justify-content: center;
     margin-top: 50px;
+    padding-bottom: 50px;
 }
 .moreinfo_detail {
     color: black;
@@ -263,5 +288,21 @@
 }
 .icon{
     vertical-align: baseline;
+}
+#wrapper{
+    max-width: 960px;
+    margin: 0px auto;
+}
+#main_content{
+    display: flex;
+    min-height: 500px;
+}
+#img_content{
+    flex-basis: 30;
+}
+#movie_content{
+    flex-basis: 70;
+    color: #fff;
+    padding: 20px;
 }
 
