@@ -71,7 +71,7 @@ button, input, optgroup, select, textarea {
     padding: 0;
 }/*Button, input, optgroup, select, textarea*/
 
-/*Header_body tab khuyến mãi*/
+/*Header_body tab KhuyenMai*/
 .hd_khuyenmai {
     background-color: #000000;
     display: inline-block; /*Các items được xếp cùng nhau trên một dòng + Có các yếu tố của 1 block*/
@@ -107,6 +107,7 @@ button, input, optgroup, select, textarea {
 .hd_khuyenmai_top .main_logo_link {
     display: flex;
     width: 15%; /*Phần logo chiếm 20% tổng chiều rộng*/
+    height: 7.5rem;
 }
 .hd_khuyenmai_top .main_logo_link img {
     width: 100%
@@ -420,7 +421,6 @@ a {
     transition: .3s ease-in-out;
 }
 
-
 /*Body_body tab KhuyenMai*/
 .app-main-khuyenmai {
     flex: 1;
@@ -460,7 +460,7 @@ a {
     align-items: center;
     left: 50%;
     top: 50%;
-    object-fit: cover; /*Thuộc tính này làm cho ảnh tự căn chỉnh để rõ nét khi kích thước trình duyệt thay đổi => Ảnh có thể bị cắt xén*/
+    object-fit: cover; 
     position: absolute;
     transform: translate(-50%,-50%);
     display: flex;
@@ -566,7 +566,7 @@ ol, ul {
     flex-direction: row-reverse;
 }
 
-/*Footer_body tab khuyến mãi*/
+/*Footer_body tab KhuyenMai*/
 .footer {
     padding-top: 4rem;
     padding-bottom: 4rem;
