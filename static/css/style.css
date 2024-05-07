@@ -80,6 +80,7 @@
     border: none;
     padding-left: 20px;
 }
+
 .login-logout{
     display: flex;
     align-content: center;
@@ -143,6 +144,13 @@
     align-content: center;
     align-items: center;    
     color: black;
+    transition: opacity 0.2s;
+    cursor: pointer;
+}
+.buy_ticket:hover{
+    opacity: 0.6;
+    text-decoration: underline;
+    
 }
 .title {
     font-size: larger;
@@ -172,6 +180,11 @@
     justify-content: center;
     margin-top: 50px;
     padding-bottom: 50px;
+    
+}
+.moreinfo_detail:hover{
+    opacity: 0.8;
+    text-decoration: underline;
 }
 .moreinfo_detail {
     color: black;
@@ -181,6 +194,8 @@
     font-size: smaller;
     font-weight: bold;
     padding: 10px 40px;
+    cursor: pointer;
+    transition: opacity .2s;
 }
 .premier{
     color: #fff;
