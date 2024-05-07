@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "../../../../F8"
+		},
+		{
+			"path": "../../../../F8/Web_TrangChu"
+		},
+		{
+			"path": "../../../../F8/Anh's fe branch"
+		},
+		{
+			"path": "../../../../F8/KhuyenMai"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "F8"
+	}
+}
