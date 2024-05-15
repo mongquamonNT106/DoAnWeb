@@ -83,5 +83,13 @@ def book_tickets_route():
     return render_template("index2.html")
 
 
+@app.route("/logout", methods=["GET", "POST"])
+def logout():
+    supabase.auth.sign_out()
+    session.clear()
+    print(session)
+    return redirect(url_for("signin"))
+
+
 if __name__ == "__main__":
     app.run(debug=True)

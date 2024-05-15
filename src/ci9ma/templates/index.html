@@ -51,7 +51,8 @@
                                 </div>
                                 <div class="hd_register_login_list">
                                     {% if session.email %}
-                                    <p>{{ session.email }} <a class="link" href="#">Đăng xuất</a></p>
+                                    <p>{{ session.email }} <a class="link" href="{{ url_for('logout') }}">Đăng xuất</a>
+                                    </p>
                                     {% else %}
                                     <a class="link" href="#">
                                         <i class="login"></i>Đăng nhập
