@@ -1,0 +1,14 @@
+# pixi environments
+.pixi
+.env
+*.egg-info
+/target
+.idea
+.vscode
+.test-projects
+__pycache__
+**/**/.pixi
+**/**/.build
+.DS_store
+site/
+.cache

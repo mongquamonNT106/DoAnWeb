@@ -34,6 +34,7 @@ img {
     -webkit-justify-content: center; /**/
     background-color: transparent; /**/
     border: none;
+    transition: opacity .2s;
     border-radius: .4rem;
     cursor: pointer; /**/
     display: flex; /**/
@@ -44,8 +45,13 @@ img {
     outline: none;
     padding: .8rem 1.2rem;
     text-align: center;
+    font-weight: bold;
     text-transform: uppercase;
-}/*Button*/
+}
+.btn:hover{
+    opacity: 0.6;
+    
+}
 a {
     text-decoration: none;
 }/*Anchor*/
@@ -71,8 +77,8 @@ button, input, optgroup, select, textarea {
     padding: 0;
 }/*Button, input, optgroup, select, textarea*/
 
-/*Header_body tab ThueSuKien*/
-.hd_thuesukien {
+/*Header_body tab ChonRap*/
+.hd_chonrap {
     background-color: #000000;
     display: inline-block; /*Các items được xếp cùng nhau trên một dòng + Có các yếu tố của 1 block*/
     position: relative; /**/
@@ -84,7 +90,7 @@ button, input, optgroup, select, textarea {
     padding: 20px;
 }
 /*Top of Header*/
-.hd_thuesukien_top {
+.hd_chonrap_top {
     height: 7.8rem; /*Phần top của header phần body chiếm 7.8/12.8rem chiều cao*/
     width: 100%;
 }
@@ -95,7 +101,7 @@ button, input, optgroup, select, textarea {
     padding: 0 1.5rem;
     width: 100%;
 }
-.hd_thuesukien_top_components {
+.hd_chonrap_top_components {
     align-items: center; /*Điểm xuất phát + điểm căn chỉnh của các thành phần nằm ở trung tâm - theo chiều dọc.*/
     justify-content: stretch; /*Điểm xuất phát + điểm căn chỉnh của các thành phần nằm ở trung tâm - theo chiều ngang.*/
     display: flex; /*Các thành phần được hiển thị linh hoạt theo hết chiều rộng*/
@@ -104,13 +110,14 @@ button, input, optgroup, select, textarea {
     width: 100%;
 }
     /*1.Logo*/
-.hd_thuesukien_top .main_logo_link {
+.hd_chonrap_top .main_logo_link {
     display: flex;
     width: 15%; /*Phần logo chiếm 20% tổng chiều rộng*/
     height: 7.5rem;
 }
-.hd_thuesukien_top .main_logo_link img {
-    width: 100%
+.hd_chonrap_top .main_logo_link img {
+    width: 100%;
+    display: flex;
 }
     /*2.Nút "ĐẶT VÉ NGAY"*/
 .hd_left_action {
@@ -288,14 +295,15 @@ button, input, optgroup, select, textarea {
 /*Register+Login*/
 .hd_register_login {
     display: flex;
-    justify-content: center !important;
-    flex: 2;
+    justify-content: right !important;
+    flex: 1.75;
+    z-index: 5;
 }
 .hd_register_login_content {
     align-items: center;
-    justify-content: center;
+    justify-content: right !important;
     display: flex;
-    flex: 1; 
+    flex: 2; 
     position: relative;
     cursor: pointer;
     width: 40%; 
@@ -303,6 +311,7 @@ button, input, optgroup, select, textarea {
     flex-shrink: 0;
     font-size: 1rem;
     font-weight: bold;
+    font-size: 1rem;
 }
 .hd_register_login_ava {
     flex-shrink: 0;
@@ -310,31 +319,38 @@ button, input, optgroup, select, textarea {
     width: 2.4rem;
     position: relative;
     top: -.2rem;
+    justify-content: right !important;
 }
 .hd_register_login_ava img {
     height: 100%;
     width: 100%;
+    justify-content: right !important;
+    z-index: 2;
 }
 .hd_register_login_list {
-    justify-content: center;
+    justify-content: right !important;
     align-items: center;
     display: flex;
-    flex: 0.8;
-    gap: .2rem;
+    flex: 1;
+    gap: .5rem;
     padding: 0 !important;
     flex-wrap: wrap;
+    font-size: large;
 }
 .hd_register_login_list .separate {
     flex-wrap: wrap;
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 1;
+    position: relative;
 }
 .hd_register_login_list .link {
     flex-wrap: wrap;
     display: flex;
     justify-content: left !important;
     align-items: center;
+    z-index: 2;
 }
 a {
     color: inherit;
@@ -347,11 +363,12 @@ a {
     justify-content: right !important;
     display: flex;
     flex-wrap: nowrap;
-    flex: 1; 
+    flex: 1.25; 
     position: relative;
     width: 10%; 
     height: auto;
     padding: 0;
+    z-index: 6;
 }
 .hd_language_popup {
     display: flex;
@@ -377,17 +394,20 @@ a {
     -o-object-fit: cover;
     object-fit: cover;
     width: 100%;
+    z-index: 2;
 }
 .hd_language .hd_language_option .text {
     position: relative;
     top: .2rem;
+    z-index: 1;
 }
+
 /*Mid of Header*/
-.hd_khuyenmai_mid {
+.hd_chonrap_mid {
     height: 5rem;
     width: 100%;
 }
-.hd_khuyenmai_mid_components {
+.hd_chonrap_mid_components {
     align-items: center;
     justify-content: space-between;
     display: flex;
@@ -395,6 +415,7 @@ a {
     gap: 1rem;
     height: 100%;
     font-size: 1.2rem;
+    width: 100%;
     font-weight: bold;
 }
 .local {
@@ -419,230 +440,134 @@ a {
     text-underline-position: under;
     transition: .3s ease-in-out;
 }
-/*Body_body tab ThueSuKien*/
-.app-main-thuesukien {
+
+
+/*Body_body tab ChonRap*/
+.app-main-chonrap {
     flex: 1;
     position: relative;
     left: 0;
-    top: 17rem;
+    top: 0;
     width: 100%;
     top: 4rem;
     height: auto !important;
 }
-.thuesukien-components {
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center; 
-    justify-content: space-between;
-    gap: 3.2rem;
-    height: 100%;
-    width: 100%;
-}
-.banner {
-    position: relative;
-    text-align: center;
-    display: block;
-    height: 100%;
-    width: 100%;
-    padding: 3rem;
-    color: #f8fafc;
-    font-family: 'Times New Roman', Times, serif;
-}
-.banner .big-title {
-    font-size: 2.8rem;
-}
-.banner .lead {
-    font-size: 1.4rem;
-    margin-top: 1rem;
-}
-.thuesukien-list {
-    justify-content: space-between; /*Khoảng cách giữa các phần tử được căn đều*/
-    height: 100%;
-    width: 100%;
-    position: relative;
-    padding: 1.5rem;
-}
-.thuesukien-item-row {
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 1.25rem;
-    padding: 2rem;
-    width: 100%;
-    position: relative;
-    box-sizing: border-box;
-}
-.content {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem 0;
-    width: 49%;
-    height: 15rem;
-    padding: 2rem;
-}
-.head .sub-title {
-    text-transform: uppercase;
-}
-.sub-title {
-    color: #f8fafc;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 2.4rem;
-}
-.inner .tt {
-    font-size: 1.4rem;
-    margin-bottom: 1.2rem;
-}
-.content .btn {
-    background-color: #f3ea28;
-    width: 25rem;
-    height: 10rem;
-    border: 2rem #f3ea28;
-    border-radius: .4rem;
-    margin-top: 1.25rem;
-    cursor: pointer;
-    display: flex;
-    font-family: 'Times New Roman', Times, serif;
-    font-weight: bold;
-    gap: 3rem;
-    outline: none;
-    overflow: hidden;
-    padding: 1.5rem 1.2rem;
-    text-align: center;
-    text-transform: uppercase;
-}
-.book-immediately-btn {
-    color: #0f172a;
-    position: relative;
-    transition: all .3s ease-in-out;
-    z-index: 1;
-}
-.image {
-    position: relative;
-    width: 49%;
-    height: 33rem;
-    object-fit: fill;
-    padding: 1.5rem;
-    align-items: center; 
-    justify-content: center;
-}
-.image img {
-    display: block;
-    position: relative;
-    align-items: center; 
-    justify-content: center;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
-    width: 100%;
-    height: 100%;
-}
-.thuesukien-item-row:nth-child(2n) {
-    flex-direction: row-reverse;
-}
-
-.thuesukien-other-components {
+.chonrap-components {
     display: flex;
     flex-wrap: wrap;
 }
-.banner-lead {
-    position: relative;
-    text-align: left;
-    display: block;
-    height: 100%;
-    width: 100%;
-    padding: 1.5rem;
-    color: #f8fafc;
-    font-family: 'Times New Roman', Times, serif;
-}
-.banner-lead .big-title {
-    font-size: 2.8rem;
-}
-.banner-lead .lead {
-    font-size: 1.4rem;
-}
-.thuesukien-other-item {
+.chonrap-item {
     width: calc(33.333333% - 20px);
     height: auto;
     margin: 10px;
-    padding: 10px;
+    padding: 20px;
     box-sizing: border-box;
     text-align: center;
-    
 }
-.thuesukien-other-item-img img {
+.chonrap-item-img img {
     max-height: 100%;
-    width: 100%;
-    position: relative;
-    object-fit: fill;
-    align-items: center; 
-    justify-content: center;
+    width: auto;
+    -o-object-fit: cover;
+    object-fit: cover;
     /*border-radius: 0.35rem;*/
 }
-.thuesukien-other-item-img .link {
-    align-items: stretch;
-    display: flex;
-    pointer-events: visible;
-}
-.thuesukien-other-item-name {
+.chonrap-item-info {
     bottom: 0;
     left: 0;
     position: relative;
     transition: all .3s ease-in-out;
     width: 100%;
     height: 70%;
+}
+.chonrap-components .address-box {
     pointer-events: visible;
+}
+.address-box {
     background: linear-gradient(106deg, rgba(102, 51, 153, .8), rgba(51, 102, 204, .8) 102.69%);
+    height: 100%;
+    width: 100%;
     padding: 1rem;
-    text-align: center;
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+    text-align: left;
     /*border-radius: 0.35rem;*/
 }
-.thuesukien-other-item-name .link {
+.hd_address-box {
+    align-items: center;
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: .8rem;
+}
+.address-box .link {
     align-items: center;
     color: #f8fafc;
     display: flex;
     gap: 0 .8rem;
     pointer-events: visible;
 }
-.thuesukien-other-item-name .sub-tittle {
+.sub-tittle {
     color: #f8fafc;
     font-family: 'Times New Roman', Times, serif;
     font-size: 2.4rem;
     text-transform: uppercase;
-    justify-content: center;
+    text-align: left;
 }
-.banner-end {
-    position: relative;
-    height: 15rem;
-    margin: 0 auto;
-    max-width: 120rem; 
-    width: 100%;
-    padding: 5rem;
-    flex: auto;
-    margin-top: 7rem;
+.chonrap-components .body_address-box {
+    overflow: hidden !important;
 }
-.banner-end .link {
-    align-items: stretch;
+.body_address-box {
+    max-height: 50%;
+}
+ol, ul {
+    list-style: none;
+}
+.address-box .item {
+    margin-bottom: 1.2rem;
+}
+.body_address-box .link {
+    align-items: flex-start !important;
+}
+.address-box .link {
+    color: #f8fafc;
     display: flex;
+    gap: 0 .8rem;
     pointer-events: visible;
 }
-.banner-end img {
-    height: 100%;
-    width: 96% !important;
-    align-items: center;
-    left: 50%;
-    top: 50%;
-    object-fit: cover; 
-    position: absolute;
-    transform: translate(-50%,-50%);
-    display: flex;
-    flex-wrap: nowrap;
+.body_address-box .ic {
+    flex-shrink: 0;
+    position: relative;
+    top: .2rem;
 }
-/*Footer_body tab ThueSuKien*/
+.address-box .link .ic img {
+    height: 1.6rem;
+    width: 1.6rem;
+}
+.address-box .body_address-box .item .text {
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
+}
+.chonrap-components .address-box .book-immediately-btn {
+    min-width: 15rem;
+    transition: all .2s;
+    width: fit-content;
+    border-radius: 0.2rem;
+}
+.book-immediately-btn {
+    border: 3px color(#f3ea28);
+    background-color: #f3ea28;
+    height: 100%;
+    width: 24px;
+    color: #000;
+    font-weight: 600;
+    font-size: 1.2rem;
+    padding: 4.5px;
+    text-align: center;
+}
+/*Footer_body tab ChonRap*/
 .footer {
     padding-top: 4rem;
     padding-bottom: 4rem;

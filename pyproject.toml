@@ -1,0 +1,28 @@
+[project]
+name = "ci9ma"
+version = "0.1.0"
+description = "Add a short description here"
+authors = [{ name = "Khánh Trình Ngô", email = "trinhtit2003@gmail.com" }]
+requires-python = ">= 3.11"
+dependencies = []
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.pixi.project]
+channels = ["conda-forge"]
+platforms = ["win-64"]
+
+[tool.pixi.pypi-dependencies]
+cinema = { path = ".", editable = true }
+
+[tool.pixi.tasks]
+server = "python -m ci9ma.server"
+
+[tool.pixi.dependencies]
+flask = ">=3.0.3,<3.1"
+python = ">=3.12.3,<3.13"
+supabase = ">=2.4.5,<2.5"
+gotrue = ">=2.4.2,<2.5"
+python-dotenv = ">=1.0.1,<1.1"
