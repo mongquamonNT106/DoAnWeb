@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cabin', sans-serif;
+
+}
+
+
+body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 100dvh;
+    background-image: linear-gradient(to right, #080089, #000000);
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* overflow: hidden; */
+}
+
+
+@media (max-width: 1200px) {
+
+    body {
+        flex-direction: row;
+        /* flex-grow: 1; */
+        /* min-height: 100%; */
+        justify-content: center;
+        align-items: center;
+        background-size: contain;
+
+    }
+
+    .wrapper {
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .logo {
+        margin-left: 150px;
+        margin-bottom: 50px;
+    }
+
+    .logo img {
+        width: 300px;
+    }
+
+}
+
+/* .film {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+    height: 30vh;
+
+}
+
+.film img {
+    max-width: 100%;
+    max-height: 100%;
+} */
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* min-height: 100vh; */
+    margin-right: 150px;
+}
+
+.logo img {
+    max-width: 500px;
+    max-height: 500px;
+}
+
+
+.wrapper {
+    display: flex;
+    position: relative;
+    height: 500px;
+    background: rgba(255, 255, 255, .2);
+    border-radius: 20px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, .1);
+    padding: 40px;
+}
+
+.form-wrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    transition: 1s ease-in-out;
+}
+
+.wrapper.active .form-wrapper.sign-in {
+    transform: scale(0) translate(-200px, 0px);
+}
+
+.wrapper .form-wrapper.sign-up {
+    position: absolute;
+    top: 0;
+    transform: scale(0) translate(200px, 0px);
+}
+
+.wrapper.active .form-wrapper.sign-up {
+    transform: scale(1) translate(0, 0);
+}
+
+h2 {
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+}
+
+.input-group {
+    position: relative;
+    margin: 30px 0;
+    border-bottom: 2px solid #fff;
+}
+
+.input-group label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: white;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.input-group input {
+    width: 320px;
+    height: 40px;
+    font-size: 16px;
+    color: white;
+    padding: 0 5px;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+.input-group input:focus~label,
+.input-group input:valid~label {
+    top: -5px;
+}
+
+
+.remember {
+    margin: -5px 0 15px 5px;
+}
+
+.remember label {
+    color: white;
+    font-size: 14px;
+}
+
+.remember label input {
+    accent-color: rgb(0, 120, 248);
+}
+
+button {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    background: rgb(0, 120, 248);
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+}
+
+.signUp-link {
+    font-size: 14px;
+    text-align: center;
+    margin: 15px 0;
+}
+
+.signUp-link p a {
+    color: rgb(0, 120, 248);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.signUp-link p {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.signUp-link p a:hover {
+    text-decoration: underline;
+}
+
+.social-platform {
+    font-size: 14px;
+    color: white;
+    text-align: center;
+}
+
+.social-icons a {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    background: transparent;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 35px;
+    margin: 15px 6px 0;
+    transition: .3s;
+}
+
+.social-icons a:hover {
+    background: #fff;
+}
+
+.social-icons a i {
+    color: white;
+    font-size: 14px;
+    transition: .3s;
+}
+
+.social-icons a:hover i {
+    color: rgba(0, 0, 0, .3);
+}
