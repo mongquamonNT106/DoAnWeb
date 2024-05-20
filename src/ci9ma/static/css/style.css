@@ -1,13 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-* {
+*{
     margin: 0;
     padding: 0;
-    font-family: 'Cabin', sans-serif;
     box-sizing: border-box;
 }
-
-.menu {
+.menu{
     height: 93px;
     justify-content: space-between;
     background-color: black;
@@ -16,7 +12,7 @@
     justify-content: center;
 }
 
-.ticket {
+.ticket{
     color: black;
     background-color: yellow;
     border-radius: 4px;
@@ -32,10 +28,9 @@
     justify-content: center;
     margin-left: 100px;
     margin-right: 100px;
-
+    
 }
-
-.box {
+.box{
     display: flex;
     flex-wrap: nowrap;
     flex-direction: column;
@@ -50,27 +45,24 @@
     align-content: stretch;
     justify-content: center;
     margin: 0px auto;
-
+    
 }
-
-.lichchieu {
+.lichchieu{
     display: flex;
+    justify-content: center;
     margin: 0px auto;
-    border: 5px;
-    width: 30%;
+    border: 5px ;
     margin: 0px auto;
 }
-
-.menu-search {
+.menu-search{
     width: 300px;
     margin-left: 50px;
     border: 1px solid #ccc;
     border-radius: 4px;
     background-color: #fff;
     height: 36px;
-
+    
 }
-
 #icon {
     background-image: url(./assets/ic-ticket.svg);
     background-repeat: no-repeat;
@@ -80,17 +72,15 @@
     height: 100%;
     width: 100%;
     text-align: center;
-}
-
-.menu_search-input {
+  }
+.menu_search-input{
     height: 100%;
     text-align: center;
     width: 100%;
     border: none;
     padding-left: 20px;
 }
-
-.login-logout {
+.login-logout{
     display: flex;
     align-content: center;
     align-items: center;
@@ -99,53 +89,46 @@
     color: aliceblue;
     text-decoration: underline;
 }
-
-.log {
+.log{
     font-size: 150%;
 }
-
-.select_theater {
+.select_theater{
     display: flex;
     justify-content: space-between;
     align-items: center;
     text-decoration: underline;
     padding: 10px 50px;
 }
-
-.discount {
+.discount{
     margin-left: auto;
     margin-right: 50px;
     text-decoration: underline;
     font-size: 100%;
 }
-
-.introduction {
+.introduction{
     margin-right: 50px;
     text-decoration: underline;
     font-size: 100%;
 }
-
-.other {
+.other{
     margin-right: 50px;
     text-decoration: underline;
     font-size: 100%;
 
 }
-
-.main {
+.main{
     background-color: #0F172A;
     height: "1vh";
 }
-
-.banner_1 {
+.banner_1{
     margin-top: 50px;
     display: flex;
     justify-content: center;
-
+    
 }
 
 
-.buy_ticket {
+.buy_ticket{
     height: 40px;
     width: 100px;
     display: flex;
@@ -158,57 +141,38 @@
     flex-direction: column;
     justify-content: center;
     align-content: center;
-    align-items: center;
+    align-items: center;    
     color: black;
-    transition: opacity 0.2s;
-    cursor: pointer;
 }
-
-.buy_ticket:hover {
-    opacity: 0.6;
-    text-decoration: underline;
-
-}
-
 .title {
     font-size: larger;
     color: white;
     align-items: center;
     justify-content: center;
-    display: flex;
-    margin: 10px 0px
+    display:  flex;
+    margin:  10px 0px
 }
-
 .trailer {
     color: whitesmoke;
     display: flex;
     align-items: center;
 }
 
-.on-going {
+.on-going{
     color: #fff;
-    margin-bottom: 50px;
+    margin-bottom:50px ;
 }
-
-.movie_2 {
+.movie_2{
     margin-left: 50px;
 }
-
-.moreinfo {
+.moreinfo{
     display: flex;
     align-items: center;
     align-content: center;
     justify-content: center;
     margin-top: 50px;
     padding-bottom: 50px;
-
 }
-
-.moreinfo_detail:hover {
-    opacity: 0.8;
-    text-decoration: underline;
-}
-
 .moreinfo_detail {
     color: black;
     text-align: center;
@@ -217,45 +181,37 @@
     font-size: smaller;
     font-weight: bold;
     padding: 10px 40px;
-    cursor: pointer;
-    transition: opacity .2s;
 }
-
-.premier {
+.premier{
     color: #fff;
     margin-top: 100px;
-    margin-bottom: 50px;
+    margin-bottom:50px ;
     font-size: 2em;
 }
-
-.discountbanner {
+.discountbanner{
     color: #fff;
     font-size: 2em;
     display: flex;
     padding: 10px 20px;
 }
-
-.discount {
+.discount{
     display: flex;
 }
-
-.discount1 {
+.discount1{
     justify-content: center;
     padding: 10px 20px;
     border-radius: 4px;
 }
-
-.contact {
+.contact{
     color: #fff;
     margin-top: 20px;
     font-size: 2em;
     display: flex;
     padding: 10px 20px;
-
+    
 }
-
-.facebook {
-
+.facebook{
+    
     color: white;
     display: flex;
     align-items: center;
@@ -267,8 +223,7 @@
     background-color: #0F172A;
     border-radius: 10px;
 }
-
-.zalo {
+.zalo{
     color: white;
     display: flex;
     font-size: 300%;
@@ -278,8 +233,7 @@
     justify-content: center;
     align-items: center;
 }
-
-.hirebox {
+.hirebox{
     color: black;
     background-color: yellow;
     border-radius: 4px;
@@ -293,16 +247,14 @@
     margin-top: 10px;
     flex-wrap: nowrap;
     justify-content: center;
-
+  
 }
-
-.row {
+.row{
     float: left;
     width: 100%;
     margin-top: 20px;
 }
-
-.boxcenter {
+.boxcenter{
     margin: 0 auto;
     width: 100%;
     display: flex;
@@ -312,77 +264,66 @@
     color: white;
     padding: 50px 0px;
 }
-
-.boxfooter1 {
+.boxfooter1{
     width: 35%;
     display: flex;
     justify-content: center;
     align-items: center;
-
+   
 }
 
-.boxfooter2 {
+.boxfooter2{
     width: 16%;
 }
-
-.boxfooter3 {
+.boxfooter3{
     width: 16%;
 }
-
-.boxfooter4 {
+.boxfooter4{
     width: 16%;
 }
-
-.boxfooter5 {
+.boxfooter5{
     width: 16%;
 }
-
 .add {
     margin-top: 30px;
 }
-
-.logophim {
+.logophim{
     padding: 20px 80px;
-    display: flex;
+    display:flex;
     justify-content: center;
-
+    
 }
-
-.tieude {
+.tieude{
     color: white;
     font-size: 2rem;
     display: flex;
     flex-wrap: wrap;
 }
-
-.theloai {}
-
-.icon {
+.theloai{
+    
+}
+.icon{
     vertical-align: baseline;
 }
-
-#wrapper {
+#wrapper{
     max-width: 960px;
     margin: 0px auto;
 }
-
-#main_content {
+#main_content{
     display: flex;
     min-height: 500px;
 }
-
-#img_content {
+#img_content{
     flex-basis: 30;
 }
-
-#title_content {
+#title_content{
+    flex-basis: 70;
+    color: #fff;
+    padding: 20px;
+}
+#movie_content{
     flex-basis: 70;
     color: #fff;
     padding: 20px;
 }
 
-#movie_content {
-    flex-basis: 70;
-    color: #fff;
-    padding: 20px;
-}
