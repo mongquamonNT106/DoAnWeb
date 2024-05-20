@@ -2,6 +2,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0;">
     <meta name="viewbox" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="stylesheet" href="../static/css/style2.css">
@@ -17,8 +18,10 @@
                         <img src="../static/assets/logo.jpg">
                     </a>
                     <div class="hd_left_action">
-                        <a button class="btn book_btn" href="#"> <!--Thay href-->
-                            <img src="https://cinestar.com.vn/assets/images/ic-ticket.svg">
+                        <a button class="btn book_btn" href="#">
+                            <!--Thay href-->
+                            <img
+                                src="https://cinestar.com.vn/assets/images/ic-ticket.svg">
                             <span class="text">Đặt vé ngay</span>
                         </a>
 
@@ -27,16 +30,20 @@
                         <!--Search-->
                         <div class="hd_search">
                             <div class="search_icon">
-                                <img src="https://cinestar.com.vn/assets/images/icon-search.svg">
+                                <img
+                                    src="https://cinestar.com.vn/assets/images/icon-search.svg">
                             </div>
                             <div class="search_panel" data-name="panel_search">
                                 <div class="search_panel_form">
                                     <div>
                                         <div class="search_panel_form_content">
-                                            <input class="search_content" type="text"
+                                            <input class="search_content"
+                                                type="text"
                                                 placeholder="Tìm phim, thể loại,...">
-                                            <button class="search_btn" type="submit">
-                                                <img src="https://cinestar.com.vn/assets/images/ic-header-search.svg">
+                                            <button class="search_btn"
+                                                type="submit">
+                                                <img
+                                                    src="https://cinestar.com.vn/assets/images/ic-header-search.svg">
                                             </button>
                                         </div>
                                     </div>
@@ -64,13 +71,15 @@
                         <div class="hd_register_login">
                             <div class="hd_register_login_content">
                                 <div class="hd_register_login_ava">
-                                    <img src="https://cinestar.com.vn/assets/images/ic-header-auth.svg">
+                                    <img
+                                        src="https://cinestar.com.vn/assets/images/ic-header-auth.svg">
                                 </div>
                                 <div class="hd_register_login_list">
-                                    
-                                    <p> <a class="link" href="{{ url_for('logout') }}"></a>
-                                   </p>
-                                    
+
+                                    <p> <a class="link"
+                                            href="{{ url_for('logout') }}"></a>
+                                    </p>
+
                                     <a class="link" href="#">
                                         <i class="login"></i>Đăng nhập
                                     </a>
@@ -78,7 +87,7 @@
                                     <a class="link" href="#">
                                         <i class="register"></i>Đăng kí
                                     </a>
-                                    
+
                                 </div>
 
                             </div>
@@ -89,7 +98,8 @@
                                 <div class="hd_language_popup">
                                     <div class="hd_language_option">
                                         <span class="image">
-                                            <img src="https://cinestar.com.vn/assets/images/footer-vietnam.svg">
+                                            <img
+                                                src="https://cinestar.com.vn/assets/images/footer-vietnam.svg">
                                         </span>
                                         <span class="text">
                                             VN
@@ -115,7 +125,6 @@
                         <a class="link" href="#">Thuê sự kiện</a>
                     </div>
 
-
                 </div>
             </div>
             <h1 class="on-going" style="text-align: center;">
@@ -131,7 +140,7 @@
                         { img: '../static/assets/hanh-tinh-cat-2.jpg', title: 'DUNE (T16)', trailer: 'https://www.youtube.com/watch?v=Way9Dexny3w' },
                     ].forEach(({ img, title, trailer }) => {
                         document.write(`
-                    <div class="movie" style="display: inline-block;">
+                    <div class="movie">
                         <div>
                             <img src="${img}" alt
                                 width="300">
@@ -149,7 +158,7 @@
                             <form method="POST" action="book_ticket">
                                 <button type="submit" class="btn book_btn">
                                     <img src="https://cinestar.com.vn/assets/images/ic-ticket.svg">
-                                        <span class="text">Đặt vé ngay</span>
+                                        <span class="text book-now">Đặt vé ngay</span>
                                 </button>
                             </form>
                         </div>
@@ -166,9 +175,9 @@
             <h2 class="premier" style="text-align: center;">
                 PHIM SẮP CHIẾU
             </h2>
-            </h1>
-            <div class="banner_1">
-                <script>
+        </h1>
+        <div class="banner_1">
+            <script>
                     [
                         { img: '../static/assets/furiosa.jpg', title: 'FURIOSA', trailer: 'https://www.youtube.com/watch?v=XJMuhwVlca4' },
                         { img: '../static/assets/godzilla-vs-kong-poster.jpg', title: 'GODZILLA VS KONG: ĐẾ CHẾ...', trailer: 'https://www.youtube.com/watch?v=XeDbyVODQ5M' },
@@ -199,143 +208,164 @@
                             `)
                     })
                 </script>
+        </div>
+        <div class="moreinfo">
+            <div button class="moreinfo_detail">
+                TÌM HIỂU THÊM
             </div>
-            <div class="moreinfo">
-                <div button class="moreinfo_detail">
-                    TÌM HIỂU THÊM
-                </div>
-            </div>
+        </div>
 
+    </main>
+    <div class="footer">
+        <div>
+            <div class="container">
+                <div class="footer_components">
+                    <div class="footer_list">
+                        <!--Logo_Footer-->
+                        <div class="footer_list-item col col4">
+                            <a class="main_logo_link_footer" href="#">
+                                <!--Thay href-->
+                                <img src="../static/assets/logo4-2.png"
+                                    width="800px" height="800px">
+                            </a>
+                        </div>
+                        <!--Column 1+2-->
+                        <div class="footer_list-item sp">
 
-            </main>
-            <div class="footer">
-                <div>
-                    <div class="container">
-                        <div class="footer_components">
-                            <div class="footer_list">
-                                <!--Logo_Footer-->
-                                <div class="footer_list-item col col4">
-                                    <a class="main_logo_link_footer" href="#"> <!--Thay href-->
-                                        <img src="../static/assets/logo4-2.png" width="800px" height="800px">
-                                    </a>
-                                </div>
-                                <!--Column 1+2-->
-                                <div class="footer_list-item sp">
+                            <div class="footer_list-item_top row">
 
-                                    <div class="footer_list-item_top row">
-
-                                        <div class="part">
-                                            <div class="text">TÀI KHOẢN</div>
-                                            <ul class="menu-list">
-                                                <li class="menu-item">
-                                                    <a class="menu-link" href="#">Đăng nhập</a> <!--Thay href-->
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a class="menu-link" href="#">Đăng ký</a> <!--Thay href-->
-                                                </li>
-                                            </ul>
-                                        </div>
-
-                                        <div class="part">
-                                            <div class="text">THUÊ SỰ KIỆN</div>
-                                            <ul class="menu-list">
-                                                <li class="menu-item">
-                                                    <a class="menu-link" href="#">Thuê rạp</a> <!--Thay href-->
-                                                </li>
-                                            </ul>
-                                        </div>
-
-                                    </div>
-
-                                    <div class="footer_list-item_bottom row">
-
-                                        <div class="part">
-                                            <div class="text">XEM PHIM</div>
-                                            <ul class="menu-list">
-                                                <li class="menu-item">
-                                                    <a class="menu-link" href="#">Phim đang chiếu</a> <!--Thay href-->
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a class="menu-link" href="#">Phim sắp chiếu</a> <!--Thay href-->
-                                                </li>
-                                            </ul>
-                                        </div>
-
-                                        <div class="part">
-                                            <div class="text">CINESTAR</div>
-                                            <ul class="menu-list">
-                                                <li class="menu-item">
-                                                    <a class="menu-link" href="#">Giới thiệu</a> <!--Thay href-->
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a class="menu-link" href="#">Liên hệ</a> <!--Thay href-->
-                                                </li>
-                                            </ul>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                                <!--Column 3-->
-                                <div class="footer_list-item aform">
-                                    <div class="text">DỊCH VỤ KHÁC</div>
+                                <div class="part">
+                                    <div class="text">TÀI KHOẢN</div>
                                     <ul class="menu-list">
                                         <li class="menu-item">
-                                            <a class="menu-link" href="#">Đặt đồ ăn</a> <!--Thay href-->
+                                            <a class="menu-link" href="#">Đăng
+                                                nhập</a> <!--Thay href-->
                                         </li>
                                         <li class="menu-item">
-                                            <a class="menu-link" href="#">Coffee</a> <!--Thay href-->
-                                        </li>
-                                        <li class="menu-item">
-                                            <a class="menu-link" href="#">Nhà hàng</a> <!--Thay href-->
-                                        </li>
-                                        <li class="menu-item">
-                                            <a class="menu-link" href="#">Kidzone</a> <!--Thay href-->
-                                        </li>
-                                        <li class="menu-item">
-                                            <a class="menu-link" href="#">Gym</a> <!--Thay href-->
-                                        </li>
-                                        <li class="menu-item">
-                                            <a class="menu-link" href="#">Nhà hát Opera</a> <!--Thay href-->
+                                            <a class="menu-link" href="#">Đăng
+                                                ký</a> <!--Thay href-->
                                         </li>
                                     </ul>
                                 </div>
 
-                                <!--Column 4-->
-                                <div class="footer_list-item aform">
-                                    <div class="text">HỆ THỐNG RẠP</div>
+                                <div class="part">
+                                    <div class="text">THUÊ SỰ KIỆN</div>
                                     <ul class="menu-list">
                                         <li class="menu-item">
-                                            <a class="menu-link" href="#">Tất cả hệ thống rạp</a> <!--Thay href-->
-                                        </li>
-                                        <li class="menu-item">
-                                            <a class="menu-link" href="#">CI9MA Nguyễn Trãi</a> <!--Thay href-->
-                                        </li>
-                                        <li class="menu-item">
-                                            <a class="menu-link" href="#">CI9MA Hai Bà Trưng</a> <!--Thay href-->
-                                        </li>
-                                        <li class="menu-item">
-                                            <a class="menu-link" href="#">CI9MA Bình Dương</a> <!--Thay href-->
-                                        </li>
-                                        <li class="menu-item">
-                                            <a class="menu-link" href="#">CI9MA Kiên Giang</a> <!--Thay href-->
-                                        </li>
-                                        <li class="menu-item">
-                                            <a class="menu-link" href="#">CI9MA Đà Lạt</a> <!--Thay href-->
-                                        </li>
-                                        <li class="menu-item">
-                                            <a class="menu-link" href="#">CI9MA Huế</a> <!--Thay href-->
+                                            <a class="menu-link" href="#">Thuê
+                                                rạp</a> <!--Thay href-->
                                         </li>
                                     </ul>
                                 </div>
 
                             </div>
+
+                            <div class="footer_list-item_bottom row">
+
+                                <div class="part">
+                                    <div class="text">XEM PHIM</div>
+                                    <ul class="menu-list">
+                                        <li class="menu-item">
+                                            <a class="menu-link" href="#">Phim
+                                                đang chiếu</a> <!--Thay href-->
+                                        </li>
+                                        <li class="menu-item">
+                                            <a class="menu-link" href="#">Phim
+                                                sắp chiếu</a> <!--Thay href-->
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="part">
+                                    <div class="text">CINESTAR</div>
+                                    <ul class="menu-list">
+                                        <li class="menu-item">
+                                            <a class="menu-link" href="#">Giới
+                                                thiệu</a> <!--Thay href-->
+                                        </li>
+                                        <li class="menu-item">
+                                            <a class="menu-link" href="#">Liên
+                                                hệ</a> <!--Thay href-->
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!--Column 3-->
+                        <div class="footer_list-item aform">
+                            <div class="text">DỊCH VỤ KHÁC</div>
+                            <ul class="menu-list">
+                                <li class="menu-item">
+                                    <a class="menu-link" href="#">Đặt đồ ăn</a>
+                                    <!--Thay href-->
+                                </li>
+                                <li class="menu-item">
+                                    <a class="menu-link" href="#">Coffee</a>
+                                    <!--Thay href-->
+                                </li>
+                                <li class="menu-item">
+                                    <a class="menu-link" href="#">Nhà hàng</a>
+                                    <!--Thay href-->
+                                </li>
+                                <li class="menu-item">
+                                    <a class="menu-link" href="#">Kidzone</a>
+                                    <!--Thay href-->
+                                </li>
+                                <li class="menu-item">
+                                    <a class="menu-link" href="#">Gym</a>
+                                    <!--Thay href-->
+                                </li>
+                                <li class="menu-item">
+                                    <a class="menu-link" href="#">Nhà hát
+                                        Opera</a> <!--Thay href-->
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!--Column 4-->
+                        <div class="footer_list-item aform">
+                            <div class="text">HỆ THỐNG RẠP</div>
+                            <ul class="menu-list">
+                                <li class="menu-item">
+                                    <a class="menu-link" href="#">Tất cả hệ
+                                        thống rạp</a> <!--Thay href-->
+                                </li>
+                                <li class="menu-item">
+                                    <a class="menu-link" href="#">CI9MA Nguyễn
+                                        Trãi</a> <!--Thay href-->
+                                </li>
+                                <li class="menu-item">
+                                    <a class="menu-link" href="#">CI9MA Hai Bà
+                                        Trưng</a> <!--Thay href-->
+                                </li>
+                                <li class="menu-item">
+                                    <a class="menu-link" href="#">CI9MA Bình
+                                        Dương</a> <!--Thay href-->
+                                </li>
+                                <li class="menu-item">
+                                    <a class="menu-link" href="#">CI9MA Kiên
+                                        Giang</a> <!--Thay href-->
+                                </li>
+                                <li class="menu-item">
+                                    <a class="menu-link" href="#">CI9MA Đà
+                                        Lạt</a> <!--Thay href-->
+                                </li>
+                                <li class="menu-item">
+                                    <a class="menu-link" href="#">CI9MA Huế</a>
+                                    <!--Thay href-->
+                                </li>
+                            </ul>
                         </div>
 
                     </div>
+                </div>
 
-                    </footer>
-</body>
+            </div>
+
+        </footer>
+    </body>
 
 </html>
