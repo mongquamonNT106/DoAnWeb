@@ -88,6 +88,7 @@ button, input, optgroup, select, textarea {
     height: 12.8rem !important; /*Tổng chiều cao phần header body là 12.8rem*/
     transition: all .4s; /**/
     padding: 20px;
+    box-sizing: border-box;
 }
 /*Top of Header*/
 .hd_chonrap_top {
