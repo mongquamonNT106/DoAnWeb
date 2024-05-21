@@ -144,33 +144,43 @@
     justify-content: center;
 
 } */
-.movie-container {
+
+/* .movie-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     max-width: 300px;
-    /* Giới hạn chiều rộng của container */
     width: 100%;
+} */
+
+/* .movie {
+    flex: 0 0 30%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    padding: 10px;
+    height: 60vh;
+} */
+.movie-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* Thêm scrollbar nếu nội dung vượt quá chiều rộng của container */
 }
 
 .movie {
-    flex: 0 0 30%;
-    /* Width of each movie block */
-    box-sizing: border-box;
-    margin-bottom: 20px;
-    /* Space between rows */
-    padding: 10px;
-    /* Padding around each movie block */
-    height: 60vh;
-    /* Chiều cao của mỗi movie block là 60% chiều cao viewport */
+    /* Thiết lập kích thước hoặc tỷ lệ cố định cho mỗi phim */
+    width: 300px;
+    /* Ví dụ: Mỗi phim có chiều rộng cố định là 300px */
+    margin: 10px;
+    /* Khoảng cách giữa các phim */
 }
+
+
 
 .movie img {
     width: 100%;
-    /* Ensure the image fits the container */
     height: auto;
-    max-height: 50vh;
-    /* Đảm bảo hình ảnh không vượt quá 50% chiều cao viewport */
+    max-height: 350px;
 }
 
 .title,
