@@ -63,13 +63,6 @@ def signin():
     return render_template("signin.html")
 
 
-@app.route("/test")
-def show_data():
-    response = supabase.table("test").select("*").execute()
-    data = response.data
-    return render_template("show_data.html", data=data)
-
-
 @app.route("/", methods=["GET", "POST"])
 def home():
     print(session)

@@ -138,22 +138,46 @@
     height: "1vh";
 }
 
-.banner_1 {
+/* .banner_1 {
     margin-top: 50px;
     display: flex;
     justify-content: center;
 
+} */
+.movie-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 300px;
+    /* Giới hạn chiều rộng của container */
+    width: 100%;
 }
 
 .movie {
-    display: inline-block;
-    margin: 10px;
+    flex: 0 0 30%;
+    /* Width of each movie block */
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    /* Space between rows */
+    padding: 10px;
+    /* Padding around each movie block */
+    height: 60vh;
+    /* Chiều cao của mỗi movie block là 60% chiều cao viewport */
+}
+
+.movie img {
+    width: 100%;
+    /* Ensure the image fits the container */
+    height: auto;
+    max-height: 50vh;
+    /* Đảm bảo hình ảnh không vượt quá 50% chiều cao viewport */
 }
 
 .title,
 .trailer,
 .buy_ticket {
     text-align: center;
+    margin-top: 10px;
 }
 
 
