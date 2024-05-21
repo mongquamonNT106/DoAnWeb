@@ -121,20 +121,43 @@
                     </div>
                 </div>
             </div>
-            <h2 style="text-align: center; color: aliceblue; line-height: 4; font-size: 250%;">LỊCH CHIẾU</h2>
-            <div class="lichchieu" style="display: flex; ">
-                <div class="box">
-                    <p style="font-weight: bold;">01/04</p>
-                    <p style="font-weight: lighter">Thứ Hai</p>
-
-                </div>
-                <div class="box">
-                    <p style="font-weight: bold;">02/04</p>
-                    <p style="font-weight: lighter">Thứ Ba</p>
-
-                </div>
+            <h2 style="text-align: center; color: aliceblue; line-height: 4; font-size: 250%;">LỊCH
+                CHIẾU</h2>
+            <div id="movie_date" class="lichchieu">
             </div>
-            <h3 style="text-align: center; color: aliceblue; line-height: 4; font-size: 250%;">DANH SÁCH GHẾ NGỒI</h3>
+            <h3 style="text-align: center; color: aliceblue; line-height: 4; font-size: 250%;">DANH
+                SÁCH GHẾ NGỒI</h3>
+
+            <div id="seat">
+                <button onclick="buyTicket()">Đặt vé</button>
+
+                <script>
+                    const seatSelected = [];
+                    ['A', 'B', 'C', 'D', 'E'].forEach((row) => {
+                        let rowElement = document.createElement('div')
+                        rowElement.style.display = 'flex'
+                        rowElement.innerHTML = row
+                        document.getElementById('seat').appendChild(rowElement)
+                        for (let i = 1; i <= 10; i++) {
+                            let seatElement = document.createElement('div')
+                            seatElement.id = row + i
+                            seatElement.style.width = '50px'
+                            seatElement.style.height = '50px'
+                            seatElement.style.backgroundColor = 'white'
+                            seatElement.style.display = 'flex'
+                            seatElement.style.justifyContent = 'center'
+                            seatElement.style.alignItems = 'center'
+                            seatElement.style.borderRadius = '12px'
+                            seatElement.style.margin = '5px'
+                            seatElement.style.color = 'black'
+                            seatElement.innerHTML = row + i
+                            seatElement.onclick = () => handleSelect(row + i)
+                            rowElement.appendChild(seatElement)
+                        }
+                    })
+                </script>
+            </div>
+
 
             <div class="footer">
                 <div>
@@ -262,7 +285,7 @@
                         </div>
 
                     </div>
-
+                    <script src="../static/js/test.js"></script>
                     </footer>
 </body>
 

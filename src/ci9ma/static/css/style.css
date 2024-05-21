@@ -3,8 +3,9 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Cabin', sans-serif;
     box-sizing: border-box;
+    font-family: 'Cabin', sans-serif;
+
 }
 
 .menu {
@@ -55,9 +56,9 @@
 
 .lichchieu {
     display: flex;
+    justify-content: center;
     margin: 0px auto;
     border: 5px;
-    width: 30%;
     margin: 0px auto;
 }
 
@@ -144,6 +145,17 @@
 
 }
 
+.movie {
+    display: inline-block;
+    margin: 10px;
+}
+
+.title,
+.trailer,
+.buy_ticket {
+    text-align: center;
+}
+
 
 .buy_ticket {
     height: 40px;
@@ -160,14 +172,6 @@
     align-content: center;
     align-items: center;
     color: black;
-    transition: opacity 0.2s;
-    cursor: pointer;
-}
-
-.buy_ticket:hover {
-    opacity: 0.6;
-    text-decoration: underline;
-
 }
 
 .title {
@@ -201,12 +205,6 @@
     justify-content: center;
     margin-top: 50px;
     padding-bottom: 50px;
-
-}
-
-.moreinfo_detail:hover {
-    opacity: 0.8;
-    text-decoration: underline;
 }
 
 .moreinfo_detail {
@@ -217,8 +215,6 @@
     font-size: smaller;
     font-weight: bold;
     padding: 10px 40px;
-    cursor: pointer;
-    transition: opacity .2s;
 }
 
 .premier {

@@ -106,7 +106,7 @@
 
             </h1>
             <div class="banner_1">
-                <script>
+                <!-- <script>
                     [
                         { img: '../static/assets/gap-lai-chi-bau-tet.jpg', title: 'GẶP LẠI CHỊ BẦU (T13)', trailer: 'https://www.youtube.com/watch?v=Gggw9jwr1h4' },
                         { img: '../static/assets/poster-mai.jpg', title: 'MAI (T18)', trailer: 'https://www.youtube.com/watch?v=EX6clvId19s' },
@@ -139,7 +139,35 @@
                     </div>
                     `)
                     })
-                </script>
+                </script> -->
+                <div id="movies">
+                    <script>
+                        const movies = {{ movies| tojson }};
+                        movies.forEach(({ ten_phim, url_poster, trailer }) => {
+                            document.write(`
+                                <div class="movie">
+                                    <div>
+                                        <img src="${url_poster}" alt="${ten_phim}" width="300">
+                                    </div>
+                                    <div class="title">
+                                        <p>${ten_phim}</p>
+                                    </div>
+                                    <div class="trailer">
+                                        <a target="_blank" href="${trailer}">
+                                            <div style="display: flex; align-items: center;">
+                                                <img src="../static/assets/icons8-play-64.png" alt="Play" width="30">
+                                                <p style="padding-left: 5px;">Trailer</p>
+                                            </div>
+                                        </a>
+                                        <div class="buy_ticket">
+                                            Tìm hiểu
+                                        </div>
+                                    </div>
+                                </div>
+                            `);
+                        });
+                    </script>
+                </div>
             </div>
             <div class="moreinfo">
                 <div button class="moreinfo_detail">
@@ -182,6 +210,7 @@
                             `)
                     })
                 </script>
+
             </div>
             <div class="moreinfo">
                 <div button class="moreinfo_detail">

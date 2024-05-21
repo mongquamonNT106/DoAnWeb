@@ -1,5 +1,6 @@
 .movie {
     margin-right: 4%;
+    display: inline-block;
 }
 
 .title {
@@ -7,13 +8,13 @@
     color: white;
     align-items: center;
     justify-content: center;
-    display:  flex;
-    margin:  10px 0px
+    display: flex;
+    margin: 10px 0px
 }
 
 
 
-.buy_ticket{
+.buy_ticket {
     height: 40px;
     width: 100px;
     display: flex;
@@ -26,7 +27,7 @@
     flex-direction: column;
     justify-content: center;
     align-content: center;
-    align-items: center;    
+    align-items: center;
     color: black;
 }
 
@@ -36,9 +37,44 @@
     font-size: 24px;
     margin: 10px 10px;
 }
+
 .option {
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 10px 0px;
+}
+
+
+@media screen and (max-width: 420px) {
+    .movie {}
+
+    .banner_1 {
+        margin-top: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .book-now {
+        display: none;
+    }
+
+    .title {
+        font-size: medium;
+        color: white;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        margin: 10px 0px
+    }
+
+    .trailer {
+        color: whitesmoke;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
 }
