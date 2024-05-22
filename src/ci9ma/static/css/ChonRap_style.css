@@ -10,7 +10,7 @@ body {
     overflow-x: hidden;
     overflow-y: scroll;
     color: #f8fafc;
-    background-color:#000000;
+    background-color: #000000;
     font-family: 'Times New Roman', Times, serif;
     font-weight: 400;
     line-height: 1.55;
@@ -27,17 +27,25 @@ img {
     height: auto;
     transition: all .2s;
     max-width: 100%;
-} /*Images*/
+}
+
+/*Images*/
 .btn {
-    -ms-align-items: center; /**/
-    -webkit-align-items: center; /**/
-    -webkit-justify-content: center; /**/
-    background-color: transparent; /**/
+    -ms-align-items: center;
+    /**/
+    -webkit-align-items: center;
+    /**/
+    -webkit-justify-content: center;
+    /**/
+    background-color: transparent;
+    /**/
     border: none;
     transition: opacity .2s;
     border-radius: .4rem;
-    cursor: pointer; /**/
-    display: flex; /**/
+    cursor: pointer;
+    /**/
+    display: flex;
+    /**/
     overflow: hidden;
     gap: 1rem;
     font-family: 'Times New Roman', Times, serif;
@@ -48,26 +56,39 @@ img {
     font-weight: bold;
     text-transform: uppercase;
 }
-.btn:hover{
+
+.btn:hover {
     opacity: 0.6;
-    
+
 }
+
 a {
     text-decoration: none;
-}/*Anchor*/
+}
+
+/*Anchor*/
 button {
     background-color: transparent;
     cursor: pointer;
     padding: 0;
-}/*Button*/
-button, select {
+}
+
+/*Button*/
+button,
+select {
     -webkit-appearance: none;
     border: none;
     cursor: pointer;
     outline: none;
     text-transform: none;
-}/*Button+Select*/
-button, input, optgroup, select, textarea {
+}
+
+/*Button+Select*/
+button,
+input,
+optgroup,
+select,
+textarea {
     color: inherit;
     font-family: inherit;
     font-size: 100%;
@@ -75,26 +96,36 @@ button, input, optgroup, select, textarea {
     line-height: inherit;
     margin: 0;
     padding: 0;
-}/*Button, input, optgroup, select, textarea*/
+}
+
+/*Button, input, optgroup, select, textarea*/
 
 /*Header_body tab ChonRap*/
 .hd_chonrap {
     background-color: #000000;
-    display: inline-block; /*Các items được xếp cùng nhau trên một dòng + Có các yếu tố của 1 block*/
-    position: relative; /**/
+    display: inline-block;
+    /*Các items được xếp cùng nhau trên một dòng + Có các yếu tố của 1 block*/
+    position: relative;
+    /**/
     left: 0;
     top: 0;
-    width: 100%; /*Chiều rộng lấy toàn bộ chiều rộng màn hình*/
-    height: 12.8rem !important; /*Tổng chiều cao phần header body là 12.8rem*/
-    transition: all .4s; /**/
+    width: 100%;
+    /*Chiều rộng lấy toàn bộ chiều rộng màn hình*/
+    height: 12.8rem !important;
+    /*Tổng chiều cao phần header body là 12.8rem*/
+    transition: all .4s;
+    /**/
     padding: 20px;
     box-sizing: border-box;
 }
+
 /*Top of Header*/
 .hd_chonrap_top {
-    height: 7.8rem; /*Phần top của header phần body chiếm 7.8/12.8rem chiều cao*/
+    height: 7.8rem;
+    /*Phần top của header phần body chiếm 7.8/12.8rem chiều cao*/
     width: 100%;
 }
+
 .container {
     height: 100%;
     margin: 0 auto;
@@ -102,38 +133,50 @@ button, input, optgroup, select, textarea {
     padding: 0 1.5rem;
     width: 100%;
 }
+
 .hd_chonrap_top_components {
-    align-items: center; /*Điểm xuất phát + điểm căn chỉnh của các thành phần nằm ở trung tâm - theo chiều dọc.*/
-    justify-content: stretch; /*Điểm xuất phát + điểm căn chỉnh của các thành phần nằm ở trung tâm - theo chiều ngang.*/
-    display: flex; /*Các thành phần được hiển thị linh hoạt theo hết chiều rộng*/
+    align-items: center;
+    /*Điểm xuất phát + điểm căn chỉnh của các thành phần nằm ở trung tâm - theo chiều dọc.*/
+    justify-content: stretch;
+    /*Điểm xuất phát + điểm căn chỉnh của các thành phần nằm ở trung tâm - theo chiều ngang.*/
+    display: flex;
+    /*Các thành phần được hiển thị linh hoạt theo hết chiều rộng*/
     gap: 3.0rem;
     height: 100%;
     width: 100%;
 }
-    /*1.Logo*/
+
+/*1.Logo*/
 .hd_chonrap_top .main_logo_link {
     display: flex;
-    width: 15%; /*Phần logo chiếm 20% tổng chiều rộng*/
+    width: 15%;
+    /*Phần logo chiếm 20% tổng chiều rộng*/
     height: 7.5rem;
 }
+
 .hd_chonrap_top .main_logo_link img {
     width: 100%;
     display: flex;
 }
-    /*2.Nút "ĐẶT VÉ NGAY"*/
+
+/*2.Nút "ĐẶT VÉ NGAY"*/
 .hd_left_action {
-    align-items: center; 
+    align-items: center;
     justify-content: center;
     display: flex;
-    width: 20%; 
+    width: 20%;
     height: auto;
 }
+
 .hd_left_action .btn {
     font-size: 1.2rem;
-    font-weight: bold; 
+    font-weight: bold;
     font-family: 'Times New Roman', Times, serif;
 }
-*, :after, :before {
+
+*,
+:after,
+:before {
     --tw-border-spacing-x: 0;
     --tw-border-spacing-y: 0;
     --tw-translate-x: 0;
@@ -179,13 +222,19 @@ button, input, optgroup, select, textarea {
     --tw-backdrop-saturate: ;
     --tw-backdrop-sepia: ;
 }
-*, :after, :before {
+
+*,
+:after,
+:before {
     border: 0 solid #edf2f7;
     box-sizing: border-box;
 }
-:after, :before {
+
+:after,
+:before {
     --tw-content: "";
 }
+
 .book_btn:before {
     background: #f3ea28;
     right: 0;
@@ -194,6 +243,7 @@ button, input, optgroup, select, textarea {
     height: 100%;
     z-index: -2;
 }
+
 .book_btn:after {
     background: linear-gradient(106deg, #639, #36c 102.69%);
     left: 0;
@@ -202,23 +252,27 @@ button, input, optgroup, select, textarea {
     height: 100%;
     z-index: -1;
 }
-.book_btn:after, .book_btn:before {
+
+.book_btn:after,
+.book_btn:before {
     content: "";
     height: 100%;
     position: absolute;
     transition: all .4s ease-in-out;
     width: 100%;
 }
+
 .book_btn {
     color: #0f172a;
     position: relative;
     justify-content: center;
     flex-wrap: nowrap;
-    transition: color .3s ease-in-out; 
-    z-index: 1; 
+    transition: color .3s ease-in-out;
+    z-index: 1;
     width: 100%;
     height: auto;
 }
+
 /*Thanh tìm kiếm*/
 .hd_right_action {
     align-items: center;
@@ -232,6 +286,7 @@ button, input, optgroup, select, textarea {
     margin: auto;
     gap: 0.01rem;
 }
+
 .hd_search {
     position: relative;
     width: 55%;
@@ -239,6 +294,7 @@ button, input, optgroup, select, textarea {
     display: flex;
     flex: 3;
 }
+
 .search_icon {
     --sz: 2.4rem;
     align-items: center;
@@ -251,12 +307,15 @@ button, input, optgroup, select, textarea {
     height: 2.4rem;
     width: 20%;
 }
+
 .search_panel {
     width: 100%;
 }
+
 .search_panel_form {
     width: 100%;
 }
+
 .search_panel_form_content {
     align-items: center;
     justify-content: center;
@@ -265,6 +324,7 @@ button, input, optgroup, select, textarea {
     width: 90%;
     color: #252525;
 }
+
 .search_panel_form_content input {
     background-color: #fff;
     border-radius: 100rem;
@@ -275,6 +335,7 @@ button, input, optgroup, select, textarea {
     padding: 0 3rem 0 1.6rem;
     width: 100%;
 }
+
 .search_btn {
     position: absolute;
     right: 1rem;
@@ -285,14 +346,21 @@ button, input, optgroup, select, textarea {
     -moz-transform: translateY(-50%);
     -o-transform: translateY(-50%);
 }
-[type=button], [type=reset], [type=submit], button {
+
+[type=button],
+[type=reset],
+[type=submit],
+button {
     -webkit-appearance: button;
     background-color: transparent;
     background-image: none;
 }
-[role=button], button {
+
+[role=button],
+button {
     cursor: pointer;
 }
+
 /*Register+Login*/
 .hd_register_login {
     display: flex;
@@ -300,20 +368,22 @@ button, input, optgroup, select, textarea {
     flex: 1.75;
     z-index: 5;
 }
+
 .hd_register_login_content {
     align-items: center;
     justify-content: right !important;
     display: flex;
-    flex: 2; 
+    flex: 2;
     position: relative;
     cursor: pointer;
-    width: 40%; 
+    width: 40%;
     height: auto;
     flex-shrink: 0;
     font-size: 1rem;
     font-weight: bold;
     font-size: 1rem;
 }
+
 .hd_register_login_ava {
     flex-shrink: 0;
     height: 2.4rem;
@@ -322,12 +392,14 @@ button, input, optgroup, select, textarea {
     top: -.2rem;
     justify-content: right !important;
 }
+
 .hd_register_login_ava img {
     height: 100%;
     width: 100%;
     justify-content: right !important;
     z-index: 2;
 }
+
 .hd_register_login_list {
     justify-content: right !important;
     align-items: center;
@@ -338,6 +410,7 @@ button, input, optgroup, select, textarea {
     flex-wrap: wrap;
     font-size: large;
 }
+
 .hd_register_login_list .separate {
     flex-wrap: wrap;
     display: flex;
@@ -346,6 +419,7 @@ button, input, optgroup, select, textarea {
     z-index: 1;
     position: relative;
 }
+
 .hd_register_login_list .link {
     flex-wrap: wrap;
     display: flex;
@@ -353,10 +427,12 @@ button, input, optgroup, select, textarea {
     align-items: center;
     z-index: 2;
 }
+
 a {
     color: inherit;
     text-decoration: none;
 }
+
 /*Language*/
 .hd_language {
     cursor: pointer;
@@ -364,17 +440,19 @@ a {
     justify-content: right !important;
     display: flex;
     flex-wrap: nowrap;
-    flex: 1.25; 
+    flex: 1.25;
     position: relative;
-    width: 10%; 
+    width: 10%;
     height: auto;
     padding: 0;
     z-index: 6;
 }
+
 .hd_language_popup {
     display: flex;
     gap: 0 .8rem;
 }
+
 .hd_language_option {
     font-size: 1.4rem;
     font-weight: bold;
@@ -383,6 +461,7 @@ a {
     display: flex;
     gap: 0 .8rem;
 }
+
 .hd_language_option .image_flag {
     border-radius: 100rem;
     display: inline-block;
@@ -390,6 +469,7 @@ a {
     height: 2.4rem;
     width: 2.4rem;
 }
+
 .hd_language_option .image_flag img {
     height: 100%;
     -o-object-fit: cover;
@@ -397,6 +477,7 @@ a {
     width: 100%;
     z-index: 2;
 }
+
 .hd_language .hd_language_option .text {
     position: relative;
     top: .2rem;
@@ -408,6 +489,7 @@ a {
     height: 5rem;
     width: 100%;
 }
+
 .hd_chonrap_mid_components {
     align-items: center;
     justify-content: space-between;
@@ -419,23 +501,27 @@ a {
     width: 100%;
     font-weight: bold;
 }
+
 .local {
     gap: .6rem;
     align-items: center;
     justify-content: space-between;
     display: flex;
 }
+
 .local .text_chonrap {
     text-decoration: underline;
     text-underline-position: under;
     transition: .3s ease-in-out;
 }
+
 .other {
     align-items: center;
     justify-content: space-between;
     display: flex;
     gap: 2.4rem;
 }
+
 .other .link {
     text-decoration: underline;
     text-underline-position: under;
@@ -453,10 +539,12 @@ a {
     top: 4rem;
     height: auto !important;
 }
+
 .chonrap-components {
     display: flex;
     flex-wrap: wrap;
 }
+
 .chonrap-item {
     width: calc(33.333333% - 20px);
     height: auto;
@@ -465,6 +553,7 @@ a {
     box-sizing: border-box;
     text-align: center;
 }
+
 .chonrap-item-img img {
     max-height: 100%;
     width: auto;
@@ -472,6 +561,7 @@ a {
     object-fit: cover;
     /*border-radius: 0.35rem;*/
 }
+
 .chonrap-item-info {
     bottom: 0;
     left: 0;
@@ -480,9 +570,11 @@ a {
     width: 100%;
     height: 70%;
 }
+
 .chonrap-components .address-box {
     pointer-events: visible;
 }
+
 .address-box {
     background: linear-gradient(106deg, rgba(102, 51, 153, .8), rgba(51, 102, 204, .8) 102.69%);
     height: 100%;
@@ -491,6 +583,7 @@ a {
     text-align: left;
     /*border-radius: 0.35rem;*/
 }
+
 .hd_address-box {
     align-items: center;
     text-align: left;
@@ -499,6 +592,7 @@ a {
     justify-content: space-between;
     margin-bottom: .8rem;
 }
+
 .address-box .link {
     align-items: center;
     color: #f8fafc;
@@ -506,6 +600,7 @@ a {
     gap: 0 .8rem;
     pointer-events: visible;
 }
+
 .sub-tittle {
     color: #f8fafc;
     font-family: 'Times New Roman', Times, serif;
@@ -513,36 +608,46 @@ a {
     text-transform: uppercase;
     text-align: left;
 }
+
 .chonrap-components .body_address-box {
     overflow: hidden !important;
 }
+
 .body_address-box {
     max-height: 50%;
 }
-ol, ul {
+
+ol,
+ul {
     list-style: none;
 }
+
 .address-box .item {
     margin-bottom: 1.2rem;
 }
+
 .body_address-box .link {
     align-items: flex-start !important;
 }
+
 .address-box .link {
     color: #f8fafc;
     display: flex;
     gap: 0 .8rem;
     pointer-events: visible;
 }
+
 .body_address-box .ic {
     flex-shrink: 0;
     position: relative;
     top: .2rem;
 }
+
 .address-box .link .ic img {
     height: 1.6rem;
     width: 1.6rem;
 }
+
 .address-box .body_address-box .item .text {
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
@@ -551,12 +656,14 @@ ol, ul {
     text-overflow: ellipsis;
     word-break: break-word;
 }
+
 .chonrap-components .address-box .book-immediately-btn {
     min-width: 15rem;
     transition: all .2s;
     width: fit-content;
     border-radius: 0.2rem;
 }
+
 .book-immediately-btn {
     border: 3px color(#f3ea28);
     background-color: #f3ea28;
@@ -568,6 +675,7 @@ ol, ul {
     padding: 4.5px;
     text-align: center;
 }
+
 /*Footer_body tab ChonRap*/
 .footer {
     padding-top: 4rem;
@@ -578,14 +686,17 @@ ol, ul {
     align-items: center;
     justify-content: center;
 }
+
 .footer_components {
     padding-top: 10rem;
     display: flex;
 }
+
 .footer .footer_list {
     padding-bottom: 2.4rem;
     display: flex;
 }
+
 .footer .footer_list-item {
     display: flex !important;
     flex-direction: column;
@@ -593,20 +704,24 @@ ol, ul {
     text-align: left;
     margin: 20px;
 }
+
 .col4 {
     width: 20%;
     margin-bottom: 5px;
     padding: 20px;
     display: flex !important;
 }
+
 .col {
     margin-bottom: 5px;
     padding: 50px;
 }
+
 .footer .footer_list-item .main_logo_link_footer {
     display: block;
     width: 100%;
 }
+
 .row {
     --col-gap: 2.4rem;
     --row-gap: 2.4rem;
@@ -615,36 +730,45 @@ ol, ul {
     margin-bottom: 5px;
     padding: 15px;
 }
+
 .part {
     width: 50%;
 
 }
+
 .footer .footer_list-item .text {
     font-family: 'Times New Roman', Times, serif;
     text-transform: uppercase;
     font-weight: bold;
 }
+
 .footer .text {
     margin-bottom: 2.4rem;
 
 }
+
 .footer .footer_list-item .menu-list {
     display: flex;
     flex-direction: column;
     gap: 1.6rem;
 }
+
 .footer .footer_list-item .menu-link {
     text-decoration: underline;
     text-underline-position: under;
 }
+
 .footer .footer_list-item_bot {
     margin-top: 8.4rem;
 }
+
 .aform {
     width: 5%;
     display: flex !important;
 }
-.sp, .part {
+
+.sp,
+.part {
     flex: 1 !important;
     width: 90%;
 }

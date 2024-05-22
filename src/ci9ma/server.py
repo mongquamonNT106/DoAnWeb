@@ -32,14 +32,14 @@ def signin():
                 response = supabase.auth.sign_in_with_password(
                     {"email": email, "password": password}
                 )
-                app.logger.info(response)
+                # app.logger.info(response)
                 user_info = response.user
                 if user_info:
                     session["email"] = user_info.email  # Lưu email vào session
                     user_id = user_info.id
-                    app.logger.info(user_id)
+                    app.logger.info("User id: %s", user_id)
                     # data = supabase.table("test").select("*").execute()
-                    # app.logger.info(data.data)
+                    # app.logger.info("Table test: %s", data.data)
                     return redirect(url_for("home"))
             except gotrue.errors.AuthApiError as e:
                 return f"Đăng nhập thất bại: {e}"
@@ -66,6 +66,13 @@ def signin():
 @app.route("/", methods=["GET", "POST"])
 def home():
     print(session)
+    movies = (
+        supabase.table("phim")
+        .select("ten_phim, url_poster, trailer, id")
+        .execute()
+        .data
+    )
+    app.logger.info(movies)
     if "email" not in session:
         return redirect(url_for("signin"))
     if request.method == "POST":
@@ -73,12 +80,12 @@ def home():
         # Kiểm tra xem nút "book_tickets" có trong yêu cầu hay không
         if action == "book_ticket":
             # Nếu nút "Đặt vé ngay" được nhấn, chuyển hướng đến tuyến đường "book_ticket"
-            return redirect(url_for("book_ticket"))
-    return render_template("index.html")
+            return redirect(url_for("book_tickets"))
+    return render_template("index.html", movies=movies)
 
 
-@app.route("/book_ticket", methods=["GET", "POST"])
-def book_tickets_route():
+@app.route("/book_tickets/<int:id_phim>", methods=["GET", "POST"])
+def book_tickets(id_phim):
     # Xử lý việc đặt vé ở đây
     return render_template("index2.html")
 

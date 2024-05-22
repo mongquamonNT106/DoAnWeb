@@ -2,6 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Cabin', sans-serif;
+
 }
 .menu{
     height: 93px;
@@ -30,7 +32,34 @@
     margin-right: 100px;
     
 }
-.menu-search{
+
+.box {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    color: black;
+    background-color: yellow;
+    border-radius: 4px;
+    align-items: center;
+    height: 100px;
+    width: 100px;
+    font-size: 150%;
+    font-weight: bold;
+    align-content: stretch;
+    justify-content: center;
+    margin: 0px auto;
+
+}
+
+.lichchieu {
+    display: flex;
+    justify-content: center;
+    margin: 0px auto;
+    border: 5px;
+    margin: 0px auto;
+}
+
+.menu-search {
     width: 300px;
     margin-left: 50px;
     border: 1px solid #ccc;
@@ -96,11 +125,57 @@
     background-color: #0F172A;
     height: "1vh";
 }
-.banner_1{
+
+/* .banner_1 {
     margin-top: 50px;
     display: flex;
     justify-content: center;
-    
+
+} */
+
+/* .movie-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 300px;
+    width: 100%;
+} */
+
+/* .movie {
+    flex: 0 0 30%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    padding: 10px;
+    height: 60vh;
+} */
+.movie-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* Thêm scrollbar nếu nội dung vượt quá chiều rộng của container */
+}
+
+.movie {
+    /* Thiết lập kích thước hoặc tỷ lệ cố định cho mỗi phim */
+    width: 300px;
+    /* Ví dụ: Mỗi phim có chiều rộng cố định là 300px */
+    margin: 10px;
+    /* Khoảng cách giữa các phim */
+}
+
+
+
+.movie img {
+    width: 100%;
+    height: auto;
+    max-height: 350px;
+}
+
+.title,
+.trailer,
+.buy_ticket {
+    text-align: center;
+    margin-top: 10px;
 }
 
 
@@ -147,7 +222,9 @@
     align-content: center;
     justify-content: center;
     margin-top: 50px;
+    padding-bottom: 50px;
 }
+
 .moreinfo_detail {
     color: black;
     text-align: center;
