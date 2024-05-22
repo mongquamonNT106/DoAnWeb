@@ -63,11 +63,19 @@ def signin():
     return render_template("signin.html")
 
 
+
+
 @app.route("/", methods=["GET", "POST"])
 def home():
     print(session)
     movies = (
         supabase.table("phim")
+        .select("ten_phim, url_poster, trailer, id")
+        .execute()
+        .data
+    )
+    phimsapchieu = (
+        supabase.table("phimsapchieu")
         .select("ten_phim, url_poster, trailer, id")
         .execute()
         .data
@@ -81,9 +89,7 @@ def home():
         if action == "book_ticket":
             # Nếu nút "Đặt vé ngay" được nhấn, chuyển hướng đến tuyến đường "book_ticket"
             return redirect(url_for("book_tickets"))
-    return render_template("index.html", movies=movies)
-
-
+    return render_template("index.html", movies=movies, phimsapchieu=phimsapchieu)
 @app.route("/book_tickets/<int:id_phim>", methods=["GET", "POST"])
 def book_tickets(id_phim):
     # Xử lý việc đặt vé ở đây
