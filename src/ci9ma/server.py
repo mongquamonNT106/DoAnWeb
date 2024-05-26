@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for, session, flash
 from supabase import create_client
 import os
 import gotrue.errors
@@ -115,6 +115,11 @@ def logout():
     return redirect(url_for("signin"))
 
 
+def get_movies():
+    response = supabase.table("phim").select("id, ten_phim").execute()
+    return [(movie["id"], movie["ten_phim"]) for movie in response.data]
+
+
 @app.route("/admin", methods=["GET", "POST"])
 def admin():
     user = session.get("user")
@@ -124,6 +129,9 @@ def admin():
     if user.get("role") != "admin":
         return "Bạn không có quyền truy cập trang này", 403
     form = ShowtimeForm()
+    # Lấy phim từ supabase
+    form.movie_id.choices = get_movies()
+
     if form.validate_on_submit():
         movie_id = form.movie_id.data
         room_id = form.room_id.data
@@ -133,20 +141,47 @@ def admin():
         ngay_chieu = form.ngay_chieu.data.strftime(
             "%Y-%m-%d"
         )  # Chuyển đổi ngày thành chuỗi YYYY-MM-DD
-        print(movie_id)
-        print(room_id)
-        print(start_time)
-        print(ngay_chieu)
+        try:
+            result = (
+                supabase.table("cachieu")
+                .insert(
+                    {
+                        "id_phim": movie_id,
+                        "id_phong": room_id,
+                        "gio_bat_dau": start_time,
+                        "ngay_chieu": ngay_chieu,
+                    },
+                )
+                .execute()
+            )
+            id_cachieu = result.data[0]["id_cachieu"]
 
-        supabase.table("cachieu").insert(
-            {
-                "id_phim": movie_id,
-                "id_phong": room_id,
-                "gio_bat_dau": start_time,
-                "ngay_chieu": ngay_chieu,
-            },
-        ).execute()
+            # Thêm sẵn các ghế cho ca chiếu được tạo
+            # Giả sử mỗi phòng chiếu có 50 ghế, 5 hàng, mỗi hàng 10 ghế
+            rows = ["A", "B", "C", "D", "E"]
+            cols = range(1, 11)
+            seats = []
+            for row in rows:
+                for col in cols:
+                    seat = {
+                        "id_cachieu": id_cachieu,
+                        "hang": row,
+                        "cot": col,
+                        "trang_thai": False,
+                        "id_loaighe": 1,  # Giả sử loại ghế thường là 1
+                    }
+                    if row == "E":  # Giả sử hàng E là ghế đôi
+                        seat["id_loaighe"] = 2  # Giả sử loại ghế đôi là 2
+                    seats.append(seat)
 
+            # Thêm tất cả các ghế vào bảng seats
+            supabase.table("ghe").insert(seats).execute()
+            flash("Ca chiếu và các ghế đã được thêm thành công!", "success")
+
+        except Exception as e:
+            print(f"Error inserting showtime: {e}")
+            flash("Có lỗi xảy ra trong quá trình thêm ca chiếu", "error")
+            return "Có lỗi xảy ra trong quá trình thêm ca chiếu", 500
         return redirect(url_for("admin"))
 
     return render_template("admin.html", form=form)

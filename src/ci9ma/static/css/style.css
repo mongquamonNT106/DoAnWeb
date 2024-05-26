@@ -5,8 +5,9 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Cabin', sans-serif;
-
 }
+
+
 
 .menu {
     height: 93px;
@@ -392,17 +393,28 @@
 }
 
 #wrapper {
-    max-width: 960px;
-    margin: 0px auto;
+    display: flex;
+    padding-left: 10vh;
+    padding-right: 10vh;
+
+}
+
+#tenphim {
+    font-size: larger;
+}
+
+#xem_trailer {
+    display: flex;
 }
 
 #main_content {
+    margin-bottom: 50px;
     display: flex;
     min-height: 500px;
 }
 
-#img_content {
-    flex-basis: 30;
+#img_content img {
+    max-height: 70vh;
 }
 
 #title_content {
@@ -412,6 +424,7 @@
 }
 
 #movie_content {
+    margin-left: 5vh;
     flex-basis: 70;
     color: #fff;
     padding: 20px;
@@ -419,4 +432,22 @@
 
 .seat {
     justify-content: center;
+}
+
+.btn_datve {
+    margin: 0 auto;
+    align-items: center;
+    height: 100%;
+    width: 300px;
+}
+
+
+.btn.book_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background-color: #007bff;
+    text-decoration: none;
+    border-radius: 5px;
 }

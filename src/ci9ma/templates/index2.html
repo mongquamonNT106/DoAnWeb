@@ -23,7 +23,6 @@
                             <img src="https://cinestar.com.vn/assets/images/ic-ticket.svg">
                             <span class="text">Đặt vé ngay</span>
                         </a>
-
                     </div>
                     <div class="hd_right_action">
                         <!--Search-->
@@ -124,10 +123,12 @@
             <div id="wrapper">
                 <div id="main_content">
                     <div id="img_content">
-                        <img src="{{ movie.url_poster }}" alt="{{ movie.ten_phim }}" width="1000">
+                        <img src="{{ movie.url_poster }}" alt="{{ movie.ten_phim }}">
                     </div>
                     <div id="movie_content">
-                        <h1>{{ movie.ten_phim }}</h1>
+                        <div id="tenphim">
+                            <h1>{{ movie.ten_phim }}</h1>
+                        </div>
                         <p style="display: flex; line-height: 2;"><img src="../static/assets/icon-tag.svg" alt=""> {{
                             movie.the_loai }}</p>
                         <p style="display: flex;line-height: 2;"><img src="../static/assets/icon-clock.svg" alt=""> {{
@@ -138,7 +139,7 @@
                         <p style="line-height: 2;">Khởi chiếu: {{ movie.ngay_khoi_chieu }}</p>
                         <h3 style="line-height: 2;">NỘI DUNG PHIM</h3>
                         <p style="line-height: 2;">{{ movie.noi_dung }}</p>
-                        <p style="display: flex; line-height: 2;text-decoration: underline;">
+                        <p id="xem_trailer" style="display: flex; line-height: 2;text-decoration: underline;">
                             <a href="{{ movie.trailer }}" target="_blank">
                                 <img src="../static/assets/icons8-play-64.png" alt="" width="30"> Xem Trailer
                             </a>
@@ -146,14 +147,10 @@
                     </div>
                 </div>
             </div>
-            <h2 style="text-align: center; color: aliceblue; line-height: 4; font-size: 250%;">LỊCH
-                CHIẾU</h2>
             <div id="movie_date" class="lichchieu">
             </div>
-            <h3 style="text-align: center; color: aliceblue; line-height: 4; font-size: 250%;">DANH
-                SÁCH GHẾ NGỒI</h3>
 
-            <div id="seat">
+            <!-- <div id="seat" style="justify-content: center;">
                 <button onclick="buyTicket()">Đặt vé</button>
 
                 <script>
@@ -181,9 +178,13 @@
                         }
                     })
                 </script>
+            </div> -->
+            <div class="btn_datve">
+                <a class="btn book_btn" href="#"> <!--Thay href-->
+                    <img src="https://cinestar.com.vn/assets/images/ic-ticket.svg">
+                    <span class="text">Đặt vé ngay</span>
+                </a>
             </div>
-
-
             <div class="footer">
                 <div>
                     <div class="container">
