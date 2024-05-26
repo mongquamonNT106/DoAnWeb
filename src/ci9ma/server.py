@@ -1,4 +1,13 @@
-from flask import Flask, render_template, request, redirect, url_for, session, flash
+from flask import (
+    Flask,
+    render_template,
+    request,
+    redirect,
+    url_for,
+    session,
+    flash,
+    jsonify,
+)
 from supabase import create_client
 import os
 import gotrue.errors
@@ -104,7 +113,27 @@ def home():
 def book_tickets(id_phim):
     response = supabase.table("phim").select("*").eq("id", id_phim).execute()
     movie = response.data[0] if response.data else None
-    return render_template("index2.html", movie=movie)
+    response_cachieu = (
+        supabase.table("cachieu").select("*").eq("id_phim", id_phim).execute()
+    )
+    cachieu = response_cachieu.data
+    app.logger.info(cachieu)
+    return render_template("index2.html", movie=movie, cachieu=cachieu)
+
+
+@app.route("/api/get_seats/<int:id_cachieu>")
+def get_seats(id_cachieu):
+    response = supabase.table("ghe").select("*").eq("id_cachieu", id_cachieu).execute()
+    seats = response.data
+    app.logger.info(seats)
+    return jsonify(seats)
+
+
+@app.route("/api/get_showtimes/<int:id_phim>")
+def get_showtimes(id_phim):
+    response = supabase.table("cachieu").select("*").eq("id_phim", id_phim).execute()
+    showtimes = response.data
+    return jsonify(showtimes)
 
 
 @app.route("/logout", methods=["GET", "POST"])

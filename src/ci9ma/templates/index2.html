@@ -149,42 +149,86 @@
             </div>
             <div id="movie_date" class="lichchieu">
             </div>
-
-            <!-- <div id="seat" style="justify-content: center;">
-                <button onclick="buyTicket()">Đặt vé</button>
-
-                <script>
-                    const seatSelected = [];
-                    ['A', 'B', 'C', 'D', 'E'].forEach((row) => {
-                        let rowElement = document.createElement('div')
-                        rowElement.style.display = 'flex'
-                        rowElement.innerHTML = row
-                        document.getElementById('seat').appendChild(rowElement)
-                        for (let i = 1; i <= 10; i++) {
-                            let seatElement = document.createElement('div')
-                            seatElement.id = row + i
-                            seatElement.style.width = '50px'
-                            seatElement.style.height = '50px'
-                            seatElement.style.backgroundColor = 'white'
-                            seatElement.style.display = 'flex'
-                            seatElement.style.justifyContent = 'center'
-                            seatElement.style.alignItems = 'center'
-                            seatElement.style.borderRadius = '12px'
-                            seatElement.style.margin = '5px'
-                            seatElement.style.color = 'black'
-                            seatElement.innerHTML = row + i
-                            seatElement.onclick = () => handleSelect(row + i)
-                            rowElement.appendChild(seatElement)
-                        }
-                    })
-                </script>
-            </div> -->
             <div class="btn_datve">
                 <a class="btn book_btn" href="#"> <!--Thay href-->
                     <img src="https://cinestar.com.vn/assets/images/ic-ticket.svg">
                     <span class="text">Đặt vé ngay</span>
                 </a>
             </div>
+            <div class="select_seat">
+                <h1>Chọn Suất Chiếu</h1>
+                <div id="showtimes-container"></div>
+
+                <h1>Chọn Ghế</h1>
+                <div id="seats-container"></div>
+            </div>
+            <script>
+                const movieId = 1; // Thay bằng ID phim thực tế
+                let selectedShowtimeButton = null; // Biến để theo dõi nút suất chiếu được chọn
+
+                // Hàm gọi AJAX để lấy danh sách suất chiếu
+                function loadShowtimes(movieId) {
+                    fetch(`/api/get_showtimes/${movieId}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            const showtimesContainer = document.getElementById('showtimes-container');
+                            showtimesContainer.innerHTML = ''; // Xóa nội dung cũ
+                            data.forEach(showtime => {
+                                const button = document.createElement('button');
+                                button.className = 'showtime-button';
+                                button.textContent = `Suất chiếu lúc: ${showtime.gio_bat_dau} - Ngày: ${showtime.ngay_chieu}`;
+                                button.onclick = () => selectShowtime(button, showtime.id_cachieu);
+                                showtimesContainer.appendChild(button);
+                            });
+                        })
+                        .catch(error => console.error('Error:', error));
+                }
+
+
+                // Hàm gọi AJAX để lấy danh sách ghế
+                function loadSeats(showtimeId) {
+                    fetch(`/api/get_seats/${showtimeId}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            const seatsContainer = document.getElementById('seats-container');
+                            seatsContainer.innerHTML = ''; // Xóa nội dung cũ
+                            data.sort((a, b) => {
+                                if (a.hang < b.hang) return -1;
+                                if (a.hang > b.hang) return 1;
+                                return a.so - b.so;
+                            });
+                            data.forEach(seat => {
+                                const seatDiv = document.createElement('div');
+                                seatDiv.className = 'seat ' + (seat.trang_thai ? 'booked' : 'available');
+                                if (seat.hang === 'E') {
+                                    seatDiv.classList.add('double-seat'); // Thêm lớp double-seat cho hàng ghế E
+                                }
+                                seatDiv.textContent = seat.hang + seat.cot;
+                                if (!seat.trang_thai) { // Chỉ thêm sự kiện click cho ghế chưa đặt
+                                    seatDiv.onclick = () => toggleSeatSelection(seatDiv);
+                                }
+                                seatsContainer.appendChild(seatDiv);
+                            });
+                        })
+                        .catch(error => console.error('Error:', error));
+                }
+                // Hàm để chọn suất chiếu
+                function selectShowtime(button, showtimeId) {
+                    if (selectedShowtimeButton) {
+                        selectedShowtimeButton.classList.remove('selected');
+                    }
+                    button.classList.add('selected');
+                    selectedShowtimeButton = button;
+                    loadSeats(showtimeId);
+                }
+                // Hàm chọn/bỏ chọn ghế
+                function toggleSeatSelection(seatDiv) {
+                    seatDiv.classList.toggle('selected');
+                }
+
+                // Gọi hàm loadShowtimes với ID của phim
+                loadShowtimes(movieId);
+            </script>
             <div class="footer">
                 <div>
                     <div class="container">

@@ -430,9 +430,67 @@
     padding: 20px;
 }
 
-.seat {
-    justify-content: center;
+.select_seat {
+    margin: 0 auto;
+    align-items: center;
+    text-align: center;
 }
+
+#seats-container {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    /* Thay đổi số lượng ghế trong mỗi hàng tùy thuộc vào số ghế mà bạn muốn hiển thị */
+    gap: 10px;
+    /* Khoảng cách giữa các ghế */
+    justify-items: center;
+    /* Canh giữa theo chiều ngang */
+    align-items: center;
+    /* Canh giữa theo chiều dọc */
+}
+
+.seat {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 30px;
+    cursor: pointer;
+}
+
+.double-seat {
+    width: 100px;
+    height: 50px;
+}
+
+
+.available {
+    background-color: green;
+}
+
+.booked {
+    background-color: red;
+}
+
+.showtime-button {
+    margin: 5px;
+    padding: 10px;
+    background-color: green;
+    border: none;
+    cursor: pointer;
+}
+
+.showtime-button:hover {
+    background-color: #1c0070;
+}
+
+.selected {
+    border: 2px solid yellow;
+}
+
+.showtime-button.selected {
+    border: 2px solid yellow;
+}
+
 
 .btn_datve {
     margin: 0 auto;
