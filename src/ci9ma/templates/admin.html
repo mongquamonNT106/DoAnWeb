@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+</head>
+
+<body>
+    <h1>Thêm Ca Chiếu</h1>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.movie_id.label }}<br>
+            {{ form.movie_id(size=32) }}<br>
+            {% for error in form.movie_id.errors %}
+            <span style="color: red;">[{{ error }}]</span><br>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.room_id.label }}<br>
+            {{ form.room_id(size=32) }}<br>
+            {% for error in form.room_id.errors %}
+            <span style="color: red;">[{{ error }}]</span><br>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.ngay_chieu.label }}<br>
+            <input type="date" id="ngay_chieu" name="ngay_chieu" value="{{ form.ngay_chieu.data }}"><br>
+            {% for error in form.ngay_chieu.errors %}
+            <span style="color: red;">[{{ error }}]</span><br>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.start_time.label }}<br>
+            <input type="time" id="start_time" name="start_time" value="{{ form.start_time.data }}"><br>
+            {% for error in form.start_time.errors %}
+            <span style="color: red;">[{{ error }}]</span><br>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+</body>
+
+</html>

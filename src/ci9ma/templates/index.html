@@ -157,7 +157,7 @@
                             movieContainers[i].appendChild(row);
 
                             // Thêm phim vào hàng mới
-                            var moviesInRow = movies.slice(j * numMoviesPerRow, (j + 1) * numMoviesPerRow);
+                            var moviesInRow = movies1.slice(j * numMoviesPerRow, (j + 1) * numMoviesPerRow);
                             moviesInRow.forEach(function (movie) {
                                 row.appendChild(movie.cloneNode(true)); // Sao chép và thêm phim vào hàng mới
                             });
@@ -175,38 +175,68 @@
             <h2 class="premier" style="text-align: center;">
                 PHIM SẮP CHIẾU
             </h2>
+            <div class="banner_1">
+                <div id="phimsapchieu">
+                    <div class="movie-container">
+                        {% for movie in phimsapchieu %}
+                        <div class="movie">
+                            <div>
+                                <img src="{{ movie.url_poster }}" alt="{{ movie.ten_phim }}">
+                            </div>
+                            <div class="title">
+                                <p>{{ movie.title }}</p>
+                            </div>
+                            <div class="trailer">
+                                <a target="_blank" href="{{ movie.trailer }}">
+                                    <div style="display: flex; align-items: center; justify-content: center;">
+                                        <img src="../static/assets/icons8-play-64.png" alt="Play" width="30">
+                                        <p style="padding-left: 5px;">Trailer</p>
+                                    </div>
+                                    <div class="buy_ticket">
+                                        <a href="{{ url_for('book_tickets', id_phim=movie.id) }}"><button
+                                                type="button">Tìm hiểu</button></a>
+                                    </div>
+                                </a>
+                            </div>
+
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
             </h1>
+
             <div class="banner_1">
                 <script>
-                    [
-                        { img: '../static/assets/furiosa.jpg', title: 'FURIOSA', trailer: 'https://www.youtube.com/watch?v=XJMuhwVlca4' },
-                        { img: '../static/assets/godzilla-vs-kong-poster.jpg', title: 'GODZILLA VS KONG: ĐẾ CHẾ...', trailer: 'https://www.youtube.com/watch?v=XeDbyVODQ5M' },
-                        { img: '../static/assets/deadman.jpg', title: 'NGƯỜI CHẾT TRỞ VỀ', trailer: 'https://www.youtube.com/watch?v=UYqWGHxlLbE' },
-                        { img: '../static/assets/cai-gia-cua-hanh-phuc.jpg', title: 'CÁI GIÁ CỦA HẠNH PHÚC', trailer: 'https://www.youtube.com/watch?v=kUbrvnhKXyA' }
-                    ].forEach(({ img, title, trailer }) => {
-                        document.write(`
-                            <div class="movie" style="display: inline-block;">
-                                <div>
-                                    <img src="${img}" alt
-                                        width="300">
-                                </div>
-                                <div class="title">
-                                    <p>${title}</p>
-                                </div>
-                                <div class="trailer">
-                                    <a target="_blank" href="${trailer}" >
-                                <div style="display: flex; align-items: center;">
-                                    <img src="../static/assets/icons8-play-64.png" alt width="30">
-                                    <p style="padding-left: 5px;">Trailer</p>
-                                </div>
-                            </a>
-                            <div button class="buy_ticket">
-                                Tìm hiểu 
-                            </div>
-                                </div>
-                            </div>
-                            `)
-                    })
+                    function updateMoviesLayout() {
+                        var screenWidth = window.innerWidth;
+                        var movieContainers = document.getElementsByClassName('movie-container');
+                        var numMoviesPerRow = screenWidth > 800 ? 4 : 2; // Số lượng phim trên mỗi hàng
+
+                        for (var i = 0; i < movieContainers.length; i++) {
+                            var movies = Array.from(movieContainers[i].getElementsByClassName('movie')); // Chuyển HTMLCollection sang mảng để có thể sử dụng slice()
+                            var rows = Math.ceil(movies.length / numMoviesPerRow);
+
+                            // Xóa tất cả các hàng hiện tại
+                            while (movieContainers[i].firstChild) {
+                                movieContainers[i].removeChild(movieContainers[i].firstChild);
+                            }
+
+                            // Tạo lại các hàng mới
+                            for (var j = 0; j < rows; j++) {
+                                var row = document.createElement('div');
+                                row.className = 'movie-container';
+                                movieContainers[i].appendChild(row);
+
+                                // Thêm phim vào hàng mới
+                                var moviesInRow = movies.slice(j * numMoviesPerRow, (j + 1) * numMoviesPerRow);
+                                moviesInRow.forEach(function (movie) {
+                                    row.appendChild(movie.cloneNode(true)); // Sao chép và thêm phim vào hàng mới
+                                });
+                            }
+                        }
+                    }
                 </script>
 
             </div>
