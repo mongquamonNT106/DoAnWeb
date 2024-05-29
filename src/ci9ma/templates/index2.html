@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>{{movie.ten_phim}}</title>
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="stylesheet" href="../static/css/style2.css">
     <link rel="stylesheet" href="../static/css/ChonRap_style.css">
@@ -19,7 +19,7 @@
                         <img src="../static/assets/logo.jpg">
                     </a>
                     <div class="hd_left_action">
-                        <a button class="btn book_btn" href="#"> <!--Thay href-->
+                        <a button class="btn book_btn" href="{{ url_for('home') }}"> <!--Thay href-->
                             <img src="https://cinestar.com.vn/assets/images/ic-ticket.svg">
                             <span class="text">Đặt vé ngay</span>
                         </a>
@@ -51,6 +51,11 @@
                                     <img src="https://cinestar.com.vn/assets/images/ic-header-auth.svg">
                                 </div>
                                 <div class="hd_register_login_list">
+                                    {% if session.email %}
+                                    <p>{{ session.email }} <a class="logout" href="{{ url_for('logout') }}">Đăng
+                                            xuất</a>
+                                    </p>
+                                    {% else %}
                                     <a class="link" href="#">
                                         <i class="login"></i>Đăng nhập
                                     </a>
@@ -58,7 +63,9 @@
                                     <a class="link" href="#">
                                         <i class="register"></i>Đăng kí
                                     </a>
+                                    {% endif %}
                                 </div>
+
                             </div>
                         </div>
                         <!--Language-->
@@ -82,44 +89,7 @@
         </div>
         <div class="hd_chonrap_mid">
             <div class="container">
-                <div class="hd_chonrap_mid_components">
-                    <a class="local" href="#"> <!--Thay href-->
-                        <span class="text_chonrap">Chọn rạp</span>
-                    </a>
-                    <div class="other">
-                        <a class="link" href="#">Khuyến mãi</a>
-                        <a class="link" href="#">Giới thiệu</a>
-                        <a class="link" href="#">Dịch vụ khác</a>
-                        <a class="link" href="#">Thuê sự kiện</a>
-                    </div>
-
-
-                </div>
             </div>
-            <!-- <div id="wrapper">
-                <div id="main_content">
-                    <div id="img_content">
-                        <img src="../static/assets/godzilla-vs-kong-poster.jpg" alt="" width="1400">
-                    </div>
-                    <div id="movie_content">
-                        <h1>GODZILLA X KONG: ĐẾ CHẾ MỚI 2D (K)</h1>
-                        <p style="display: flex; line-height: 2;"><img src="../static/assets/icon-tag.svg" alt=""> Khoa
-                            Học Viễn Tưởng</p>
-                        <p style="display: flex;line-height: 2;"><img src="../static/assets/icon-clock.svg" alt=""> 125'
-                        </p>
-                        <h2 style="line-height: 2;">MÔ TẢ</h2>
-                        <p style="line-height: 2;">Đạo diễn: Adam Wingard</p>
-                        <p style="line-height: 2;">Diễn viên: Rebecca Hall, Dan Stevens, Rachel House</p>
-                        <p style="line-height: 2;">Khởi chiếu: 27/03/2024</p>
-                        <h3 style="line-height: 2;">NỘI DUNG PHIM</h3>
-                        <p style="line-height: 2;">Kong và Godzilla - hai sinh vật vĩ đại huyền thoại, hai kẻ thủ truyền
-                            kiếp sẽ cùng bắt tay thực thi một sứ mệnh chung mang tính sống còn để bảo vệ nhân loại, và
-                            trận chiến gắn kết chúng với loài người mãi mãi sẽ bắt đầu.</p>
-                        <p style="display: flex; line-height: 2;text-decoration: underline;"><img
-                                src="../static/assets/icons8-play-64.png" alt="" width="30"> Xem Trailer</p>
-                    </div>
-                </div>
-            </div> -->
             <div id="wrapper">
                 <div id="main_content">
                     <div id="img_content">
@@ -129,10 +99,11 @@
                         <div id="tenphim">
                             <h1>{{ movie.ten_phim }}</h1>
                         </div>
-                        <p style="display: flex; line-height: 2;"><img src="../static/assets/icon-tag.svg" alt=""> {{
+                        <p style="display: flex; line-height: 2;"><img src="../static/assets/icon-tag.svg" alt="">
+                            {{
                             movie.the_loai }}</p>
-                        <p style="display: flex;line-height: 2;"><img src="../static/assets/icon-clock.svg" alt=""> {{
-                            movie.thoi_luong }}'</p>
+                        <p style="display: flex;line-height: 2;"><img src="../static/assets/icon-clock.svg" alt="">
+                            {{movie.thoi_luong }}'</p>
                         <h2 style="line-height: 2;">MÔ TẢ</h2>
                         <p style="line-height: 2;">Đạo diễn: {{ movie.dao_dien }}</p>
                         <p style="line-height: 2;">Diễn viên: {{ movie.dien_vien }}</p>
@@ -147,14 +118,6 @@
                     </div>
                 </div>
             </div>
-            <div id="movie_date" class="lichchieu">
-            </div>
-            <div class="btn_datve">
-                <a class="btn book_btn" href="#"> <!--Thay href-->
-                    <img src="https://cinestar.com.vn/assets/images/ic-ticket.svg">
-                    <span class="text">Đặt vé ngay</span>
-                </a>
-            </div>
             <div class="select_seat">
                 <h1>Chọn Suất Chiếu</h1>
                 <div id="showtimes-container"></div>
@@ -162,9 +125,28 @@
                 <h1>Chọn Ghế</h1>
                 <div id="seats-container"></div>
             </div>
+            <button id="confirm-seats">Xác nhận</button>
+
+            <!-- modal -->
+            <div id="confirmationModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Xác nhận thông tin</h2>
+                    <p id="confirmationDetails"></p>
+                    <button id="submit-confirmation">Xác nhận đặt vé</button>
+                </div>
+            </div>
             <script>
-                const movieId = 1; // Thay bằng ID phim thực tế
-                let selectedShowtimeButton = null; // Biến để theo dõi nút suất chiếu được chọn
+                let selectedShowtime = null;
+                let selectedSeats = [];
+                // Lấy URL hiện tại
+                const currentUrl = window.location.href;
+                // Tách chuỗi URL thành mảng các thành phần
+                const urlParts = currentUrl.split('/');
+                // Lấy ID phim từ thành phần cuối cùng của URL
+                const movieId = urlParts[urlParts.length - 1];
+                // let selectedShowtimeButton = null; // Biến để theo dõi nút suất chiếu được chọn
+
 
                 // Hàm gọi AJAX để lấy danh sách suất chiếu
                 function loadShowtimes(movieId) {
@@ -173,17 +155,22 @@
                         .then(data => {
                             const showtimesContainer = document.getElementById('showtimes-container');
                             showtimesContainer.innerHTML = ''; // Xóa nội dung cũ
+                            // Lấy thời gian hiện tại
+                            const now = new Date();
                             data.forEach(showtime => {
-                                const button = document.createElement('button');
-                                button.className = 'showtime-button';
-                                button.textContent = `Suất chiếu lúc: ${showtime.gio_bat_dau} - Ngày: ${showtime.ngay_chieu}`;
-                                button.onclick = () => selectShowtime(button, showtime.id_cachieu);
-                                showtimesContainer.appendChild(button);
+                                const showtimeDateTime = new Date(showtime.ngay_chieu + 'T' + showtime.gio_bat_dau);
+                                // So sánh thời gian chiếu với thời gian hiện tại
+                                if (showtimeDateTime > now) {
+                                    const button = document.createElement('button');
+                                    button.className = 'showtime-button';
+                                    button.textContent = `Suất chiếu lúc: ${showtime.gio_bat_dau} - Ngày: ${showtime.ngay_chieu}`;
+                                    button.onclick = () => selectShowtime(button, showtime.id_cachieu);
+                                    showtimesContainer.appendChild(button);
+                                }
                             });
                         })
                         .catch(error => console.error('Error:', error));
                 }
-
 
                 // Hàm gọi AJAX để lấy danh sách ghế
                 function loadSeats(showtimeId) {
@@ -192,12 +179,24 @@
                         .then(data => {
                             const seatsContainer = document.getElementById('seats-container');
                             seatsContainer.innerHTML = ''; // Xóa nội dung cũ
+                            // Sắp xếp ghế theo cot và hang
                             data.sort((a, b) => {
-                                if (a.hang < b.hang) return -1;
-                                if (a.hang > b.hang) return 1;
-                                return a.so - b.so;
+                                if (a.cot < b.cot) return -1;
+                                if (a.cot > b.cot) return 1;
+                                return a.hang.localeCompare(b.hang);
                             });
+                            // Tạo cột ghế
+                            let currentColumn = null;
+                            let columnDiv = null;
+
                             data.forEach(seat => {
+                                if (seat.cot !== currentColumn) {
+                                    currentColumn = seat.cot;
+                                    columnDiv = document.createElement('div');
+                                    columnDiv.className = 'seat-column';
+                                    seatsContainer.appendChild(columnDiv);
+                                }
+
                                 const seatDiv = document.createElement('div');
                                 seatDiv.className = 'seat ' + (seat.trang_thai ? 'booked' : 'available');
                                 if (seat.hang === 'E') {
@@ -205,29 +204,92 @@
                                 }
                                 seatDiv.textContent = seat.hang + seat.cot;
                                 if (!seat.trang_thai) { // Chỉ thêm sự kiện click cho ghế chưa đặt
-                                    seatDiv.onclick = () => toggleSeatSelection(seatDiv);
+                                    seatDiv.onclick = () => toggleSeatSelection(seatDiv, seat);
                                 }
-                                seatsContainer.appendChild(seatDiv);
+                                columnDiv.appendChild(seatDiv);
                             });
                         })
                         .catch(error => console.error('Error:', error));
                 }
                 // Hàm để chọn suất chiếu
+                // function selectShowtime(button, showtimeId) {
+                //     if (selectedShowtimeButton) {
+                //         selectedShowtimeButton.classList.remove('selected');
+                //     }
+                //     button.classList.add('selected');
+                //     selectedShowtimeButton = button;
+                //     loadSeats(showtimeId);
+                // }
                 function selectShowtime(button, showtimeId) {
-                    if (selectedShowtimeButton) {
-                        selectedShowtimeButton.classList.remove('selected');
-                    }
-                    button.classList.add('selected');
-                    selectedShowtimeButton = button;
+                    selectedShowtime = showtimeId;
+                    const buttons = document.querySelectorAll('.showtime-button');
+                    buttons.forEach(btn => btn.style.backgroundColor = '#f0f0f0');
+                    button.style.backgroundColor = '#c0c0c0';
                     loadSeats(showtimeId);
                 }
-                // Hàm chọn/bỏ chọn ghế
-                function toggleSeatSelection(seatDiv) {
-                    seatDiv.classList.toggle('selected');
-                }
 
+                // Hàm chọn/bỏ chọn ghế
+                // function toggleSeatSelection(seatDiv) {
+                //     seatDiv.classList.toggle('selected');
+                // }
+                function toggleSeatSelection(seatDiv, seat) {
+                    if (seatDiv.classList.contains('selected')) {
+                        seatDiv.classList.remove('selected');
+                        selectedSeats = selectedSeats.filter(s => s.id !== seat.id);
+                    } else {
+                        seatDiv.classList.add('selected');
+                        selectedSeats.push(seat);
+                    }
+                }
                 // Gọi hàm loadShowtimes với ID của phim
                 loadShowtimes(movieId);
+                // Hiển thị modal xác nhận
+                const confirmButton = document.getElementById('confirm-seats');
+                confirmButton.onclick = () => {
+                    if (selectedShowtime && selectedSeats.length > 0) {
+                        const confirmationModal = document.getElementById('confirmationModal');
+                        const confirmationDetails = document.getElementById('confirmationDetails');
+                        confirmationDetails.innerHTML = `
+                            <p>ID Suất chiếu: ${selectedShowtime}</p>
+                            <p>Ghế đã chọn: ${selectedSeats.map(seat => seat.hang + seat.cot).join(', ')}</p>
+                        `;
+                        confirmationModal.style.display = 'block';
+                    } else {
+                        alert('Vui lòng chọn suất chiếu và ghế trước khi xác nhận.');
+                    }
+                };
+                // Gửi dữ liệu lên server khi xác nhận đặt vé
+                const submitButton = document.getElementById('submit-confirmation');
+                submitButton.onclick = () => {
+                    const tickets = selectedSeats.map(seat => ({
+                        id_cachieu: selectedShowtime,
+                        id_ghe: seat.id_ghe,
+                        id_giave: seat.hang === 'E' ? 2 : 1 // Giả định ghế đôi ở hàng E có id_giave là 2
+                    }));
+                    fetch('/api/confirm_tickets', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(tickets),
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.success) {
+                                alert('Đặt vé thành công!');
+                                location.reload(); // Tải lại trang sau khi đặt vé thành công
+                            } else {
+                                alert('Có lỗi xảy ra, vui lòng thử lại.');
+                            }
+                        })
+                        .catch(error => console.error('Error:', error));
+                };
+                // Đóng modal khi nhấn vào dấu X
+                const closeButton = document.querySelector('.close');
+                closeButton.onclick = () => {
+                    const confirmationModal = document.getElementById('confirmationModal');
+                    confirmationModal.style.display = 'none';
+                };
             </script>
             <div class="footer">
                 <div>
@@ -247,14 +309,6 @@
 
                                         <div class="part">
                                             <div class="text">TÀI KHOẢN</div>
-                                            <ul class="menu-list">
-                                                <li class="menu-item">
-                                                    <a class="menu-link" href="#">Đăng nhập</a> <!--Thay href-->
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a class="menu-link" href="#">Đăng ký</a> <!--Thay href-->
-                                                </li>
-                                            </ul>
                                         </div>
 
                                         <div class="part">
@@ -274,10 +328,12 @@
                                             <div class="text">XEM PHIM</div>
                                             <ul class="menu-list">
                                                 <li class="menu-item">
-                                                    <a class="menu-link" href="#">Phim đang chiếu</a> <!--Thay href-->
+                                                    <a class="menu-link" href="#">Phim đang chiếu</a>
+                                                    <!--Thay href-->
                                                 </li>
                                                 <li class="menu-item">
-                                                    <a class="menu-link" href="#">Phim sắp chiếu</a> <!--Thay href-->
+                                                    <a class="menu-link" href="#">Phim sắp chiếu</a>
+                                                    <!--Thay href-->
                                                 </li>
                                             </ul>
                                         </div>

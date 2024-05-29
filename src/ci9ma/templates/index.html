@@ -17,7 +17,7 @@
                         <img src="../static/assets/logo.jpg">
                     </a>
                     <div class="hd_left_action">
-                        <a button class="btn book_btn" href="#"> <!--Thay href-->
+                        <a button class="btn book_btn" href="{{ url_for('home') }}"> <!--Thay href-->
                             <img src="https://cinestar.com.vn/assets/images/ic-ticket.svg">
                             <span class="text">Đặt vé ngay</span>
                         </a>
@@ -51,7 +51,8 @@
                                 </div>
                                 <div class="hd_register_login_list">
                                     {% if session.email %}
-                                    <p>{{ session.email }} <a class="link" href="{{ url_for('logout') }}">Đăng xuất</a>
+                                    <p>{{ session.email }} <a class="logout" href="{{ url_for('logout') }}">Đăng
+                                            xuất</a>
                                     </p>
                                     {% else %}
                                     <a class="link" href="#">
@@ -124,8 +125,7 @@
                                     </div>
                                     <div class="buy_ticket">
                                         <a href="{{ url_for('book_tickets', id_phim=movie.id) }}"><button
-                                                type="button">Đặt
-                                                vé</button></a>
+                                                type="button">Đặt vé</button></a>
                                     </div>
                                 </a>
                             </div>

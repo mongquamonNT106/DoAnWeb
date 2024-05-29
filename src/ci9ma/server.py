@@ -125,7 +125,6 @@ def book_tickets(id_phim):
 def get_seats(id_cachieu):
     response = supabase.table("ghe").select("*").eq("id_cachieu", id_cachieu).execute()
     seats = response.data
-    app.logger.info(seats)
     return jsonify(seats)
 
 
@@ -134,6 +133,19 @@ def get_showtimes(id_phim):
     response = supabase.table("cachieu").select("*").eq("id_phim", id_phim).execute()
     showtimes = response.data
     return jsonify(showtimes)
+
+
+@app.route("/api/confirm_tickets", methods=["POST"])
+def confirm_tickets():
+    tickets = request.json
+    print(tickets)
+    for ticket in tickets:
+        supabase.table("ve").insert(ticket).execute()
+        supabase.table("ghe").update({"trang_thai": True}).eq(
+            "id_ghe", ticket["id_ghe"]
+        ).execute()
+
+    return jsonify({"success": True})
 
 
 @app.route("/logout", methods=["GET", "POST"])

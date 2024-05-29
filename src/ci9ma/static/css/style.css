@@ -8,11 +8,17 @@
 }
 
 
+body {
+    background: linear-gradient(225deg, #080089 0%, #000000 100%);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
 
 .menu {
     height: 93px;
     justify-content: space-between;
-    background-color: black;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -448,6 +454,16 @@
     /* Canh giữa theo chiều dọc */
 }
 
+.seat-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Canh giữa các ghế trong cột */
+    margin-right: 10px;
+    /* Khoảng cách giữa các cột */
+}
+
+
 .seat {
     width: 50px;
     height: 50px;
@@ -455,6 +471,7 @@
     vertical-align: middle;
     line-height: 30px;
     cursor: pointer;
+    margin: 10px;
 }
 
 .double-seat {
@@ -469,6 +486,16 @@
 
 .booked {
     background-color: red;
+    cursor: not-allowed;
+}
+
+.hd_register_login_ava {
+    margin-right: 3px;
+}
+
+.logout {
+    font-size: medium;
+    color: red;
 }
 
 .showtime-button {
@@ -508,4 +535,46 @@
     background-color: #007bff;
     text-decoration: none;
     border-radius: 5px;
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #5a0075;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#confirm-seats {
+    padding: 5px;
+    margin: 0 auto;
+    background-color: #007bff;
 }
