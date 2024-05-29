@@ -145,8 +145,6 @@
                 const urlParts = currentUrl.split('/');
                 // Lấy ID phim từ thành phần cuối cùng của URL
                 const movieId = urlParts[urlParts.length - 1];
-                // let selectedShowtimeButton = null; // Biến để theo dõi nút suất chiếu được chọn
-
 
                 // Hàm gọi AJAX để lấy danh sách suất chiếu
                 function loadShowtimes(movieId) {
@@ -188,7 +186,6 @@
                             // Tạo cột ghế
                             let currentColumn = null;
                             let columnDiv = null;
-
                             data.forEach(seat => {
                                 if (seat.cot !== currentColumn) {
                                     currentColumn = seat.cot;
@@ -211,27 +208,15 @@
                         })
                         .catch(error => console.error('Error:', error));
                 }
-                // Hàm để chọn suất chiếu
-                // function selectShowtime(button, showtimeId) {
-                //     if (selectedShowtimeButton) {
-                //         selectedShowtimeButton.classList.remove('selected');
-                //     }
-                //     button.classList.add('selected');
-                //     selectedShowtimeButton = button;
-                //     loadSeats(showtimeId);
-                // }
                 function selectShowtime(button, showtimeId) {
                     selectedShowtime = showtimeId;
                     const buttons = document.querySelectorAll('.showtime-button');
-                    buttons.forEach(btn => btn.style.backgroundColor = '#f0f0f0');
-                    button.style.backgroundColor = '#c0c0c0';
+                    buttons.forEach(btn => btn.style.backgroundColor = '#c0c0c0'); // Đặt lại màu nền của tất cả các nút
+                    button.style.backgroundColor = '#008000'; // Đặt màu nền của nút được chọn
                     loadSeats(showtimeId);
                 }
 
-                // Hàm chọn/bỏ chọn ghế
-                // function toggleSeatSelection(seatDiv) {
-                //     seatDiv.classList.toggle('selected');
-                // }
+
                 function toggleSeatSelection(seatDiv, seat) {
                     if (seatDiv.classList.contains('selected')) {
                         seatDiv.classList.remove('selected');
@@ -260,11 +245,14 @@
                 };
                 // Gửi dữ liệu lên server khi xác nhận đặt vé
                 const submitButton = document.getElementById('submit-confirmation');
+                var email = JSON.parse('{{ email | tojson | safe }}');
                 submitButton.onclick = () => {
                     const tickets = selectedSeats.map(seat => ({
                         id_cachieu: selectedShowtime,
                         id_ghe: seat.id_ghe,
-                        id_giave: seat.hang === 'E' ? 2 : 1 // Giả định ghế đôi ở hàng E có id_giave là 2
+                        id_giave: seat.hang === 'E' ? 2 : 1, // Giả định ghế đôi ở hàng E có id_giave là 2
+                        thanh_tien: seat.hang === 'E' ? 90000 : 45000, // Giả định ghế đôi ở hàng E có id_giave là 2
+                        email: email
                     }));
                     fetch('/api/confirm_tickets', {
                         method: 'POST',

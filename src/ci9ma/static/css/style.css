@@ -501,7 +501,7 @@ body {
 .showtime-button {
     margin: 5px;
     padding: 10px;
-    background-color: green;
+    background-color: #008000;
     border: none;
     cursor: pointer;
 }

@@ -45,8 +45,6 @@ def signin():
                 user = response.user
                 if user:
                     session["email"] = user.email  # Lưu email vào session
-                    # data = supabase.table("test").select("*").execute()
-                    # app.logger.info("Table test: %s", data.data)
                     user_data = (
                         supabase.table("users")
                         .select("*")
@@ -59,7 +57,7 @@ def signin():
                         "email": user_data["email"],
                         "role": user_data["role"],
                     }
-                    app.logger.info(session["user"])
+                    app.logger.info(session["user"]["email"])
                     return redirect(url_for("home"))
             except gotrue.errors.AuthApiError as e:
                 return f"Đăng nhập thất bại: {e}"
@@ -85,7 +83,6 @@ def signin():
 
 @app.route("/", methods=["GET", "POST"])
 def home():
-    print(session)
     movies = (
         supabase.table("phim")
         .select("ten_phim, url_poster, trailer, id")
@@ -118,7 +115,9 @@ def book_tickets(id_phim):
     )
     cachieu = response_cachieu.data
     app.logger.info(cachieu)
-    return render_template("index2.html", movie=movie, cachieu=cachieu)
+    return render_template(
+        "index2.html", movie=movie, cachieu=cachieu, email=session["user"]["email"]
+    )
 
 
 @app.route("/api/get_seats/<int:id_cachieu>")
@@ -137,6 +136,7 @@ def get_showtimes(id_phim):
 
 @app.route("/api/confirm_tickets", methods=["POST"])
 def confirm_tickets():
+    app.logger.info(session["user"]["email"])
     tickets = request.json
     print(tickets)
     for ticket in tickets:
