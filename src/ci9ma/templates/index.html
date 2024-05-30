@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <div class="hd_chonrap">
+    <div class="navbar">
         <div class="hd_chonrap_top">
             <div class="container">
                 <div class="hd_chonrap_top_components">
@@ -88,105 +88,42 @@
                 </div>
             </div>
         </div>
-        <div class="hd_chonrap_mid">
-            <h1 class="on-going" style="text-align: center;">
-                PHIM ĐANG CHIẾU
+    </div>
+    <div class="main-content">
+        <div class="hd_chonrap">
+            <div class="hd_chonrap_mid">
+                <h1 class="on-going" style="text-align: center;">
+                    PHIM ĐANG CHIẾU
+                </h1>
+                <div class="banner_1">
+                    <div id="movies">
+                        <div class="movie-container">
+                            {% for movie in movies %}
+                            <div class="movie">
+                                <div>
+                                    <img src="{{ movie.url_poster }}" alt="{{ movie.ten_phim }}">
+                                </div>
+                                <div class="title">
+                                    <p>{{ movie.ten_phim }}</p>
+                                </div>
+                                <div class="trailer">
+                                    <a target="_blank" href="{{ movie.trailer }}">
+                                        <div style="display: flex; align-items: center; justify-content: center;">
+                                            <img src="../static/assets/icons8-play-64.png" alt="Play" width="30">
+                                            <p style="padding-left: 5px;">Trailer</p>
+                                        </div>
+                                        <div class="buy_ticket">
+                                            <a href="{{ url_for('book_tickets', id_phim=movie.id) }}"><button
+                                                    type="button">Đặt vé</button></a>
+                                        </div>
+                                    </a>
+                                </div>
 
-            </h1>
-            <div class="banner_1">
-                <div id="movies">
-                    <div class="movie-container">
-                        {% for movie in movies %}
-                        <div class="movie">
-                            <div>
-                                <img src="{{ movie.url_poster }}" alt="{{ movie.ten_phim }}">
                             </div>
-                            <div class="title">
-                                <p>{{ movie.ten_phim }}</p>
-                            </div>
-                            <div class="trailer">
-                                <a target="_blank" href="{{ movie.trailer }}">
-                                    <div style="display: flex; align-items: center; justify-content: center;">
-                                        <img src="../static/assets/icons8-play-64.png" alt="Play" width="30">
-                                        <p style="padding-left: 5px;">Trailer</p>
-                                    </div>
-                                    <div class="buy_ticket">
-                                        <a href="{{ url_for('book_tickets', id_phim=movie.id) }}"><button
-                                                type="button">Đặt vé</button></a>
-                                    </div>
-                                </a>
-                            </div>
-
+                            {% endfor %}
                         </div>
-                        {% endfor %}
                     </div>
                 </div>
-            </div>
-            <script>
-                function updateMoviesLayout() {
-                    var screenWidth = window.innerWidth;
-                    var movieContainers = document.getElementsByClassName('movie-container');
-                    var numMoviesPerRow = screenWidth > 800 ? 4 : 2; // Số lượng phim trên mỗi hàng
-
-                    for (var i = 0; i < movieContainers.length; i++) {
-                        var movies = Array.from(movieContainers[i].getElementsByClassName('movie')); // Chuyển HTMLCollection sang mảng để có thể sử dụng slice()
-                        var rows = Math.ceil(movies.length / numMoviesPerRow);
-
-                        // Xóa tất cả các hàng hiện tại
-                        while (movieContainers[i].firstChild) {
-                            movieContainers[i].removeChild(movieContainers[i].firstChild);
-                        }
-
-                        // Tạo lại các hàng mới
-                        for (var j = 0; j < rows; j++) {
-                            var row = document.createElement('div');
-                            row.className = 'movie-container';
-                            movieContainers[i].appendChild(row);
-
-                            // Thêm phim vào hàng mới
-                            var moviesInRow = movies1.slice(j * numMoviesPerRow, (j + 1) * numMoviesPerRow);
-                            moviesInRow.forEach(function (movie) {
-                                row.appendChild(movie.cloneNode(true)); // Sao chép và thêm phim vào hàng mới
-                            });
-                        }
-                    }
-                }
-
-
-            </script>
-
-            <h2 class="premier" style="text-align: center;">
-                PHIM SẮP CHIẾU
-            </h2>
-            <div class="banner_1">
-                <div id="phimsapchieu">
-                    <div class="movie-container">
-                        {% for movie in phimsapchieu %}
-                        <div class="movie">
-                            <div>
-                                <img src="{{ movie.url_poster }}" alt="{{ movie.ten_phim }}">
-                            </div>
-                            <div class="title">
-                                <p>{{ movie.ten_phim }}</p>
-                            </div>
-                            <div class="trailer" style="display: flex; align-items: center; justify-content: center;">
-                                <a target="_blank" href="{{ movie.trailer }}">
-                                    <div style="display: flex; align-items: center; justify-content: center;">
-                                        <img src="../static/assets/icons8-play-64.png" alt="Play" width="30">
-                                        <p style="padding-left: 5px;">Trailer</p>
-                                    </div>
-                                </a>
-                            </div>
-
-                        </div>
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-
-            </h1>
-
-            <div class="banner_1">
                 <script>
                     function updateMoviesLayout() {
                         var screenWidth = window.innerWidth;
@@ -209,147 +146,209 @@
                                 movieContainers[i].appendChild(row);
 
                                 // Thêm phim vào hàng mới
-                                var moviesInRow = movies.slice(j * numMoviesPerRow, (j + 1) * numMoviesPerRow);
+                                var moviesInRow = movies1.slice(j * numMoviesPerRow, (j + 1) * numMoviesPerRow);
                                 moviesInRow.forEach(function (movie) {
                                     row.appendChild(movie.cloneNode(true)); // Sao chép và thêm phim vào hàng mới
                                 });
                             }
                         }
                     }
+
+
                 </script>
 
-            </div>
-
-
-
-            </main>
-            <div class="footer">
-                <div>
-                    <div class="container">
-                        <div class="footer_components">
-                            <div class="footer_list">
-                                <!--Logo_Footer-->
-                                <div class="footer_list-item col col4">
-                                    <a class="main_logo_link_footer" href="#"> <!--Thay href-->
-                                        <img src="../static/assets/logo4-2.png" width="800px" height="800px">
+                <h2 class="premier" style="text-align: center;">
+                    PHIM SẮP CHIẾU
+                </h2>
+                <div class="banner_1">
+                    <div id="phimsapchieu">
+                        <div class="movie-container">
+                            {% for movie in phimsapchieu %}
+                            <div class="movie">
+                                <div>
+                                    <img src="{{ movie.url_poster }}" alt="{{ movie.ten_phim }}">
+                                </div>
+                                <div class="title">
+                                    <p>{{ movie.ten_phim }}</p>
+                                </div>
+                                <div class="trailer"
+                                    style="display: flex; align-items: center; justify-content: center;">
+                                    <a target="_blank" href="{{ movie.trailer }}">
+                                        <div style="display: flex; align-items: center; justify-content: center;">
+                                            <img src="../static/assets/icons8-play-64.png" alt="Play" width="30">
+                                            <p style="padding-left: 5px;">Trailer</p>
+                                        </div>
                                     </a>
-                                </div>
-                                <!--Column 1+2-->
-                                <div class="footer_list-item sp">
-
-                                    <div class="footer_list-item_top row">
-
-                                        <div class="part">
-                                            <div class="text">TÀI KHOẢN</div>
-                                            <ul class="menu-list">
-                                                <li class="menu-item">
-                                                    <a class="menu-link" href="#">Đăng nhập</a> <!--Thay href-->
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a class="menu-link" href="#">Đăng ký</a> <!--Thay href-->
-                                                </li>
-                                            </ul>
-                                        </div>
-
-                                        <div class="part">
-                                            <div class="text">THUÊ SỰ KIỆN</div>
-                                            <ul class="menu-list">
-                                                <li class="menu-item">
-                                                    <a class="menu-link" href="#">Thuê rạp</a> <!--Thay href-->
-                                                </li>
-                                            </ul>
-                                        </div>
-
-                                    </div>
-
-                                    <div class="footer_list-item_bottom row">
-
-                                        <div class="part">
-                                            <div class="text">XEM PHIM</div>
-                                            <ul class="menu-list">
-                                                <li class="menu-item">
-                                                    <a class="menu-link" href="#">Phim đang chiếu</a> <!--Thay href-->
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a class="menu-link" href="#">Phim sắp chiếu</a> <!--Thay href-->
-                                                </li>
-                                            </ul>
-                                        </div>
-
-                                        <div class="part">
-                                            <div class="text">CINESTAR</div>
-                                            <ul class="menu-list">
-                                                <li class="menu-item">
-                                                    <a class="menu-link" href="#">Giới thiệu</a> <!--Thay href-->
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a class="menu-link" href="#">Liên hệ</a> <!--Thay href-->
-                                                </li>
-                                            </ul>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                                <!--Column 3-->
-                                <div class="footer_list-item aform">
-                                    <div class="text">DỊCH VỤ KHÁC</div>
-                                    <ul class="menu-list">
-                                        <li class="menu-item">
-                                            <a class="menu-link" href="#">Đặt đồ ăn</a> <!--Thay href-->
-                                        </li>
-                                        <li class="menu-item">
-                                            <a class="menu-link" href="#">Coffee</a> <!--Thay href-->
-                                        </li>
-                                        <li class="menu-item">
-                                            <a class="menu-link" href="#">Nhà hàng</a> <!--Thay href-->
-                                        </li>
-                                        <li class="menu-item">
-                                            <a class="menu-link" href="#">Kidzone</a> <!--Thay href-->
-                                        </li>
-                                        <li class="menu-item">
-                                            <a class="menu-link" href="#">Gym</a> <!--Thay href-->
-                                        </li>
-                                        <li class="menu-item">
-                                            <a class="menu-link" href="#">Nhà hát Opera</a> <!--Thay href-->
-                                        </li>
-                                    </ul>
-                                </div>
-
-                                <!--Column 4-->
-                                <div class="footer_list-item aform">
-                                    <div class="text">HỆ THỐNG RẠP</div>
-                                    <ul class="menu-list">
-                                        <li class="menu-item">
-                                            <a class="menu-link" href="#">Tất cả hệ thống rạp</a> <!--Thay href-->
-                                        </li>
-                                        <li class="menu-item">
-                                            <a class="menu-link" href="#">CI9MA Nguyễn Trãi</a> <!--Thay href-->
-                                        </li>
-                                        <li class="menu-item">
-                                            <a class="menu-link" href="#">CI9MA Hai Bà Trưng</a> <!--Thay href-->
-                                        </li>
-                                        <li class="menu-item">
-                                            <a class="menu-link" href="#">CI9MA Bình Dương</a> <!--Thay href-->
-                                        </li>
-                                        <li class="menu-item">
-                                            <a class="menu-link" href="#">CI9MA Kiên Giang</a> <!--Thay href-->
-                                        </li>
-                                        <li class="menu-item">
-                                            <a class="menu-link" href="#">CI9MA Đà Lạt</a> <!--Thay href-->
-                                        </li>
-                                        <li class="menu-item">
-                                            <a class="menu-link" href="#">CI9MA Huế</a> <!--Thay href-->
-                                        </li>
-                                    </ul>
                                 </div>
 
                             </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+                </h1>
+
+                <div class="banner_1">
+                    <script>
+                        function updateMoviesLayout() {
+                            var screenWidth = window.innerWidth;
+                            var movieContainers = document.getElementsByClassName('movie-container');
+                            var numMoviesPerRow = screenWidth > 800 ? 4 : 2; // Số lượng phim trên mỗi hàng
+
+                            for (var i = 0; i < movieContainers.length; i++) {
+                                var movies = Array.from(movieContainers[i].getElementsByClassName('movie')); // Chuyển HTMLCollection sang mảng để có thể sử dụng slice()
+                                var rows = Math.ceil(movies.length / numMoviesPerRow);
+
+                                // Xóa tất cả các hàng hiện tại
+                                while (movieContainers[i].firstChild) {
+                                    movieContainers[i].removeChild(movieContainers[i].firstChild);
+                                }
+
+                                // Tạo lại các hàng mới
+                                for (var j = 0; j < rows; j++) {
+                                    var row = document.createElement('div');
+                                    row.className = 'movie-container';
+                                    movieContainers[i].appendChild(row);
+
+                                    // Thêm phim vào hàng mới
+                                    var moviesInRow = movies.slice(j * numMoviesPerRow, (j + 1) * numMoviesPerRow);
+                                    moviesInRow.forEach(function (movie) {
+                                        row.appendChild(movie.cloneNode(true)); // Sao chép và thêm phim vào hàng mới
+                                    });
+                                }
+                            }
+                        }
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer_components">
+                <div class="footer_list">
+                    <!--Logo_Footer-->
+                    <div class="footer_list-item col col4">
+                        <a class="main_logo_link_footer" href="#"> <!--Thay href-->
+                            <img src="../static/assets/logo4-2.png" width="800px" height="800px">
+                        </a>
+                    </div>
+                    <!--Column 1+2-->
+                    <div class="footer_list-item sp">
+
+                        <div class="footer_list-item_top row">
+
+                            <div class="part">
+                                <div class="text">TÀI KHOẢN</div>
+                                <ul class="menu-list">
+                                    <li class="menu-item">
+                                        <a class="menu-link" href="#">Đăng nhập</a> <!--Thay href-->
+                                    </li>
+                                    <li class="menu-item">
+                                        <a class="menu-link" href="#">Đăng ký</a> <!--Thay href-->
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="part">
+                                <div class="text">THUÊ SỰ KIỆN</div>
+                                <ul class="menu-list">
+                                    <li class="menu-item">
+                                        <a class="menu-link" href="#">Thuê rạp</a> <!--Thay href-->
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+
+                        <div class="footer_list-item_bottom row">
+
+                            <div class="part">
+                                <div class="text">XEM PHIM</div>
+                                <ul class="menu-list">
+                                    <li class="menu-item">
+                                        <a class="menu-link" href="#">Phim đang chiếu</a> <!--Thay href-->
+                                    </li>
+                                    <li class="menu-item">
+                                        <a class="menu-link" href="#">Phim sắp chiếu</a> <!--Thay href-->
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="part">
+                                <div class="text">CINESTAR</div>
+                                <ul class="menu-list">
+                                    <li class="menu-item">
+                                        <a class="menu-link" href="#">Giới thiệu</a> <!--Thay href-->
+                                    </li>
+                                    <li class="menu-item">
+                                        <a class="menu-link" href="#">Liên hệ</a> <!--Thay href-->
+                                    </li>
+                                </ul>
+                            </div>
+
                         </div>
 
                     </div>
-                    </footer>
+
+                    <!--Column 3-->
+                    <div class="footer_list-item aform">
+                        <div class="text">DỊCH VỤ KHÁC</div>
+                        <ul class="menu-list">
+                            <li class="menu-item">
+                                <a class="menu-link" href="#">Đặt đồ ăn</a> <!--Thay href-->
+                            </li>
+                            <li class="menu-item">
+                                <a class="menu-link" href="#">Coffee</a> <!--Thay href-->
+                            </li>
+                            <li class="menu-item">
+                                <a class="menu-link" href="#">Nhà hàng</a> <!--Thay href-->
+                            </li>
+                            <li class="menu-item">
+                                <a class="menu-link" href="#">Kidzone</a> <!--Thay href-->
+                            </li>
+                            <li class="menu-item">
+                                <a class="menu-link" href="#">Gym</a> <!--Thay href-->
+                            </li>
+                            <li class="menu-item">
+                                <a class="menu-link" href="#">Nhà hát Opera</a> <!--Thay href-->
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!--Column 4-->
+                    <div class="footer_list-item aform">
+                        <div class="text">HỆ THỐNG RẠP</div>
+                        <ul class="menu-list">
+                            <li class="menu-item">
+                                <a class="menu-link" href="#">Tất cả hệ thống rạp</a> <!--Thay href-->
+                            </li>
+                            <li class="menu-item">
+                                <a class="menu-link" href="#">CI9MA Nguyễn Trãi</a> <!--Thay href-->
+                            </li>
+                            <li class="menu-item">
+                                <a class="menu-link" href="#">CI9MA Hai Bà Trưng</a> <!--Thay href-->
+                            </li>
+                            <li class="menu-item">
+                                <a class="menu-link" href="#">CI9MA Bình Dương</a> <!--Thay href-->
+                            </li>
+                            <li class="menu-item">
+                                <a class="menu-link" href="#">CI9MA Kiên Giang</a> <!--Thay href-->
+                            </li>
+                            <li class="menu-item">
+                                <a class="menu-link" href="#">CI9MA Đà Lạt</a> <!--Thay href-->
+                            </li>
+                            <li class="menu-item">
+                                <a class="menu-link" href="#">CI9MA Huế</a> <!--Thay href-->
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>

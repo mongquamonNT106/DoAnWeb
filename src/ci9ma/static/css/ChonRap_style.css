@@ -115,7 +115,6 @@ textarea {
     /*Tổng chiều cao phần header body là 12.8rem*/
     transition: all .4s;
     /**/
-    padding: 20px;
     box-sizing: border-box;
 }
 
@@ -127,15 +126,31 @@ textarea {
 }
 
 .hd_chonrap_top_components {
+    overflow: hidden;
+    position: fixed;
+    /* Giữ navbar ở vị trí cố định */
+    top: 0;
+    /* Đặt ở trên cùng */
+    z-index: 1000;
+    /* Đảm bảo nó nằm trên các nội dung khác */
+    padding-left: 50px;
+    padding-right: 50px;
     align-items: center;
-    /*Điểm xuất phát + điểm căn chỉnh của các thành phần nằm ở trung tâm - theo chiều dọc.*/
+    /* Điểm xuất phát + điểm căn chỉnh của các thành phần nằm ở trung tâm - theo chiều dọc */
     justify-content: stretch;
-    /*Điểm xuất phát + điểm căn chỉnh của các thành phần nằm ở trung tâm - theo chiều ngang.*/
+    /* Điểm xuất phát + điểm căn chỉnh của các thành phần nằm ở trung tâm - theo chiều ngang */
     display: flex;
-    /*Các thành phần được hiển thị linh hoạt theo hết chiều rộng*/
+    /* Các thành phần được hiển thị linh hoạt theo hết chiều rộng */
     gap: 3.0rem;
-    height: 100%;
-    width: 100%;
+    /* Chiều cao của navbar */
+    min-height: 120px;
+    min-width: 100vw;
+    background-color: rgba(0, 0, 0);
+    /* Màu nền của navbar */
+}
+
+.on-going {
+    margin: 20px;
 }
 
 /*1.Logo*/
@@ -363,7 +378,7 @@ button {
 
 .hd_register_login_content {
     align-items: center;
-    justify-content: right !important;
+    justify-content: center !important;
     display: flex;
     flex: 2;
     position: relative;
@@ -665,15 +680,21 @@ ul {
 
 /*Footer_body tab ChonRap*/
 .footer {
+    bottom: 0;
     position: relative;
     display: flex;
-    text-align: left;
+    text-align: center;
     align-items: center;
     justify-content: center;
 }
 
 .footer_components {
+    bottom: 0;
+    margin-top: 100px;
     background-color: #0f172a;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
     display: flex;
 }
 
