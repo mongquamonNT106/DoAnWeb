@@ -123,10 +123,7 @@ textarea {
 
 .container {
     height: 100%;
-    margin: 0 auto;
-    max-width: 123rem;
-    padding: 0 1.5rem;
-    width: 100%;
+    min-width: 100vw;
 }
 
 .hd_chonrap_top_components {
@@ -668,8 +665,6 @@ ul {
 
 /*Footer_body tab ChonRap*/
 .footer {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
     position: relative;
     display: flex;
     text-align: left;
@@ -678,7 +673,7 @@ ul {
 }
 
 .footer_components {
-    padding-top: 10rem;
+    background-color: #0f172a;
     display: flex;
 }
 

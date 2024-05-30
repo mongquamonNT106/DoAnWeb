@@ -350,6 +350,8 @@ body {
     padding: 50px 0px;
 }
 
+
+
 .boxfooter1 {
     width: 35%;
     display: flex;
@@ -490,7 +492,7 @@ body {
 }
 
 .hd_register_login_ava {
-    margin-right: 3px;
+    margin-right: 20px;
 }
 
 .logout {
