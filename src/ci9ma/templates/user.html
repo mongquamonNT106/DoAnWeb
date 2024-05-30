@@ -16,7 +16,7 @@
     <div class="hd_chonrap_top">
         <div class="container">
             <div class="hd_chonrap_top_components">
-                <a class="main_logo_link" href="#"> <!--Thay href-->
+                <a class="main_logo_link" href="{{ url_for('home') }}"> <!--Thay href-->
                     <img class="mainlogo" src="../static/assets/logo4.png">
                 </a>
                 <div class="hd_left_action">
@@ -47,13 +47,16 @@
                     <!--Register/Login-->
                     <div class="hd_register_login">
                         <div class="hd_register_login_content">
-                            <div class="hd_register_login_ava">
-                                <img src="https://cinestar.com.vn/assets/images/ic-header-auth.svg">
-                            </div>
                             <div class="hd_register_login_list">
                                 {% if session.email %}
-                                <p>{{ session.email }} </p>
-                                <a class="logout" href="{{ url_for('logout') }}">Đăng xuất</a>
+                                <div class="hd_register_login_ava">
+                                    <a href="{{url_for('user')}}">
+                                        <img src="https://cinestar.com.vn/assets/images/ic-header-auth.svg">
+                                    </a>
+                                </div>
+                                <p>{{ session.email }} <br> <a class="logout" href="{{ url_for('logout') }}">Đăng
+                                        xuất</a>
+                                </p>
                                 {% else %}
                                 <a class="link" href="#">
                                     <i class="login"></i>Đăng nhập
@@ -129,7 +132,7 @@
 
                                                 const cardTitle = document.createElement('h5');
                                                 cardTitle.className = 'card-title';
-                                                cardTitle.textContent = `Mã Vé: ${ticket.id}`;
+                                                cardTitle.textContent = `Mã Vé: ${ticket.id_ve}`;
 
                                                 const cardText = document.createElement('p');
                                                 cardText.className = 'card-text';
@@ -140,14 +143,15 @@
                                                     Giờ Bắt Đầu: ${ticket.gio_bat_dau}<br>
                                                     Thông tin ghế: Hàng ${ticket.hang}, Cột ${ticket.cot}<br>
                                                     Suất chiếu: ${ticket.id_cachieu}<br>
-                                                    Giá vé: ${ticket.id_giave === 1 ? 'Ghế đơn' : 'Ghế đôi'}
+                                                    Loại ghế: ${ticket.id_giave === 1 ? 'Ghế đơn' : 'Ghế đôi'}<br>
+                                                    Giá tiền: ${ticket.thanh_tien}
                                                 `;
 
                                                 const cancelButton = document.createElement('a');
                                                 cancelButton.href = '#';
                                                 cancelButton.className = 'btn btn-danger';
                                                 cancelButton.textContent = 'Huỷ vé';
-                                                cancelButton.onclick = () => cancelTicket(ticket.id);
+                                                cancelButton.onclick = () => delete_ticket(ticket.id_ve);
 
                                                 cardBody.appendChild(cardTitle);
                                                 cardBody.appendChild(cardText);
@@ -160,46 +164,32 @@
                                 }
 
                                 // Hàm huỷ vé
-                                function cancelTicket(ticketId) {
-                                    // Xử lý hủy vé
-                                    console.log(`Huỷ vé có mã: ${ticketId}`);
-                                    // Gọi API để hủy vé và cập nhật trạng thái ghế nếu cần
+                                function delete_ticket(ticketId) {
+                                    if (confirm('Bạn có chắc muốn hủy vé này không?')) {
+                                        fetch('/api/delete_ticket', {
+                                            method: 'POST',
+                                            headers: {
+                                                'Content-Type': 'application/json',
+                                            },
+                                            body: JSON.stringify({ id_ve: ticketId }),
+                                        })
+                                            .then(response => response.json())
+                                            .then(data => {
+                                                if (data.success) {
+                                                    alert('Đã huỷ vé thành công.');
+                                                    loadTickets(); // Tải lại danh sách vé sau khi hủy
+                                                } else {
+                                                    alert('Có lỗi xảy ra, vui lòng thử lại.');
+                                                }
+                                            })
+                                            .catch(error => console.error('Error:', error));
+                                    }
                                 }
 
                                 // Gọi hàm loadTickets khi tải trang
                                 loadTickets();
                             </script>
-                            <!-- <div class="card-body media align-items-center">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt
-                                    class="d-block ui-w-80">
-                                <div class="media-body ml-4">
-                                    <label class="btn btn-outline-primary">
-                                        Upload new photo
-                                        <input type="file" class="account-settings-fileinput">
-                                    </label> &nbsp;
-                                    <button type="button" class="btn btn-default md-btn-flat">Reset</button>
-                                    <div class="text-light small mt-1">Allowed JPG, GIF or PNG. Max size of 800K</div>
-                                </div>
-                            </div> -->
-                            <!-- <hr class="border-light m-0"> -->
-                            <!-- <div class="card-body">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Mã Vé</h5>
-                                        <p class="card-text">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-                                        </p>
-                                        <a href="#" class="btn btn-primary">Huỷ vé</a>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Mã Vé</h5>
-                                        <p class="card-text">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-                                        </p>
-                                        <a href="#" class="btn btn-primary">Huỷ vé</a>
-                                    </div>
-                                </div>
-                            </div> -->
+
                         </div>
                         <div class="tab-pane fade" id="account-change-password">
                             <div class="card-body pb-2">

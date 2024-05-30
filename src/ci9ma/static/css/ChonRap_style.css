@@ -391,19 +391,14 @@ button {
 .hd_register_login_ava img {
     height: 100%;
     width: 100%;
-    justify-content: right !important;
-    z-index: 2;
 }
 
 .hd_register_login_list {
-    justify-content: right !important;
+    justify-content: center !important;
     align-items: center;
     display: flex;
-    flex: 1;
-    gap: .5rem;
     padding: 0 !important;
-    flex-wrap: wrap;
-    font-size: large;
+    flex-wrap: nowrap;
 }
 
 .hd_register_login_list .separate {

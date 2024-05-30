@@ -542,25 +542,25 @@ body {
     display: none;
     position: fixed;
     z-index: 1;
-    padding-top: 100px;
     left: 0;
     top: 0;
+    margin: auto;
     width: 100%;
     height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
+    margin-top: 100px;
 }
 
 .modal-content {
-    background-color: #5a0075;
+    background-color: #001450;
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
+    text-align: center;
 }
 
 .close {
-    color: #aaa;
+    color: #ff0000;
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -573,10 +573,17 @@ body {
     cursor: pointer;
 }
 
+.confirmseats-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 #confirm-seats {
-    padding: 5px;
-    margin: 0 auto;
+    display: none;
+    padding: 10px;
     background-color: #007bff;
+    border: 1px solid #ffffff;
 }
 
 .mainlogo {
@@ -586,4 +593,9 @@ body {
     /* Tự động điều chỉnh chiều cao theo tỷ lệ ban đầu */
     object-fit: contain;
     /* Đảm bảo hình ảnh giữ nguyên tỷ lệ */
+}
+
+#submit-confirmation {
+    background-color: #007bff;
+    padding: 10px;
 }

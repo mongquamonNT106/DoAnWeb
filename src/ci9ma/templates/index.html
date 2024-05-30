@@ -46,11 +46,12 @@
                         <!--Register/Login-->
                         <div class="hd_register_login">
                             <div class="hd_register_login_content">
-
                                 <div class="hd_register_login_list">
                                     {% if session.email %}
                                     <div class="hd_register_login_ava">
-                                        <img src="https://cinestar.com.vn/assets/images/ic-header-auth.svg">
+                                        <a href="{{url_for('user')}}">
+                                            <img src="https://cinestar.com.vn/assets/images/ic-header-auth.svg">
+                                        </a>
                                     </div>
                                     <p>{{ session.email }} <br> <a class="logout" href="{{ url_for('logout') }}">Đăng
                                             xuất</a>

@@ -127,18 +127,27 @@
                 <h1>Chọn Ghế</h1>
                 <div id="seats-container"></div>
             </div>
-            <button id="confirm-seats">Xác nhận</button>
+            <div class="confirmseats-container">
+                <button id="confirm-seats">Xác nhận</button>
+            </div>
 
             <!-- modal -->
             <div id="confirmationModal" class="modal">
                 <div class="modal-content">
                     <span class="close">&times;</span>
+                    <h2>Tên phim: {{ movie.ten_phim }}</h2>
                     <h2>Xác nhận thông tin</h2>
                     <p id="confirmationDetails"></p>
+                    <p id="showtimeDetails"></p>
                     <button id="submit-confirmation">Xác nhận đặt vé</button>
                 </div>
             </div>
             <script>
+                // Đảm bảo modal bị ẩn mặc định
+                window.onload = () => {
+                    const confirmationModal = document.getElementById('confirmationModal');
+                    confirmationModal.style.display = 'none';
+                };
                 let selectedShowtime = null;
                 let selectedSeats = [];
                 // Lấy URL hiện tại
@@ -164,7 +173,7 @@
                                     const button = document.createElement('button');
                                     button.className = 'showtime-button';
                                     button.textContent = `Suất chiếu lúc: ${showtime.gio_bat_dau} - Ngày: ${showtime.ngay_chieu}`;
-                                    button.onclick = () => selectShowtime(button, showtime.id_cachieu);
+                                    button.onclick = () => selectShowtime(button, showtime.id_cachieu, showtime.ngay_chieu, showtime.gio_bat_dau);
                                     showtimesContainer.appendChild(button);
                                 }
                             });
@@ -210,15 +219,19 @@
                         })
                         .catch(error => console.error('Error:', error));
                 }
-                function selectShowtime(button, showtimeId) {
+                function selectShowtime(button, showtimeId, ngayChieu, gioBatDau) {
                     selectedShowtime = showtimeId;
                     const buttons = document.querySelectorAll('.showtime-button');
                     buttons.forEach(btn => btn.style.backgroundColor = '#c0c0c0'); // Đặt lại màu nền của tất cả các nút
                     button.style.backgroundColor = '#008000'; // Đặt màu nền của nút được chọn
                     loadSeats(showtimeId);
+                    const btn_confirm_seats = document.getElementById('confirm-seats');
+                    btn_confirm_seats.style.display = 'flex';
+                    const showtimeDetails = document.getElementById('showtimeDetails');
+                    showtimeDetails.textContent = `Ngày chiếu: ${ngayChieu}, Giờ chiếu: ${gioBatDau}`;
                 }
 
-
+                // Hàm chọn/bỏ chọn ghế
                 function toggleSeatSelection(seatDiv, seat) {
                     if (seatDiv.classList.contains('selected')) {
                         seatDiv.classList.remove('selected');
@@ -245,6 +258,7 @@
                         alert('Vui lòng chọn suất chiếu và ghế trước khi xác nhận.');
                     }
                 };
+
                 // Gửi dữ liệu lên server khi xác nhận đặt vé
                 const submitButton = document.getElementById('submit-confirmation');
                 var email = JSON.parse('{{ email | tojson | safe }}');
@@ -280,6 +294,7 @@
                     const confirmationModal = document.getElementById('confirmationModal');
                     confirmationModal.style.display = 'none';
                 };
+
             </script>
             <div class="footer">
                 <div>

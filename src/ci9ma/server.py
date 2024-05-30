@@ -160,7 +160,7 @@ def get_tickets():
             seat = seats.get(ticket["id_ghe"])
             if movie:
                 ticket_info = {
-                    "id": ticket["id_ve"],
+                    "id_ve": ticket["id_ve"],
                     "id_ghe": ticket["id_ghe"],
                     "hang": seat["hang"],
                     "cot": seat["cot"],
@@ -175,6 +175,30 @@ def get_tickets():
                 result.append(ticket_info)
     print("vé: ", result)
     return jsonify(result)
+
+
+@app.route("/api/delete_ticket", methods=["POST"])
+def delete_ticket():
+    data = request.json
+    id_ve = data.get("id_ve")
+    if not id_ve:
+        return jsonify({"error": "Missing id_ve, id_ghe"}), 400
+
+    # Lấy thông tin vé để biết id_ghe
+    ticket_response = supabase.table("ve").select("id_ghe").eq("id_ve", id_ve).execute()
+    if not ticket_response.data:
+        return jsonify({"error": "Ticket not found"}), 404
+    id_ghe = ticket_response.data[0]["id_ghe"]
+
+    print(id_ve)
+    print(ticket_response)
+    # Xóa vé từ bảng ve
+    supabase.table("ve").delete().eq("id_ve", id_ve).execute()
+
+    # Đặt lại trạng thái ghế thành false trong bảng ghe
+    supabase.table("ghe").update({"trang_thai": False}).eq("id_ghe", id_ghe).execute()
+
+    return jsonify({"success": True})
 
 
 @app.route("/user", methods=["GET"])
