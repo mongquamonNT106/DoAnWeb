@@ -15,8 +15,8 @@
         <div class="hd_chonrap_top">
             <div class="container">
                 <div class="hd_chonrap_top_components">
-                    <a class="main_logo_link" href="#"> <!--Thay href-->
-                        <img src="../static/assets/logo.jpg">
+                    <a class="main_logo_link" href="{{ url_for('home') }}"> <!--Thay href-->
+                        <img class="mainlogo" src="../static/assets/logo4.png">
                     </a>
                     <div class="hd_left_action">
                         <a button class="btn book_btn" href="{{ url_for('home') }}"> <!--Thay href-->
@@ -47,12 +47,15 @@
                         <!--Register/Login-->
                         <div class="hd_register_login">
                             <div class="hd_register_login_content">
-                                <div class="hd_register_login_ava">
-                                    <img src="https://cinestar.com.vn/assets/images/ic-header-auth.svg">
-                                </div>
+
                                 <div class="hd_register_login_list">
                                     {% if session.email %}
-                                    <p>{{ session.email }} <a class="logout" href="{{ url_for('logout') }}">Đăng
+                                    <div class="hd_register_login_ava">
+                                        <a href="{{url_for('user')}}">
+                                            <img src="https://cinestar.com.vn/assets/images/ic-header-auth.svg">
+                                        </a>
+                                    </div>
+                                    <p>{{ session.email }} <br> <a class="logout" href="{{ url_for('logout') }}">Đăng
                                             xuất</a>
                                     </p>
                                     {% else %}
@@ -65,7 +68,6 @@
                                     </a>
                                     {% endif %}
                                 </div>
-
                             </div>
                         </div>
                         <!--Language-->

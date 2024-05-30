@@ -43,6 +43,7 @@ def signin():
                     {"email": email, "password": password}
                 )
                 user = response.user
+                print(user)
                 if user:
                     session["email"] = user.email  # Lưu email vào session
                     user_data = (
@@ -52,12 +53,12 @@ def signin():
                         .execute()
                         .data[0]
                     )
+                    print(session.get("email"))
                     session["user"] = {
                         "id": user_data["id"],
                         "email": user_data["email"],
                         "role": user_data["role"],
                     }
-                    app.logger.info(session["user"]["email"])
                     return redirect(url_for("home"))
             except gotrue.errors.AuthApiError as e:
                 return f"Đăng nhập thất bại: {e}"
@@ -83,6 +84,8 @@ def signin():
 
 @app.route("/", methods=["GET", "POST"])
 def home():
+    if "email" not in session:
+        return redirect(url_for("signin"))
     movies = (
         supabase.table("phim")
         .select("ten_phim, url_poster, trailer, id")
@@ -95,19 +98,13 @@ def home():
         .execute()
         .data
     )
-    if "email" not in session:
-        return redirect(url_for("signin"))
-    if request.method == "POST":
-        action = request.form.get("action")
-        # Kiểm tra xem nút "book_tickets" có trong yêu cầu hay không
-        if action == "book_ticket":
-            # Nếu nút "Đặt vé ngay" được nhấn, chuyển hướng đến tuyến đường "book_ticket"
-            return redirect(url_for("book_tickets"))
     return render_template("index.html", movies=movies, phimsapchieu=phimsapchieu)
 
 
 @app.route("/book_tickets/<int:id_phim>", methods=["GET", "POST"])
 def book_tickets(id_phim):
+    if "email" not in session:
+        return redirect(url_for("signin"))
     response = supabase.table("phim").select("*").eq("id", id_phim).execute()
     movie = response.data[0] if response.data else None
     response_cachieu = (
@@ -125,6 +122,66 @@ def get_seats(id_cachieu):
     response = supabase.table("ghe").select("*").eq("id_cachieu", id_cachieu).execute()
     seats = response.data
     return jsonify(seats)
+
+
+@app.route("/api/get_tickets", methods=["GET"])
+def get_tickets():
+    if "email" not in session:
+        return redirect(url_for("signin"))
+    email = session.get("email")
+    # Fetch all tickets
+    tickets_response = supabase.table("ve").select("*").eq("email", email).execute()
+    tickets = tickets_response.data
+
+    # Fetch all showtimes
+    showtimes_response = (
+        supabase.table("cachieu")
+        .select("id_cachieu, id_phim, ngay_chieu, gio_bat_dau")
+        .execute()
+    )
+    showtimes = {
+        showtime["id_cachieu"]: showtime for showtime in showtimes_response.data
+    }
+
+    # Fetch all movies
+    movies_response = supabase.table("phim").select("id, ten_phim").execute()
+    movies = {movie["id"]: movie for movie in movies_response.data}
+
+    # fetch seats
+    seats_response = supabase.table("ghe").select("id_ghe, hang, cot").execute()
+    seats = {seat["id_ghe"]: seat for seat in seats_response.data}
+
+    # Merge the data
+    result = []
+    for ticket in tickets:
+        showtime = showtimes.get(ticket["id_cachieu"])
+        if showtime:
+            movie = movies.get(showtime["id_phim"])
+            seat = seats.get(ticket["id_ghe"])
+            if movie:
+                ticket_info = {
+                    "id": ticket["id_ve"],
+                    "id_ghe": ticket["id_ghe"],
+                    "hang": seat["hang"],
+                    "cot": seat["cot"],
+                    "id_giave": ticket["id_giave"],
+                    "thanh_tien": ticket["thanh_tien"],
+                    "id_cachieu": ticket["id_cachieu"],
+                    "ten_phim": movie["ten_phim"],
+                    "id_phim": showtime["id_phim"],
+                    "ngay_chieu": showtime["ngay_chieu"],
+                    "gio_bat_dau": showtime["gio_bat_dau"],
+                }
+                result.append(ticket_info)
+    print("vé: ", result)
+    return jsonify(result)
+
+
+@app.route("/user", methods=["GET"])
+def user():
+    if "email" not in session:
+        return redirect(url_for("signin"))
+    return render_template("user.html")
 
 
 @app.route("/api/get_showtimes/<int:id_phim>")
@@ -152,7 +209,6 @@ def confirm_tickets():
 def logout():
     supabase.auth.sign_out()
     session.clear()
-    print(session)
     return redirect(url_for("signin"))
 
 

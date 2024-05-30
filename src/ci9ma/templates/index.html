@@ -14,7 +14,7 @@
             <div class="container">
                 <div class="hd_chonrap_top_components">
                     <a class="main_logo_link" href="#"> <!--Thay href-->
-                        <img src="../static/assets/logo.jpg">
+                        <img class="mainlogo" src="../static/assets/logo4.png">
                     </a>
                     <div class="hd_left_action">
                         <a button class="btn book_btn" href="{{ url_for('home') }}"> <!--Thay href-->
@@ -46,12 +46,13 @@
                         <!--Register/Login-->
                         <div class="hd_register_login">
                             <div class="hd_register_login_content">
-                                <div class="hd_register_login_ava">
-                                    <img src="https://cinestar.com.vn/assets/images/ic-header-auth.svg">
-                                </div>
+
                                 <div class="hd_register_login_list">
                                     {% if session.email %}
-                                    <p>{{ session.email }} <a class="logout" href="{{ url_for('logout') }}">Đăng
+                                    <div class="hd_register_login_ava">
+                                        <img src="https://cinestar.com.vn/assets/images/ic-header-auth.svg">
+                                    </div>
+                                    <p>{{ session.email }} <br> <a class="logout" href="{{ url_for('logout') }}">Đăng
                                             xuất</a>
                                     </p>
                                     {% else %}
@@ -87,21 +88,6 @@
             </div>
         </div>
         <div class="hd_chonrap_mid">
-            <div class="container">
-                <div class="hd_chonrap_mid_components">
-                    <a class="local" href="#"> <!--Thay href-->
-                        <span class="text_chonrap">Chọn rạp</span>
-                    </a>
-                    <div class="other">
-                        <a class="link" href="#">Khuyến mãi</a>
-                        <a class="link" href="#">Giới thiệu</a>
-                        <a class="link" href="#">Dịch vụ khác</a>
-                        <a class="link" href="#">Thuê sự kiện</a>
-                    </div>
-
-
-                </div>
-            </div>
             <h1 class="on-going" style="text-align: center;">
                 PHIM ĐANG CHIẾU
 
@@ -115,7 +101,7 @@
                                 <img src="{{ movie.url_poster }}" alt="{{ movie.ten_phim }}">
                             </div>
                             <div class="title">
-                                <p>{{ movie.title }}</p>
+                                <p>{{ movie.ten_phim }}</p>
                             </div>
                             <div class="trailer">
                                 <a target="_blank" href="{{ movie.trailer }}">
@@ -167,11 +153,7 @@
 
 
             </script>
-            <div class="moreinfo">
-                <div button class="moreinfo_detail">
-                    TÌM HIỂU THÊM
-                </div>
-            </div>
+
             <h2 class="premier" style="text-align: center;">
                 PHIM SẮP CHIẾU
             </h2>
@@ -184,17 +166,13 @@
                                 <img src="{{ movie.url_poster }}" alt="{{ movie.ten_phim }}">
                             </div>
                             <div class="title">
-                                <p>{{ movie.title }}</p>
+                                <p>{{ movie.ten_phim }}</p>
                             </div>
-                            <div class="trailer">
+                            <div class="trailer" style="display: flex; align-items: center; justify-content: center;">
                                 <a target="_blank" href="{{ movie.trailer }}">
                                     <div style="display: flex; align-items: center; justify-content: center;">
                                         <img src="../static/assets/icons8-play-64.png" alt="Play" width="30">
                                         <p style="padding-left: 5px;">Trailer</p>
-                                    </div>
-                                    <div class="buy_ticket">
-                                        <a href="{{ url_for('book_tickets', id_phim=movie.id) }}"><button
-                                                type="button">Tìm hiểu</button></a>
                                     </div>
                                 </a>
                             </div>
@@ -240,11 +218,7 @@
                 </script>
 
             </div>
-            <div class="moreinfo">
-                <div button class="moreinfo_detail">
-                    TÌM HIỂU THÊM
-                </div>
-            </div>
+
 
 
             </main>

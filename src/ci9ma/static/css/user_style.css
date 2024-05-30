@@ -1,11 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cabin', sans-serif;
+    color: white
+}
+
 body {
-    background: #1e00ff;
     margin-top: 20px;
 }
 
-.card {
-    background-color: #26B4FF;
+.card.overflow-hidden {
+    background: linear-gradient(225deg, #080089 0%, #000000 100%);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
 }
+
+.list-group .list-group-flush .account-settings-links {
+    background-color: #080089;
+    color: white;
+}
+
+.list-group-item .list-group-item-action {
+    background-color: #080089;
+    color: white;
+}
+
+.list-group-item .list-group-item-action.active {
+    color: white;
+}
+
 
 .ui-w-80 {
     width: 80px !important;
@@ -33,7 +61,7 @@ label.btn {
 }
 
 .text-light {
-    color: #babbbc !important;
+    color: #ffffff !important;
 }
 
 .btn-facebook {
@@ -48,9 +76,29 @@ label.btn {
     color: #fff;
 }
 
+#tickets-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-content: center;
+    /* Canh giữa các ghế trong cột */
+    margin-right: 100px;
+    /* Khoảng cách giữa các cột */
+}
+
 .card {
+    min-width: 200px;
     background-clip: padding-box;
     box-shadow: 0 1px 4px rgba(24, 28, 33, 0.012);
+    margin: 20px;
+}
+
+.card-text {
+    color: #000000;
+}
+
+.card-title {
+    color: #080089;
 }
 
 .row-bordered {
@@ -67,13 +115,21 @@ label.btn {
 
 .account-settings-links .list-group-item.active {
     font-weight: bold !important;
+    color: white;
 }
 
 html:not(.dark-style) .account-settings-links .list-group-item.active {
+    color: white;
+    background: rgb(0, 7, 210) !important;
+}
+
+html:not(.dark-style) .account-settings-links .list-group-item {
+    color: white;
     background: transparent !important;
 }
 
 .account-settings-multiselect~.select2-container {
+
     width: 100% !important;
 }
 
@@ -83,7 +139,7 @@ html:not(.dark-style) .account-settings-links .list-group-item.active {
 }
 
 .light-style .account-settings-links .list-group-item.active {
-    color: #4e5155 !important;
+    color: #ffffff !important;
 }
 
 .material-style .account-settings-links .list-group-item {
@@ -111,4 +167,34 @@ html:not(.dark-style) .account-settings-links .list-group-item.active {
 .light-style .account-settings-links .list-group-item {
     padding: 0.85rem 1.5rem;
     border-color: rgba(24, 28, 33, 0.03) !important;
+}
+
+.btn.btn-danger {
+    background-color: red;
+}
+
+btn.btn-danger:click {
+    background-color: rgb(155, 0, 0);
+}
+
+.btn.btn-primary:hover {
+    background-color: rgb(177, 0, 0);
+}
+
+@media (max-width: 768px) {
+    #tickets-container {
+        display: inline;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        /* Canh giữa các ghế trong cột */
+    }
+
+    .card {
+        min-width: 0.2vw;
+        background-clip: padding-box;
+        box-shadow: 0 1px 4px rgba(24, 28, 33, 0.012);
+        margin: 20px;
+    }
+
 }

@@ -578,3 +578,12 @@ body {
     margin: 0 auto;
     background-color: #007bff;
 }
+
+.mainlogo {
+    width: 100%;
+    /* Hoặc bất kỳ giá trị nào bạn cần */
+    height: auto;
+    /* Tự động điều chỉnh chiều cao theo tỷ lệ ban đầu */
+    object-fit: contain;
+    /* Đảm bảo hình ảnh giữ nguyên tỷ lệ */
+}

@@ -4,82 +4,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{movie.ten_phim}}</title>
+    <title>USER</title>
+    <link rel="stylesheet" href="../static/css/user_style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="stylesheet" href="../static/css/style2.css">
     <link rel="stylesheet" href="../static/css/ChonRap_style.css">
 </head>
 
 <body>
-    <div class="hd_chonrap">
-        <div class="hd_chonrap_top">
-            <div class="container">
-                <div class="hd_chonrap_top_components">
-                    <a class="main_logo_link" href="#"> <!--Thay href-->
-                        <img src="../static/assets/logo.jpg">
+    <div class="hd_chonrap_top">
+        <div class="container">
+            <div class="hd_chonrap_top_components">
+                <a class="main_logo_link" href="#"> <!--Thay href-->
+                    <img class="mainlogo" src="../static/assets/logo4.png">
+                </a>
+                <div class="hd_left_action">
+                    <a button class="btn book_btn" href="{{ url_for('home') }}"> <!--Thay href-->
+                        <img src="https://cinestar.com.vn/assets/images/ic-ticket.svg">
+                        <span class="text">Đặt vé ngay</span>
                     </a>
-                    <div class="hd_left_action">
-                        <a button class="btn book_btn" href="{{ url_for('home') }}"> <!--Thay href-->
-                            <img src="https://cinestar.com.vn/assets/images/ic-ticket.svg">
-                            <span class="text">Đặt vé ngay</span>
-                        </a>
+                </div>
+                <div class="hd_right_action">
+                    <!--Search-->
+                    <div class="hd_search">
+                        <div class="search_icon">
+                            <img src="https://cinestar.com.vn/assets/images/icon-search.svg">
+                        </div>
+                        <div class="search_panel" data-name="panel_search">
+                            <div class="search_panel_form">
+                                <div>
+                                    <div class="search_panel_form_content">
+                                        <input class="search_content" type="text" placeholder="Tìm phim, thể loại,...">
+                                        <button class="search_btn" type="submit">
+                                            <img src="https://cinestar.com.vn/assets/images/ic-header-search.svg">
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="hd_right_action">
-                        <!--Search-->
-                        <div class="hd_search">
-                            <div class="search_icon">
-                                <img src="https://cinestar.com.vn/assets/images/icon-search.svg">
+                    <!--Register/Login-->
+                    <div class="hd_register_login">
+                        <div class="hd_register_login_content">
+                            <div class="hd_register_login_ava">
+                                <img src="https://cinestar.com.vn/assets/images/ic-header-auth.svg">
                             </div>
-                            <div class="search_panel" data-name="panel_search">
-                                <div class="search_panel_form">
-                                    <div>
-                                        <div class="search_panel_form_content">
-                                            <input class="search_content" type="text"
-                                                placeholder="Tìm phim, thể loại,...">
-                                            <button class="search_btn" type="submit">
-                                                <img src="https://cinestar.com.vn/assets/images/ic-header-search.svg">
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="hd_register_login_list">
+                                {% if session.email %}
+                                <p>{{ session.email }} </p>
+                                <a class="logout" href="{{ url_for('logout') }}">Đăng xuất</a>
+                                {% else %}
+                                <a class="link" href="#">
+                                    <i class="login"></i>Đăng nhập
+                                </a>
+                                <span class="separate">/</span>
+                                <a class="link" href="#">
+                                    <i class="register"></i>Đăng kí
+                                </a>
+                                {% endif %}
                             </div>
-                        </div>
-                        <!--Register/Login-->
-                        <div class="hd_register_login">
-                            <div class="hd_register_login_content">
-                                <div class="hd_register_login_ava">
-                                    <img src="https://cinestar.com.vn/assets/images/ic-header-auth.svg">
-                                </div>
-                                <div class="hd_register_login_list">
-                                    {% if session.email %}
-                                    <p>{{ session.email }} <a class="logout" href="{{ url_for('logout') }}">Đăng
-                                            xuất</a>
-                                    </p>
-                                    {% else %}
-                                    <a class="link" href="#">
-                                        <i class="login"></i>Đăng nhập
-                                    </a>
-                                    <span class="separate">/</span>
-                                    <a class="link" href="#">
-                                        <i class="register"></i>Đăng kí
-                                    </a>
-                                    {% endif %}
-                                </div>
 
-                            </div>
                         </div>
-                        <!--Language-->
-                        <div class="hd_language">
-                            <div class="hd_language_action">
-                                <div class="hd_language_popup">
-                                    <div class="hd_language_option">
-                                        <span class="image">
-                                            <img src="https://cinestar.com.vn/assets/images/footer-vietnam.svg">
-                                        </span>
-                                        <span class="text">
-                                            VN
-                                        </span>
-                                    </div>
+                    </div>
+                    <!--Language-->
+                    <div class="hd_language">
+                        <div class="hd_language_action">
+                            <div class="hd_language_popup">
+                                <div class="hd_language_option">
+                                    <span class="image">
+                                        <img src="https://cinestar.com.vn/assets/images/footer-vietnam.svg">
+                                    </span>
+                                    <span class="text">
+                                        VN
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -87,130 +85,309 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="container light-style flex-grow-1 container-p-y">
+        <h4 class="font-weight-bold py-3 mb-4">
+            Xin chào {{ session.email }}!
+        </h4>
+        <div class="card overflow-hidden">
+            <div class="row no-gutters row-bordered row-border-light">
+                <div class="col-md-3 pt-0">
+                    <div class="list-group list-group-flush account-settings-links">
+                        <a class="list-group-item list-group-item-action active" data-toggle="list"
+                            href="#my-tickets">Vé đã mua</a>
+                        <a class="list-group-item list-group-item-action" data-toggle="list"
+                            href="#account-change-password">Change password</a>
+                        <a class="list-group-item list-group-item-action" data-toggle="list"
+                            href="#account-info">Info</a>
+                        <a class="list-group-item list-group-item-action" data-toggle="list"
+                            href="#account-social-links">Social links</a>
+                        <a class="list-group-item list-group-item-action" data-toggle="list"
+                            href="#account-connections">Connections</a>
+                        <a class="list-group-item list-group-item-action" data-toggle="list"
+                            href="#account-notifications">Notifications</a>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="tab-content">
+                        <div class="tab-pane fade active show" id="my-tickets">
+                            <div id="tickets-container"></div>
+                            <script>
+                                // Hàm gọi API để lấy dữ liệu vé
+                                function loadTickets() {
+                                    fetch('/api/get_tickets')
+                                        .then(response => response.json())
+                                        .then(data => {
+                                            const ticketsContainer = document.getElementById('tickets-container');
+                                            ticketsContainer.innerHTML = ''; // Xóa nội dung cũ
+                                            data.forEach(ticket => {
+                                                const card = document.createElement('div');
+                                                card.className = 'card';
 
+                                                const cardBody = document.createElement('div');
+                                                cardBody.className = 'card-body';
 
-        <div class="footer">
-            <div>
-                <div class="container">
-                    <div class="footer_components">
-                        <div class="footer_list">
-                            <!--Logo_Footer-->
-                            <div class="footer_list-item col col4">
-                                <a class="main_logo_link_footer" href="#"> <!--Thay href-->
-                                    <img src="../static/assets/logo4-2.png" width="800px" height="800px">
-                                </a>
-                            </div>
-                            <!--Column 1+2-->
-                            <div class="footer_list-item sp">
+                                                const cardTitle = document.createElement('h5');
+                                                cardTitle.className = 'card-title';
+                                                cardTitle.textContent = `Mã Vé: ${ticket.id}`;
 
-                                <div class="footer_list-item_top row">
+                                                const cardText = document.createElement('p');
+                                                cardText.className = 'card-text';
+                                                cardText.innerHTML = `
+                                                    Tên Phim: ${ticket.ten_phim}<br>
+                                                    ID Phim: ${ticket.id_phim}<br>
+                                                    Ngày Chiếu: ${ticket.ngay_chieu}<br>
+                                                    Giờ Bắt Đầu: ${ticket.gio_bat_dau}<br>
+                                                    Thông tin ghế: Hàng ${ticket.hang}, Cột ${ticket.cot}<br>
+                                                    Suất chiếu: ${ticket.id_cachieu}<br>
+                                                    Giá vé: ${ticket.id_giave === 1 ? 'Ghế đơn' : 'Ghế đôi'}
+                                                `;
 
-                                    <div class="part">
-                                        <div class="text">TÀI KHOẢN</div>
-                                    </div>
+                                                const cancelButton = document.createElement('a');
+                                                cancelButton.href = '#';
+                                                cancelButton.className = 'btn btn-danger';
+                                                cancelButton.textContent = 'Huỷ vé';
+                                                cancelButton.onclick = () => cancelTicket(ticket.id);
 
-                                    <div class="part">
-                                        <div class="text">THUÊ SỰ KIỆN</div>
-                                        <ul class="menu-list">
-                                            <li class="menu-item">
-                                                <a class="menu-link" href="#">Thuê rạp</a> <!--Thay href-->
-                                            </li>
-                                        </ul>
-                                    </div>
+                                                cardBody.appendChild(cardTitle);
+                                                cardBody.appendChild(cardText);
+                                                cardBody.appendChild(cancelButton);
+                                                card.appendChild(cardBody);
+                                                ticketsContainer.appendChild(card);
+                                            });
+                                        })
+                                        .catch(error => console.error('Error:', error));
+                                }
 
+                                // Hàm huỷ vé
+                                function cancelTicket(ticketId) {
+                                    // Xử lý hủy vé
+                                    console.log(`Huỷ vé có mã: ${ticketId}`);
+                                    // Gọi API để hủy vé và cập nhật trạng thái ghế nếu cần
+                                }
+
+                                // Gọi hàm loadTickets khi tải trang
+                                loadTickets();
+                            </script>
+                            <!-- <div class="card-body media align-items-center">
+                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt
+                                    class="d-block ui-w-80">
+                                <div class="media-body ml-4">
+                                    <label class="btn btn-outline-primary">
+                                        Upload new photo
+                                        <input type="file" class="account-settings-fileinput">
+                                    </label> &nbsp;
+                                    <button type="button" class="btn btn-default md-btn-flat">Reset</button>
+                                    <div class="text-light small mt-1">Allowed JPG, GIF or PNG. Max size of 800K</div>
                                 </div>
-
-                                <div class="footer_list-item_bottom row">
-
-                                    <div class="part">
-                                        <div class="text">XEM PHIM</div>
-                                        <ul class="menu-list">
-                                            <li class="menu-item">
-                                                <a class="menu-link" href="#">Phim đang chiếu</a>
-                                                <!--Thay href-->
-                                            </li>
-                                            <li class="menu-item">
-                                                <a class="menu-link" href="#">Phim sắp chiếu</a>
-                                                <!--Thay href-->
-                                            </li>
-                                        </ul>
+                            </div> -->
+                            <!-- <hr class="border-light m-0"> -->
+                            <!-- <div class="card-body">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Mã Vé</h5>
+                                        <p class="card-text">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                                        </p>
+                                        <a href="#" class="btn btn-primary">Huỷ vé</a>
                                     </div>
-
-                                    <div class="part">
-                                        <div class="text">CINESTAR</div>
-                                        <ul class="menu-list">
-                                            <li class="menu-item">
-                                                <a class="menu-link" href="#">Giới thiệu</a> <!--Thay href-->
-                                            </li>
-                                            <li class="menu-item">
-                                                <a class="menu-link" href="#">Liên hệ</a> <!--Thay href-->
-                                            </li>
-                                        </ul>
-                                    </div>
-
                                 </div>
-
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Mã Vé</h5>
+                                        <p class="card-text">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                                        </p>
+                                        <a href="#" class="btn btn-primary">Huỷ vé</a>
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+                        <div class="tab-pane fade" id="account-change-password">
+                            <div class="card-body pb-2">
+                                <div class="form-group">
+                                    <label class="form-label">Current password</label>
+                                    <input type="password" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">New password</label>
+                                    <input type="password" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Repeat new password</label>
+                                    <input type="password" class="form-control">
+                                </div>
                             </div>
-
-                            <!--Column 3-->
-                            <div class="footer_list-item aform">
-                                <div class="text">DỊCH VỤ KHÁC</div>
-                                <ul class="menu-list">
-                                    <li class="menu-item">
-                                        <a class="menu-link" href="#">Đặt đồ ăn</a> <!--Thay href-->
-                                    </li>
-                                    <li class="menu-item">
-                                        <a class="menu-link" href="#">Coffee</a> <!--Thay href-->
-                                    </li>
-                                    <li class="menu-item">
-                                        <a class="menu-link" href="#">Nhà hàng</a> <!--Thay href-->
-                                    </li>
-                                    <li class="menu-item">
-                                        <a class="menu-link" href="#">Kidzone</a> <!--Thay href-->
-                                    </li>
-                                    <li class="menu-item">
-                                        <a class="menu-link" href="#">Gym</a> <!--Thay href-->
-                                    </li>
-                                    <li class="menu-item">
-                                        <a class="menu-link" href="#">Nhà hát Opera</a> <!--Thay href-->
-                                    </li>
-                                </ul>
+                        </div>
+                        <div class="tab-pane fade" id="account-info">
+                            <div class="card-body pb-2">
+                                <div class="form-group">
+                                    <label class="form-label">Bio</label>
+                                    <textarea class="form-control"
+                                        rows="5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nunc arcu, dignissim sit amet sollicitudin iaculis, vehicula id urna. Sed luctus urna nunc. Donec fermentum, magna sit amet rutrum pretium, turpis dolor molestie diam, ut lacinia diam risus eleifend sapien. Curabitur ac nibh nulla. Maecenas nec augue placerat, viverra tellus non, pulvinar risus.</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Birthday</label>
+                                    <input type="text" class="form-control" value="May 3, 1995">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Country</label>
+                                    <select class="custom-select">
+                                        <option>USA</option>
+                                        <option selected>Canada</option>
+                                        <option>UK</option>
+                                        <option>Germany</option>
+                                        <option>France</option>
+                                    </select>
+                                </div>
                             </div>
-
-                            <!--Column 4-->
-                            <div class="footer_list-item aform">
-                                <div class="text">HỆ THỐNG RẠP</div>
-                                <ul class="menu-list">
-                                    <li class="menu-item">
-                                        <a class="menu-link" href="#">Tất cả hệ thống rạp</a> <!--Thay href-->
-                                    </li>
-                                    <li class="menu-item">
-                                        <a class="menu-link" href="#">CI9MA Nguyễn Trãi</a> <!--Thay href-->
-                                    </li>
-                                    <li class="menu-item">
-                                        <a class="menu-link" href="#">CI9MA Hai Bà Trưng</a> <!--Thay href-->
-                                    </li>
-                                    <li class="menu-item">
-                                        <a class="menu-link" href="#">CI9MA Bình Dương</a> <!--Thay href-->
-                                    </li>
-                                    <li class="menu-item">
-                                        <a class="menu-link" href="#">CI9MA Kiên Giang</a> <!--Thay href-->
-                                    </li>
-                                    <li class="menu-item">
-                                        <a class="menu-link" href="#">CI9MA Đà Lạt</a> <!--Thay href-->
-                                    </li>
-                                    <li class="menu-item">
-                                        <a class="menu-link" href="#">CI9MA Huế</a> <!--Thay href-->
-                                    </li>
-                                </ul>
+                            <hr class="border-light m-0">
+                            <div class="card-body pb-2">
+                                <h6 class="mb-4">Contacts</h6>
+                                <div class="form-group">
+                                    <label class="form-label">Phone</label>
+                                    <input type="text" class="form-control" value="+0 (123) 456 7891">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Website</label>
+                                    <input type="text" class="form-control" value>
+                                </div>
                             </div>
-
+                        </div>
+                        <div class="tab-pane fade" id="account-social-links">
+                            <div class="card-body pb-2">
+                                <div class="form-group">
+                                    <label class="form-label">Twitter</label>
+                                    <input type="text" class="form-control" value="https://twitter.com/user">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Facebook</label>
+                                    <input type="text" class="form-control" value="https://www.facebook.com/user">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Google+</label>
+                                    <input type="text" class="form-control" value>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">LinkedIn</label>
+                                    <input type="text" class="form-control" value>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Instagram</label>
+                                    <input type="text" class="form-control" value="https://www.instagram.com/user">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="account-connections">
+                            <div class="card-body">
+                                <button type="button" class="btn btn-twitter">Connect to
+                                    <strong>Twitter</strong></button>
+                            </div>
+                            <hr class="border-light m-0">
+                            <div class="card-body">
+                                <h5 class="mb-2">
+                                    <a href="javascript:void(0)" class="float-right text-muted text-tiny"><i
+                                            class="ion ion-md-close"></i> Remove</a>
+                                    <i class="ion ion-logo-google text-google"></i>
+                                    You are connected to Google:
+                                </h5>
+                                <a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+                                    data-cfemail="f9979498818e9c9595b994989095d79a9694">[email&#160;protected]</a>
+                            </div>
+                            <hr class="border-light m-0">
+                            <div class="card-body">
+                                <button type="button" class="btn btn-facebook">Connect to
+                                    <strong>Facebook</strong></button>
+                            </div>
+                            <hr class="border-light m-0">
+                            <div class="card-body">
+                                <button type="button" class="btn btn-instagram">Connect to
+                                    <strong>Instagram</strong></button>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="account-notifications">
+                            <div class="card-body pb-2">
+                                <h6 class="mb-4">Activity</h6>
+                                <div class="form-group">
+                                    <label class="switcher">
+                                        <input type="checkbox" class="switcher-input" checked>
+                                        <span class="switcher-indicator">
+                                            <span class="switcher-yes"></span>
+                                            <span class="switcher-no"></span>
+                                        </span>
+                                        <span class="switcher-label">Email me when someone comments on my article</span>
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="switcher">
+                                        <input type="checkbox" class="switcher-input" checked>
+                                        <span class="switcher-indicator">
+                                            <span class="switcher-yes"></span>
+                                            <span class="switcher-no"></span>
+                                        </span>
+                                        <span class="switcher-label">Email me when someone answers on my forum
+                                            thread</span>
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="switcher">
+                                        <input type="checkbox" class="switcher-input">
+                                        <span class="switcher-indicator">
+                                            <span class="switcher-yes"></span>
+                                            <span class="switcher-no"></span>
+                                        </span>
+                                        <span class="switcher-label">Email me when someone follows me</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <hr class="border-light m-0">
+                            <div class="card-body pb-2">
+                                <h6 class="mb-4">Application</h6>
+                                <div class="form-group">
+                                    <label class="switcher">
+                                        <input type="checkbox" class="switcher-input" checked>
+                                        <span class="switcher-indicator">
+                                            <span class="switcher-yes"></span>
+                                            <span class="switcher-no"></span>
+                                        </span>
+                                        <span class="switcher-label">News and announcements</span>
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="switcher">
+                                        <input type="checkbox" class="switcher-input">
+                                        <span class="switcher-indicator">
+                                            <span class="switcher-yes"></span>
+                                            <span class="switcher-no"></span>
+                                        </span>
+                                        <span class="switcher-label">Weekly product updates</span>
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="switcher">
+                                        <input type="checkbox" class="switcher-input" checked>
+                                        <span class="switcher-indicator">
+                                            <span class="switcher-yes"></span>
+                                            <span class="switcher-no"></span>
+                                        </span>
+                                        <span class="switcher-label">Weekly blog digest</span>
+                                    </label>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
                 </div>
-                <script src="../static/js/test.js"></script>
-                </footer>
+            </div>
+        </div>
+        <div class="text-right mt-3">
+            <button type="button" class="btn btn-primary">Save changes</button>&nbsp;
+            <button type="button" class="btn btn-default">Cancel</button>
+        </div>
+    </div>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript">
+
+    </script>
 </body>
 
 </html>
