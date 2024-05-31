@@ -9,7 +9,7 @@
 
 
 body {
-    background: linear-gradient(225deg, #080089 0%, #000000 100%);
+    background: linear-gradient(225deg, #000000 0%, #000000 100%);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -17,7 +17,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-
+    position: relative;
 }
 
 .main-content {
@@ -149,9 +149,10 @@ body {
 
 }
 
-.main {
-    background-color: #0F172A;
-    height: "1vh";
+main {
+    background-color: #000000;
+    top: 16em;
+    position: relative;
 }
 
 /* .banner_1 {
@@ -180,6 +181,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-bottom: 7em;
     /* Thêm scrollbar nếu nội dung vượt quá chiều rộng của container */
 }
 
@@ -430,21 +432,64 @@ body {
     min-height: 500px;
 }
 
-#img_content img {
-    max-height: 70vh;
-}
+@media only screen and (min-width: 1024px){
+    #img_content img {
+        max-height: 70vh;
+    }
 
-#title_content {
-    flex-basis: 70;
-    color: #fff;
-    padding: 20px;
-}
+    #title_content {
+        flex-basis: 70;
+        color: #fff;
+        padding: 20px;
+    }
 
-#movie_content {
-    margin-left: 5vh;
-    flex-basis: 70;
-    color: #fff;
-    padding: 20px;
+    #movie_content {
+        margin-left: 5vh;
+        flex-basis: 70;
+        color: #fff;
+        padding: 20px;
+    }
+}
+@media only screen and (min-width: 770px) and (max-width: 1023px) {
+    #tenphim {
+        font-size: 1.1em;
+    }
+
+    #img_content img {
+        max-height: 70vh;
+    }
+
+    #title_content {
+        flex-basis: 70;
+        color: #fff;
+        padding: 20px;
+    }
+
+    #movie_content {
+        margin-left: 5vh;
+        flex-basis: 70;
+        color: #fff;
+        padding: 20px;
+        font-size: 1em;
+    }
+}
+@media only screen and (max-width: 769px) {
+    #img_content img {
+        max-height: 70vh;
+    }
+
+    #title_content {
+        flex-basis: 70;
+        color: #fff;
+        padding: 20px;
+    }
+
+    #movie_content {
+        margin-left: 5vh;
+        flex-basis: 70;
+        color: #fff;
+        padding: 20px;
+    }
 }
 
 .select_seat {
@@ -609,4 +654,9 @@ body {
 #submit-confirmation {
     background-color: #007bff;
     padding: 10px;
+}
+
+.movie_container {
+    top: 14em;
+    position: relative;
 }
