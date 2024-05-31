@@ -172,7 +172,7 @@ packages:
   name: ci9ma
   version: 0.1.0
   path: .
-  sha256: 6b649846a4ef5d0a68bf7d5e77c23a90aa08d1106c8677b3ef0179eab24c021f
+  sha256: 1d7f9eda6957bec6ac8b232633c9009c9955a22929db489891465634edb78047
   requires_python: '>=3.11'
   editable: true
 - kind: conda

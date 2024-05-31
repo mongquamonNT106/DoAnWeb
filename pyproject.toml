@@ -18,7 +18,7 @@ platforms = ["win-64"]
 cinema = { path = ".", editable = true }
 
 [tool.pixi.tasks]
-server = "python -m ci9ma.server"
+server = "python -m app.server"
 
 [tool.pixi.dependencies]
 flask = ">=3.0.3,<3.1"

@@ -8,11 +8,14 @@ from flask import (
     flash,
     jsonify,
 )
+
+
 from supabase import create_client
 import os
 import gotrue.errors
 from dotenv import load_dotenv
-from ci9ma.forms import ShowtimeForm
+from app.forms import ShowtimeForm
+from werkzeug.local import LocalProxy
 
 
 load_dotenv()  # Tải các biến môi trường từ file .env
@@ -39,11 +42,11 @@ def signin():
             email = request.form["si_email"]
             password = request.form["si_password"]
             try:
-                response = supabase.auth.sign_in_with_password(
+                auth_resp = supabase.auth.sign_in_with_password(
                     {"email": email, "password": password}
                 )
-                user = response.user
-                print(user)
+                user = auth_resp.user
+                # print(user)
                 if user:
                     session["email"] = user.email  # Lưu email vào session
                     user_data = (
@@ -59,7 +62,12 @@ def signin():
                         "email": user_data["email"],
                         "role": user_data["role"],
                     }
-                    return redirect(url_for("home"))
+                    app.logger.info("Session keys: {}".format(session.keys()))
+
+                    app.logger.info(session)
+                    resp = redirect(url_for("home"))
+                    resp.set_cookie("email", str(auth_resp.user.email))
+                    return resp
             except gotrue.errors.AuthApiError as e:
                 return f"Đăng nhập thất bại: {e}"
             except Exception as e:
@@ -84,7 +92,8 @@ def signin():
 
 @app.route("/", methods=["GET", "POST"])
 def home():
-    if "email" not in session:
+    print("route home: ", request.cookies.get("auth"))
+    if not request.cookies.get("email"):
         return redirect(url_for("signin"))
     movies = (
         supabase.table("phim")
@@ -98,12 +107,17 @@ def home():
         .execute()
         .data
     )
-    return render_template("index.html", movies=movies, phimsapchieu=phimsapchieu)
+    return render_template(
+        "index.html",
+        movies=movies,
+        phimsapchieu=phimsapchieu,
+        auth_email=request.cookies.get("email"),
+    )
 
 
 @app.route("/book_tickets/<int:id_phim>", methods=["GET", "POST"])
 def book_tickets(id_phim):
-    if "email" not in session:
+    if not request.cookies.get("email"):
         return redirect(url_for("signin"))
     response = supabase.table("phim").select("*").eq("id", id_phim).execute()
     movie = response.data[0] if response.data else None
@@ -113,7 +127,11 @@ def book_tickets(id_phim):
     cachieu = response_cachieu.data
     app.logger.info(cachieu)
     return render_template(
-        "index2.html", movie=movie, cachieu=cachieu, email=session["user"]["email"]
+        "index2.html",
+        movie=movie,
+        cachieu=cachieu,
+        email=request.cookies.get("email"),
+        auth_email=request.cookies.get("email"),
     )
 
 
@@ -126,9 +144,10 @@ def get_seats(id_cachieu):
 
 @app.route("/api/get_tickets", methods=["GET"])
 def get_tickets():
-    if "email" not in session:
+    if not request.cookies.get("email"):
         return redirect(url_for("signin"))
-    email = session.get("email")
+    email = request.cookies.get("email")
+    print("Get tickets - email ticket: ", email)
     # Fetch all tickets
     tickets_response = supabase.table("ve").select("*").eq("email", email).execute()
     tickets = tickets_response.data
@@ -203,15 +222,20 @@ def delete_ticket():
 
 @app.route("/user", methods=["GET"])
 def user():
-    if "email" not in session:
+    print("route user: ", request.cookies.get("email"))
+    if not request.cookies.get("email"):
         return redirect(url_for("signin"))
-    return render_template("user.html")
+    return render_template(
+        "user.html",
+        auth_email=request.cookies.get("email"),
+    )
 
 
 @app.route("/api/get_showtimes/<int:id_phim>")
 def get_showtimes(id_phim):
     response = supabase.table("cachieu").select("*").eq("id_phim", id_phim).execute()
     showtimes = response.data
+    print("get cacieu: ", response)
     return jsonify(showtimes)
 
 
@@ -231,9 +255,11 @@ def confirm_tickets():
 
 @app.route("/logout", methods=["GET", "POST"])
 def logout():
+    resp = redirect(url_for("signin"))
+    resp.delete_cookie("auth")
     supabase.auth.sign_out()
     session.clear()
-    return redirect(url_for("signin"))
+    return resp
 
 
 def get_movies():

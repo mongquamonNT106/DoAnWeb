@@ -50,13 +50,13 @@
                         <div class="hd_register_login">
                             <div class="hd_register_login_content">
                                 <div class="hd_register_login_list">
-                                    {% if session.email %}
+                                    {% if auth_email %}
                                     <div class="hd_register_login_ava">
                                         <a href="{{url_for('user')}}">
                                             <img src="https://cinestar.com.vn/assets/images/ic-header-auth.svg">
                                         </a>
                                     </div>
-                                    <p>{{ session.email }} <br> <a class="logout" href="{{ url_for('logout') }}">Đăng
+                                    <p>{{ auth_email }} <br> <a class="logout" href="{{ url_for('logout') }}">Đăng
                                             xuất</a>
                                     </p>
                                     {% else %}
@@ -95,7 +95,7 @@
     <div class="main-content">
         <div class="container light-style flex-grow-1 container-p-y">
             <h4 class="font-weight-bold py-3 mb-4">
-                Xin chào {{ session.email }}!
+                Xin chào {{ auth_email }}!
             </h4>
             <div class="card overflow-hidden">
                 <div class="row no-gutters row-bordered row-border-light">

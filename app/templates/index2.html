@@ -49,21 +49,21 @@
                         <div class="hd_register_login">
                             <div class="hd_register_login_content">
                                 <div class="hd_register_login_list">
-                                    {% if session.email %}
+                                    {% if auth_email %}
                                     <div class="hd_register_login_ava">
                                         <a href="{{url_for('user')}}">
                                             <img src="https://cinestar.com.vn/assets/images/ic-header-auth.svg">
                                         </a>
                                     </div>
-                                    <p>{{ session.email }} <br> <a class="logout" href="{{ url_for('logout') }}">Đăng
+                                    <p>{{ auth_email }} <br> <a class="logout" href="{{ url_for('logout') }}">Đăng
                                             xuất</a>
                                     </p>
                                     {% else %}
-                                    <a class="link" href="#">
+                                    <a class="link" href="{{url_for('signin')}}">
                                         <i class="login"></i>Đăng nhập
                                     </a>
                                     <span class="separate">/</span>
-                                    <a class="link" href="#">
+                                    <a class="link" href="{{url_for('signin')}}">
                                         <i class="register"></i>Đăng kí
                                     </a>
                                     {% endif %}
