@@ -333,6 +333,21 @@ def admin():
 
     return render_template("admin.html", form=form)
 
+@app.route("/chonrap")
+def chonrap():
+    return render_template("chonrap.html")
+
+@app.route("/khuyenmai")
+def khuyenmai():
+    return render_template("khuyenmai.html")
+
+@app.route("/thuesukien")
+def thuesukien():
+    return render_template("thuesukien.html")
+
+@app.route('/movetocontact', methods=['GET', 'POST'])
+def movetocontact():
+    return render_template("thuesukienlienhengayform.html")
 
 if __name__ == "__main__":
     app.run(debug=True)

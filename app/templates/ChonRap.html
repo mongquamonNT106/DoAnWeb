@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+        <meta name="viewbox" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../static/css/ChonRap_style.css">
+</head>
+<body class="main">
+    <div class="hd_chonrap">
+        <div class="hd_chonrap_top">
+            <div class="container">
+                <div class="hd_chonrap_top_components">
+                    <a class="main_logo_link" href="{{ url_for('home') }}"> 
+                        <img src="../static/assets/logo.jpg">
+                    </a>
+                    <div class="hd_left_action">
+                        <a button class="btn book_btn" href="{{ url_for('home') }}">                 
+                            <img src="../static/assets/ic-ticket.svg">
+                            <span class="text" style="font-size: 0.7em;">Đặt vé ngay</span>                           
+                        </a>
+                    </div>
+                    <div class="hd_right_action">
+                        <!--Search-->
+                        <div class="hd_search">
+                            <div class="search_icon">
+                                <img src="../static/assets/icon-search.svg">
+                            </div>
+                            <div class="search_panel" data-name="panel_search">
+                                <div class="search_panel_form">
+                                    <div>
+                                        <div class="search_panel_form_content">
+                                            <input class="search_content" type="text" placeholder="Tìm phim, thể loại,...">
+                                            <button class="search_btn" type="submit">
+                                                <img src="../static/assets/ic-header-search.svg">
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Register/Login-->
+                        <div class="hd_register_login">
+                        <div class="hd_register_login_content">
+                            <div class="hd_register_login_list">
+                                {% if session.email %}
+                                <div class="hd_register_login_ava">
+                                    <a href="{{url_for('user')}}">
+                                        <img src="../static/assets/ic-header-auth.svg">
+                                    </a>
+                                </div>
+                                <p>{{ session.email }} <br> <a class="logout" href="{{ url_for('logout') }}">Đăng
+                                        xuất</a>
+                                </p>
+                                {% else %}
+                                <a class="link" href="#">
+                                    <i class="login"></i>Đăng nhập
+                                </a>
+                                <span class="separate">/</span>
+                                <a class="link" href="#">
+                                    <i class="register"></i>Đăng kí
+                                </a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                        <!--Language-->
+                        <div class="hd_language">
+                           <div class="hd_language_action">
+                                <div class="hd_language_popup">
+                                    <div class="hd_language_option">
+                                        <span class="image">
+                                            <img style="width: 100%;" src="../static/assets/footer-vietnam.svg">
+                                        </span>
+                                        <span class="text">
+                                            VN
+                                        </span>
+                                    </div>
+                                </div>
+                           </div>
+                        </div>
+                    </div>
+                    <!--Nav bars-->
+                    <div class="nav_bars-btn">  
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>
+                    </div>
+                    
+                    <div class="nav_mobile-close">                            
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"/></svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hd_chonrap_mid">
+            <div class="container">
+                <div class="hd_chonrap_mid_components">
+                    <a class="local" href="{{ url_for('chonrap') }}"> 
+                        <span class="text_chonrap">Chọn rạp</span>
+                    </a>
+                    <div class="other">
+                        <a class="link" href="{{ url_for('khuyenmai') }}">Khuyến mãi</a>
+                        <a class="link" href="{{ url_for('thuesukien') }}">Thuê sự kiện</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="nav_mobile">
+        <ul class="nav_mobile-list">
+            <li class="nav_mobile-link"><a class="link" href="#">Người dùng<b>▼</b></a>
+                <ul>
+                    <li class="nav_mobile-link-components">
+                        <a class="link" href="{{url_for('user')}}" style="text-decoration: none; margin-left: 0.5em;">
+                            {% if session.email %}
+                            <p>{{ session.email }}</p>
+                            {% endif %}
+                        </a>
+                    </li>
+                    <li class="nav_mobile-link-components">
+                        <a class="link" href="{{ url_for('logout') }}" style="text-decoration: none; margin-left: 0.3em;">Đăng xuất</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav_mobile-link">
+                <a button class="link" href="{{ url_for('home') }}">                
+                    Đặt vé ngay                         
+                </a>
+            </li>
+            <li class="nav_mobile-link">
+                <a class="link" href="{{ url_for('chonrap') }}">Chọn rạp</a>
+            </li>
+            <li class="nav_mobile-link">
+                <a class="link" href="{{ url_for('khuyenmai') }}">Khuyến mãi</a>
+            </li>
+            <li class="nav_mobile-link">
+                <a class="link" href="{{ url_for('thuesukien') }}">Thuê sự kiện</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="app-main-chonrap">
+            <div class="chonrap-components"> 
+                <!--Rạp 1-->
+                <div class="chonrap-item">
+                    <div class="chonrap-item-img">
+                        <img src="../static/assets/01-Quoc-Thanh-masthead.jpg">
+                    
+                    <div class="chonrap-item-info">
+                        <div class="address-box">
+                            <div class="hd_address-box">
+                                <a class="link" href="#">
+                                    <h4 class="sub-title">CI9MA NGUYỄN TRÃI</h4>
+                                </a>
+                            </div>
+                            <div class="body_address-box"> 
+                                <ul class="list">
+                                    <!--Số phòng và số ghế-->
+                                    <li class="item">
+                                        <a class="link" href="#">
+                                            <span class="ic">
+                                                <img src="../static/assets/ic-branch-room.svg">
+                                            </span>
+                                            <span class="text">6 phòng chiếu với 930 ghế</span>
+                                        </a>
+                                    </li>
+                                    <!--Địa chỉ-->
+                                    <li class="item">
+                                        <a class="link" href="#">
+                                            <span class="ic">
+                                                <img src="../static/assets/ic-branch-map.svg">
+                                            </span>
+                                            <span class="text">271 Đường Nguyễn Trãi, P.Nguyễn Cư Trinh, Quận 1, TP. Hồ Chí Minh</span>
+                                        </a>
+                                    </li>
+                                    <!--Đặt vé ngay-->
+                                    <a button class="book-immediately-btn" href="{{ url_for('home') }}"> <!--Thay href-->
+                                        Đặt vé
+                                    </a>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>                
+    </div>                               
+
+    <div class="footer">
+        <div>
+            <div class="container">
+                <div class="footer_components">
+                    <!--Logo_Footer-->
+                    <div class="footer_logo">
+                        <a class="main_logo_link_footer" href="{{ url_for('home') }}">  
+                            <img src="../static/assets/logo4-2.png" width="800px" height="800px">
+                        </a>
+                    </div>
+                    <div class="footer_list">
+                        <!--Column 1-->
+                        <div class="footer_list-item aform">                  
+                            <div class="text">TÀI KHOẢN</div>
+                            <ul class="menu-list">
+                                <li class="menu-item">
+                                    <a class="menu-link" href="{{ url_for('signin') }}">Đăng nhập</a>
+                                </li>
+                                <li class="menu-item">
+                                    <a class="menu-link" href="{{ url_for('signin') }}">Đăng kí</a> 
+                                </li>
+                            </ul>
+                        </div>
+                        <!--Column 2-->
+                        <div class="footer_list-item aform">                  
+                            <div class="text">XEM PHIM</div>
+                            <ul class="menu-list">
+                                <li class="menu-item">
+                                    <a class="menu-link" href="{{ url_for('home') }}">Phim đang chiếu</a> <!--Thay href-->
+                                </li>
+                                <li class="menu-item">
+                                    <a class="menu-link" href="{{ url_for('home') }}">Phim sắp chiếu</a> <!--Thay href-->
+                                </li>
+                            </ul>
+                        </div>
+                        <!--Column 3-->
+                        <div class="footer_list-item aform">                  
+                            <div class="text">DỊCH VỤ KHÁC</div>
+                            <ul class="menu-list">
+                                <li class="menu-item">
+                                    <a class="menu-link" href="#">Đặt đồ ăn</a> <!--Thay href-->
+                                </li>
+                                <li class="menu-item">
+                                    <a class="menu-link" href="#">Coffee</a> <!--Thay href-->
+                                </li>
+                                <li class="menu-item">
+                                    <a class="menu-link" href="#">Nhà hàng</a> <!--Thay href-->
+                                </li>
+                                <li class="menu-item">
+                                    <a class="menu-link" href="#">Kidzone</a> <!--Thay href-->
+                                </li>
+                                <li class="menu-item">
+                                    <a class="menu-link" href="#">Gym</a> <!--Thay href-->
+                                </li>
+                                <li class="menu-item">
+                                    <a class="menu-link" href="#">Nhà hát Opera</a> <!--Thay href-->
+                                </li>
+                            </ul>
+                        </div>
+
+                         <!--Column 4-->
+                         <div class="footer_list-item aform">                  
+                            <div class="text">CI9MA</div>
+                            <ul class="menu-list">
+                                <li class="menu-item">
+                                    <a class="menu-link" href="{{ url_for('home') }}">Đặt vé</a> 
+                                </li>
+                                <li class="menu-item">
+                                    <a class="menu-link" href="{{ url_for('thuesukien') }}">Thuê rạp</a> 
+                                </li>
+                                <li class="menu-item">
+                                    <a class="menu-link" href="{{ url_for('thuesukien') }}">Liên hệ</a> 
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="nav_mobile_footer" >
+        <!--Logo_Footer-->
+        <div class="footer_logo_mobile">
+            <a class="main_logo_link_footer" href="{{ url_for('home') }}"> <!--Thay href--> 
+                <img src="../static/assets/logo4-2.png" width="800px" height="800px">
+            </a>
+        </div>
+        <!---->
+        <ul class="nav_mobile_footer-list">
+            <li class="nav_mobile_footer-link">
+                <a class="link" href="{{ url_for('signin') }}">Tài khoản</a>
+            </li>
+            <li class="nav_mobile_footer-link">
+                <a class="link" href="{{ url_for('home') }}">Xem phim</a>
+            </li>
+            <li class="nav_mobile_footer-link">
+                <a class="link" href="{{ url_for('home') }}">Đặt vé</a>
+            </li>
+            <li class="nav_mobile_footer-link">
+                <a class="link" href="{{ url_for('khuyenmai') }}">Khuyến mãi</a>
+            </li>
+            <li class="nav_mobile_footer-link">
+                <a class="link" href="{{ url_for('thuesukien') }}">Thuê sự kiện</a>
+            </li>
+        </ul>
+    </div>
+    <script src="../static/js/responsive_for_header-tablet.js"></script>
+    <script src="../static/js/responsive_for_header-mobile.js"></script>
+</body>
+</html>
+
+
+
+<!--1/ <div class="chonrap-components row"> -->
