@@ -8,26 +8,25 @@
     <link rel="stylesheet" href="../static/css/ChonRap_style.css">
 </head>
 
-<body>
-    <div class="navbar">
+<body class="main">
+    <div class="hd_chonrap">
         <div class="hd_chonrap_top">
             <div class="container">
                 <div class="hd_chonrap_top_components">
-                    <a class="main_logo_link" href="#"> <!--Thay href-->
-                        <img class="mainlogo" src="../static/assets/logo4.png">
+                    <a class="main_logo_link" href="{{ url_for('home') }}"> 
+                        <img src="../static/assets/logo.jpg">
                     </a>
                     <div class="hd_left_action">
-                        <a button class="btn book_btn" href="{{ url_for('home') }}"> <!--Thay href-->
-                            <img src="https://cinestar.com.vn/assets/images/ic-ticket.svg">
-                            <span class="text">Đặt vé ngay</span>
+                        <a button class="btn book_btn" href="{{ url_for('home') }}">                 
+                            <img src="../static/assets/ic-ticket.svg">
+                            <span class="text" style="font-size: 0.7em;">Đặt vé ngay</span>                           
                         </a>
-
                     </div>
                     <div class="hd_right_action">
                         <!--Search-->
                         <div class="hd_search">
                             <div class="search_icon">
-                                <img src="https://cinestar.com.vn/assets/images/icon-search.svg">
+                                <img src="../static/assets/icon-search.svg">
                             </div>
                             <div class="search_panel" data-name="panel_search">
                                 <div class="search_panel_form">
@@ -35,43 +34,39 @@
                                         <div class="search_panel_form_content">
                                             <input class="search_content" type="text" id="searchInput"
                                                 placeholder="Nhập tên phim">
-                                            <a href="{{url_for('search')}}">
+                                            <a href="#"> 
                                                 <button class="search_btn" type="submit" onclick="searchMovies()">
-                                                    <img
-                                                        src="https://cinestar.com.vn/assets/images/ic-header-search.svg">
+                                                    <img src="../static/assets/ic-header-search.svg">
                                                 </button>
                                             </a>
-
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
                         <!--Register/Login-->
                         <div class="hd_register_login">
                             <div class="hd_register_login_content">
                                 <div class="hd_register_login_list">
-                                    {% if auth_email %}
+                                    {% if session.email %}
                                     <div class="hd_register_login_ava">
                                         <a href="{{url_for('user')}}">
-                                            <img src="https://cinestar.com.vn/assets/images/ic-header-auth.svg">
+                                            <img src="../static/assets/ic-header-auth.svg">
                                         </a>
                                     </div>
-                                    <p>{{ auth_email }} <br> <a class="logout" href="{{ url_for('logout') }}">Đăng
+                                    <p>{{ session.email }} <br> <a class="logout" href="{{ url_for('logout') }}">Đăng
                                             xuất</a>
                                     </p>
                                     {% else %}
-                                    <a class="link" href="{{url_for('signin')}}">
+                                    <a class="link" href="#">
                                         <i class="login"></i>Đăng nhập
                                     </a>
                                     <span class="separate">/</span>
-                                    <a class="link" href="{{url_for('signin')}}">
+                                    <a class="link" href="#">
                                         <i class="register"></i>Đăng kí
                                     </a>
                                     {% endif %}
                                 </div>
-
                             </div>
                         </div>
                         <!--Language-->
@@ -80,7 +75,7 @@
                                 <div class="hd_language_popup">
                                     <div class="hd_language_option">
                                         <span class="image">
-                                            <img src="https://cinestar.com.vn/assets/images/footer-vietnam.svg">
+                                            <img style="width: 100%;" src="../static/assets/footer-vietnam.svg">
                                         </span>
                                         <span class="text">
                                             VN
@@ -90,193 +85,228 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="main-content">
-        <div class="hd_chonrap">
-            <div class="hd_chonrap_mid">
-                <h1 class="on-going" style="text-align: center;">
-                    KẾT QUẢ TÌM KIẾM
-                </h1>
-                <div class="banner_1">
-                    <div id="movies">
-                        <div class="movie-container">
-                            <div id="searchResults">
-                                <!-- Kết quả tìm kiếm sẽ được hiển thị ở đây -->
-                            </div>
-                        </div>
+                    <!--Nav bars-->
+                    <div class="nav_bars-btn">  
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>
+                    </div>
+                 
+                    <div class="nav_mobile-close">                            
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"/></svg>
                     </div>
                 </div>
-                <script>
-                    function searchMovies() {
-                        const keyword = document.getElementById('searchInput').value;
-
-                        // Gửi yêu cầu tìm kiếm đến API
-                        fetch(`/api/search?keyword=${keyword}`)
-                            .then(response => response.json())
-                            .then(data => {
-                                // Xử lý kết quả trả về và hiển thị lên giao diện
-                                const searchResults = document.getElementById('searchResults');
-                                searchResults.innerHTML = ''; // Xóa kết quả cũ
-                                data.forEach(movie => {
-                                    console.log(movie)
-                                    const movieDiv = document.createElement('div');
-                                    movieDiv.classList.add('movie');
-                                    movieDiv.innerHTML = `
-                                        <div>
-                                            <img src="${movie.url_poster}" alt="${movie.ten_phim}">
-                                        </div>
-                                        <div class="title">
-                                            <p>${movie.ten_phim}</p>
-                                        </div>
-                                        <div class="trailer">
-                                            <a target="_blank" href="${movie.trailer}">
-                                                <div style="display: flex; align-items: center; justify-content: center;">
-                                                    <img src="../static/assets/icons8-play-64.png" alt="Play" width="30">
-                                                    <p style="padding-left: 5px;">Trailer</p>
-                                                </div>
-                                                <div class="buy_ticket">
-                                                    <a href="/book_tickets/${movie.id}"><button type="button">Đặt vé</button></a>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    `;
-                                    searchResults.appendChild(movieDiv);
-                                });
-                            })
-                            .catch(error => console.error('Error:', error));
-                    }
-                </script>
+            </div>
+        </div>
+        <div class="hd_chonrap_mid">
+            <div class="container">
+                <div class="hd_chonrap_mid_components">
+                    <a class="local" href="{{ url_for('chonrap') }}"> 
+                        <span class="text_chonrap">Chọn rạp</span>
+                    </a>
+                    <div class="other">
+                        <a class="link" href="{{ url_for('khuyenmai') }}">Khuyến mãi</a>
+                        <a class="link" href="{{ url_for('thuesukien') }}">Thuê sự kiện</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <footer class="footer">
-        <div class="container">
-            <div class="footer_components">
-                <div class="footer_list">
+    <div class="nav_mobile">
+        <ul class="nav_mobile-list">
+            <li class="nav_mobile-link"><a class="link" href="#">Người dùng<b>▼</b></a>
+                <ul>
+                    <li class="nav_mobile-link-components">
+                        <a class="link" href="{{url_for('user')}}" style="text-decoration: none; margin-left: 0.5em;">
+                            {% if session.email %}
+                            <p>{{ session.email }}</p>
+                            {% endif %}
+                        </a>
+                    </li>
+                    <li class="nav_mobile-link-components">
+                        <a class="link" href="{{ url_for('logout') }}" style="text-decoration: none; margin-left: 0.3em;">Đăng xuất</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav_mobile-link">
+                <a button class="link" href="{{ url_for('home') }}">                
+                    Đặt vé ngay                         
+                </a>
+            </li>
+            <li class="nav_mobile-link">
+                <a class="link" href="{{ url_for('chonrap') }}">Chọn rạp</a>
+            </li>
+            <li class="nav_mobile-link">
+                <a class="link" href="{{ url_for('khuyenmai') }}">Khuyến mãi</a>
+            </li>
+            <li class="nav_mobile-link">
+                <a class="link" href="{{ url_for('thuesukien') }}">Thuê sự kiện</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <h1 class="on-going" style="text-align: center;">
+            KẾT QUẢ TÌM KIẾM
+        </h1>
+        <div class="banner_1">
+            <div id="movies">
+                <div class="movie-container">
+                    <div id="searchResults">
+                        <!-- Kết quả tìm kiếm sẽ được hiển thị ở đây -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            function searchMovies() {
+                const keyword = document.getElementById('searchInput').value;
+
+                // Gửi yêu cầu tìm kiếm đến API
+                fetch(`/api/search?keyword=${keyword}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        // Xử lý kết quả trả về và hiển thị lên giao diện
+                        const searchResults = document.getElementById('searchResults');
+                        searchResults.innerHTML = ''; // Xóa kết quả cũ
+                        data.forEach(movie => {
+                            console.log(movie)
+                            const movieDiv = document.createElement('div');
+                            movieDiv.classList.add('movie');
+                            movieDiv.innerHTML = `
+                                <div>
+                                    <img src="${movie.url_poster}" alt="${movie.ten_phim}">
+                                </div>
+                                <div class="title">
+                                    <p>${movie.ten_phim}</p>
+                                </div>
+                                <div class="trailer">
+                                    <a target="_blank" href="${movie.trailer}">
+                                        <div style="display: flex; align-items: center; justify-content: center;">
+                                            <img src="../static/assets/icons8-play-64.png" alt="Play" width="30">
+                                            <p style="padding-left: 5px;">Trailer</p>
+                                        </div>
+                                        <div class="buy_ticket">
+                                            <a href="/book_tickets/${movie.id}"><button type="button">Đặt vé</button></a>
+                                        </div>
+                                    </a>
+                                </div>
+                            `;
+                            searchResults.appendChild(movieDiv);
+                        });
+                    })
+                    .catch(error => console.error('Error:', error));
+            }
+        </script>
+    </div>
+
+    <div class="footer">
+        <div>
+            <div class="container">
+                <div class="footer_components">
                     <!--Logo_Footer-->
-                    <div class="footer_list-item col col4">
-                        <a class="main_logo_link_footer" href="#"> <!--Thay href-->
+                    <div class="footer_logo">
+                        <a class="main_logo_link_footer" href="{{ url_for('home') }}">  
                             <img src="../static/assets/logo4-2.png" width="800px" height="800px">
                         </a>
                     </div>
-                    <!--Column 1+2-->
-                    <div class="footer_list-item sp">
-
-                        <div class="footer_list-item_top row">
-
-                            <div class="part">
-                                <div class="text">TÀI KHOẢN</div>
-                                <ul class="menu-list">
-                                    <li class="menu-item">
-                                        <a class="menu-link" href="#">Đăng nhập</a> <!--Thay href-->
-                                    </li>
-                                    <li class="menu-item">
-                                        <a class="menu-link" href="#">Đăng ký</a> <!--Thay href-->
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div class="part">
-                                <div class="text">THUÊ SỰ KIỆN</div>
-                                <ul class="menu-list">
-                                    <li class="menu-item">
-                                        <a class="menu-link" href="#">Thuê rạp</a> <!--Thay href-->
-                                    </li>
-                                </ul>
-                            </div>
-
+                    <div class="footer_list">
+                        <!--Column 1-->
+                        <div class="footer_list-item aform">                  
+                            <div class="text">TÀI KHOẢN</div>
+                            <ul class="menu-list">
+                                <li class="menu-item">
+                                    <a class="menu-link" href="{{ url_for('signin') }}">Đăng nhập</a>
+                                </li>
+                                <li class="menu-item">
+                                    <a class="menu-link" href="{{ url_for('signin') }}">Đăng kí</a> 
+                                </li>
+                            </ul>
+                        </div>
+                        <!--Column 2-->
+                        <div class="footer_list-item aform">                  
+                            <div class="text">XEM PHIM</div>
+                            <ul class="menu-list">
+                                <li class="menu-item">
+                                    <a class="menu-link" href="{{ url_for('home') }}">Phim đang chiếu</a> <!--Thay href-->
+                                </li>
+                                <li class="menu-item">
+                                    <a class="menu-link" href="{{ url_for('home') }}">Phim sắp chiếu</a> <!--Thay href-->
+                                </li>
+                            </ul>
+                        </div>
+                        <!--Column 3-->
+                        <div class="footer_list-item aform">                  
+                            <div class="text">DỊCH VỤ KHÁC</div>
+                            <ul class="menu-list">
+                                <li class="menu-item">
+                                    <a class="menu-link" href="#">Đặt đồ ăn</a> <!--Thay href-->
+                                </li>
+                                <li class="menu-item">
+                                    <a class="menu-link" href="#">Coffee</a> <!--Thay href-->
+                                </li>
+                                <li class="menu-item">
+                                    <a class="menu-link" href="#">Nhà hàng</a> <!--Thay href-->
+                                </li>
+                                <li class="menu-item">
+                                    <a class="menu-link" href="#">Kidzone</a> <!--Thay href-->
+                                </li>
+                                <li class="menu-item">
+                                    <a class="menu-link" href="#">Gym</a> <!--Thay href-->
+                                </li>
+                                <li class="menu-item">
+                                    <a class="menu-link" href="#">Nhà hát Opera</a> <!--Thay href-->
+                                </li>
+                            </ul>
                         </div>
 
-                        <div class="footer_list-item_bottom row">
-
-                            <div class="part">
-                                <div class="text">XEM PHIM</div>
-                                <ul class="menu-list">
-                                    <li class="menu-item">
-                                        <a class="menu-link" href="#">Phim đang chiếu</a> <!--Thay href-->
-                                    </li>
-                                    <li class="menu-item">
-                                        <a class="menu-link" href="#">Phim sắp chiếu</a> <!--Thay href-->
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div class="part">
-                                <div class="text">CINESTAR</div>
-                                <ul class="menu-list">
-                                    <li class="menu-item">
-                                        <a class="menu-link" href="#">Giới thiệu</a> <!--Thay href-->
-                                    </li>
-                                    <li class="menu-item">
-                                        <a class="menu-link" href="#">Liên hệ</a> <!--Thay href-->
-                                    </li>
-                                </ul>
-                            </div>
-
+                         <!--Column 4-->
+                         <div class="footer_list-item aform">                  
+                            <div class="text">CI9MA</div>
+                            <ul class="menu-list">
+                                <li class="menu-item">
+                                    <a class="menu-link" href="{{ url_for('home') }}">Đặt vé</a> 
+                                </li>
+                                <li class="menu-item">
+                                    <a class="menu-link" href="{{ url_for('thuesukien') }}">Thuê rạp</a> 
+                                </li>
+                                <li class="menu-item">
+                                    <a class="menu-link" href="{{ url_for('thuesukien') }}">Liên hệ</a> 
+                                </li>
+                            </ul>
                         </div>
-
                     </div>
-
-                    <!--Column 3-->
-                    <div class="footer_list-item aform">
-                        <div class="text">DỊCH VỤ KHÁC</div>
-                        <ul class="menu-list">
-                            <li class="menu-item">
-                                <a class="menu-link" href="#">Đặt đồ ăn</a> <!--Thay href-->
-                            </li>
-                            <li class="menu-item">
-                                <a class="menu-link" href="#">Coffee</a> <!--Thay href-->
-                            </li>
-                            <li class="menu-item">
-                                <a class="menu-link" href="#">Nhà hàng</a> <!--Thay href-->
-                            </li>
-                            <li class="menu-item">
-                                <a class="menu-link" href="#">Kidzone</a> <!--Thay href-->
-                            </li>
-                            <li class="menu-item">
-                                <a class="menu-link" href="#">Gym</a> <!--Thay href-->
-                            </li>
-                            <li class="menu-item">
-                                <a class="menu-link" href="#">Nhà hát Opera</a> <!--Thay href-->
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!--Column 4-->
-                    <div class="footer_list-item aform">
-                        <div class="text">HỆ THỐNG RẠP</div>
-                        <ul class="menu-list">
-                            <li class="menu-item">
-                                <a class="menu-link" href="#">Tất cả hệ thống rạp</a> <!--Thay href-->
-                            </li>
-                            <li class="menu-item">
-                                <a class="menu-link" href="#">CI9MA Nguyễn Trãi</a> <!--Thay href-->
-                            </li>
-                            <li class="menu-item">
-                                <a class="menu-link" href="#">CI9MA Hai Bà Trưng</a> <!--Thay href-->
-                            </li>
-                            <li class="menu-item">
-                                <a class="menu-link" href="#">CI9MA Bình Dương</a> <!--Thay href-->
-                            </li>
-                            <li class="menu-item">
-                                <a class="menu-link" href="#">CI9MA Kiên Giang</a> <!--Thay href-->
-                            </li>
-                            <li class="menu-item">
-                                <a class="menu-link" href="#">CI9MA Đà Lạt</a> <!--Thay href-->
-                            </li>
-                            <li class="menu-item">
-                                <a class="menu-link" href="#">CI9MA Huế</a> <!--Thay href-->
-                            </li>
-                        </ul>
-                    </div>
-
                 </div>
             </div>
         </div>
-    </footer>
-</body>
+    </div>
 
+    <div class="nav_mobile_footer" >
+        <!--Logo_Footer-->
+        <div class="footer_logo_mobile">
+            <a class="main_logo_link_footer" href="{{ url_for('home') }}"> <!--Thay href--> 
+                <img src="../static/assets/logo4-2.png" width="800px" height="800px">
+            </a>
+        </div>
+        <!---->
+        <ul class="nav_mobile_footer-list">
+            <li class="nav_mobile_footer-link">
+                <a class="link" href="{{ url_for('signin') }}">Tài khoản</a>
+            </li>
+            <li class="nav_mobile_footer-link">
+                <a class="link" href="{{ url_for('home') }}">Xem phim</a>
+            </li>
+            <li class="nav_mobile_footer-link">
+                <a class="link" href="{{ url_for('home') }}">Đặt vé</a>
+            </li>
+            <li class="nav_mobile_footer-link">
+                <a class="link" href="{{ url_for('khuyenmai') }}">Khuyến mãi</a>
+            </li>
+            <li class="nav_mobile_footer-link">
+                <a class="link" href="{{ url_for('thuesukien') }}">Thuê sự kiện</a>
+            </li>
+        </ul>
+    </div>
+    <script src="../static/js/responsive_for_header-tablet.js"></script>
+    <script src="../static/js/responsive_for_header-mobile.js"></script> 
+    
+</body>
 </html>
