@@ -1,0 +1,40 @@
+# fly.toml app configuration file generated for doanweb on 2024-05-31T17:12:26+07:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'ci9ma'
+primary_region = 'hkg'
+
+[experimental]
+auto_rollback = true
+
+[build]
+builtin = 'python'
+
+[[services]]
+protocol = 'tcp'
+internal_port = 8080
+processes = ['app']
+
+[[services.ports]]
+port = 80
+handlers = ['http']
+force_https = true
+
+[[services.ports]]
+port = 443
+handlers = ['tls', 'http']
+
+[services.concurrency]
+type = 'connections'
+hard_limit = 100
+soft_limit = 80
+
+[[services.tcp_checks]]
+interval = '15s'
+timeout = '2s'
+grace_period = '1s'
+
+[[vm]]
+size = 'shared-cpu-1x'

@@ -1,0 +1,429 @@
+@media only screen and (min-width: 1024px){
+    /*Body_body tab KhuyenMai*/
+    .app-main-khuyenmai {
+        flex: 1;
+        position: relative;
+        left: 0;
+        top: 0;
+        width: 100%;
+        top: 16em;
+        height: auto !important;
+    }
+    .khuyenmai-components {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center; 
+        justify-content: space-between;
+        gap: 2rem;
+        height: 100%;
+        width: 100%;
+        bottom: 1em;
+    }
+    .ht {
+        padding: 5rem;
+        padding-top: 2.5rem;
+    }
+    .banner {
+        position: relative;
+        height: 15rem;
+        margin: 0 auto;
+        max-width: 120rem; 
+        width: 100%;
+        padding: 3.5rem;
+        flex: auto;
+    }
+    .banner img {
+        height: 100%;
+        width: 94% !important;
+        align-items: center;
+        left: 50%;
+        top: 50%;
+        object-fit: cover; 
+        position: absolute;
+        transform: translate(-50%,-50%);
+        display: flex;
+        flex-wrap: nowrap;
+    }
+    .khuyenmai-list {
+        justify-content: space-between; /*Khoảng cách giữa các phần tử được căn đều*/
+        height: 100%;
+        width: 100%;
+        position: relative;
+        padding: 1rem;
+    }
+    .khuyenmai-item-row {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 0.75rem;
+        padding: 1.5rem;
+        width: 100%;
+        position: relative;
+        box-sizing: border-box;
+    }
+    ol, ul {
+        list-style: none;
+    }
+    .content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem 0;
+        width: 49%;
+        height: 15rem;
+        padding: 2rem;
+    }
+    .head .sub-title {
+        text-transform: uppercase;
+        font-size: 1.4em;
+    }
+    .sub-title {
+        color: #f8fafc;
+        font-size: 1.4em;
+    }
+    .head .des {
+        font-weight: 600;
+        font-size: 1.2em;
+    }
+    .inner .tt {
+        font-size: 1.4rem;
+        margin-bottom: 1.2em;
+    }
+    .inner .list {
+        list-style-type: square;
+        margin-left: 1.4rem;
+        font-size: 1.2rem;
+    }
+    .content .btn {
+        background-color: #f3ea28;
+        width: 24rem;
+        height: 8rem;
+        border: 1.25rem #f3ea28;
+        border-radius: .4rem;
+        margin-top: 1.25rem;
+        cursor: pointer;
+        display: flex;
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: bold;
+        gap: 3rem;
+        outline: none;
+        overflow: hidden;
+        padding: 1.5rem 1.2rem;
+        text-align: center;
+        text-transform: uppercase;
+    }
+    .book-immediately-btn {
+        color: #0f172a;
+        position: relative;
+        transition: all .3s ease-in-out;
+        z-index: 1;
+    }
+    .image-km {
+        position: relative;
+        width: 49%;
+        height: 33rem;
+        object-fit: fill;
+        padding: 1.5rem;
+        align-items: center; 
+        justify-content: center;
+    }
+    .image-km img {
+        display: flex;
+        position: relative;
+        align-items: center; 
+        justify-content: center;
+        left: 50%;
+        object-fit:none;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        width: 100%;
+        height: 100%;
+    }
+    .khuyenmai-item-row:nth-child(2n) {
+        flex-direction: row-reverse;
+    }
+}
+
+@media only screen and (min-width: 770px) and (max-width: 1023px) {
+    /*Body_body tab KhuyenMai*/
+    .app-main-khuyenmai {
+        flex: 1;
+        position: relative;
+        left: 0;
+        top: 0;
+        width: 100%;
+        top: 16em;
+        height: auto !important;
+    }
+    .khuyenmai-components {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center; 
+        justify-content: space-between;
+        gap: 1.6rem;
+        height: 100%;
+        width: 100%;
+        bottom: 1.5em;
+    }
+    .ht {
+        padding: 10rem;
+        padding-top: 5rem;
+    }
+    .banner {
+        position: relative;
+        height: 15rem;
+        margin: 0 auto;
+        max-width: 120rem; 
+        width: 100%;
+        padding: 5rem;
+        flex: auto;
+    }
+    .banner img {
+        height: 100%;
+        width: 94% !important;
+        align-items: center;
+        left: 50%;
+        top: 50%;
+        object-fit: cover; 
+        position: absolute;
+        transform: translate(-50%,-50%);
+        display: flex;
+        flex-wrap: nowrap;
+    }
+    .khuyenmai-list {
+        justify-content: space-between; /*Khoảng cách giữa các phần tử được căn đều*/
+        height: 100%;
+        width: 100%;
+        position: relative;
+        padding: 1rem;
+    }
+    .khuyenmai-item-row {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 1.25rem;
+        padding: 0.5rem;
+        width: 100%;
+        position: relative;
+        box-sizing: border-box;
+    }
+    ol, ul {
+        list-style: none;
+    }
+    .content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem 0;
+        width: 49%;
+        height: 15rem;
+        padding: 2rem;
+    }
+    .head .sub-title {
+        text-transform: uppercase;
+        font-size: 1.25em;
+    }
+    .sub-title {
+        color: #f8fafc;
+        font-size: 1.25rem;
+    }
+    .head .des {
+        font-weight: 600;
+        font-size: 1.0em;
+    }
+    .inner .tt {
+        font-size: 1.0em;
+        margin-bottom: 1.2rem;
+    }
+    .inner .list {
+        list-style-type: square;
+        margin-left: 1.6rem;
+        font-size: 1.0em;
+    }
+    .content .btn {
+        background-color: #f3ea28;
+        width: 15em;
+        height: 6em;
+        border: 1.0em #f3ea28;
+        border-radius: .4rem;
+        margin-top: 1.25rem;
+        cursor: pointer;
+        display: flex;
+        font-weight: bold;
+        gap: 3rem;
+        outline: none;
+        overflow: hidden;
+        padding: 1.5rem 1.2rem;
+        text-align: center;
+        text-transform: uppercase;
+    }
+    .book-immediately-btn {
+        color: #0f172a;
+        position: relative;
+        transition: all .3s ease-in-out;
+        z-index: 1;
+    }
+    .image-km {
+        position: relative;
+        width: 49%;
+        height: 33rem;
+        object-fit: fill;
+        padding: 1.5rem;
+        align-items: center; 
+        justify-content: center;
+    }
+    .image-km img {
+        display: flex;
+        position: relative;
+        align-items: center; 
+        justify-content: center;
+        left: 50%;
+        object-fit:none;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        width: 100%;
+        height: 100%;
+    }
+    .khuyenmai-item-row:nth-child(2n) {
+        flex-direction: row-reverse;
+    }
+}
+
+@media only screen and (max-width: 769px){
+    /*Body_body tab KhuyenMai*/
+    .app-main-khuyenmai {
+        flex: 1;
+        position: relative;
+        left: 0;
+        top: 0;
+        width: 100%;
+        top: 12em;
+        height: auto !important;
+    }
+    .khuyenmai-components {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center; 
+        justify-content: space-between;
+        height: 100%;
+        width: 100%;
+    }
+    .ht {
+        padding: 5rem;
+        padding-top: 5rem;
+    }
+    .banner {
+        height: 15em;
+        position: relative;
+        margin: 0 auto;
+        max-width: 120rem; 
+        width: 100%;
+        padding: 2rem;
+        flex: auto;
+    }
+    .banner img {
+        height: 100%;
+        width: 94% !important;
+        align-items: center;
+        left: 50%;
+        object-fit: cover; 
+        position: absolute;
+        transform: translate(-50%,-50%);
+        display: flex;
+        flex-wrap: nowrap;
+    }
+    .khuyenmai-list {
+        justify-content: space-between; /*Khoảng cách giữa các phần tử được căn đều*/
+        height: 100%;
+        width: 100%;
+        position: relative;
+    }
+    .khuyenmai-item-row {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 1.25rem;
+        padding: 0.5rem;
+        width: 100%;
+        position: relative;
+        box-sizing: border-box;
+        margin-bottom: 6.5em;
+    }
+    ol, ul {
+        list-style: none;
+    }
+    .content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 0.15rem 0;
+        width: 100%;
+        height: 15rem;
+    }
+    .head .sub-title {
+        text-transform: uppercase;
+        font-size: 1.25em;
+    }
+    .sub-title {
+        color: #f8fafc;
+        font-size: 1.25rem;
+    }
+    .head .des {
+        font-weight: 600;
+        font-size: 1.0em;
+    }
+    .inner .tt {
+        font-size: 1.0em;
+        margin-bottom: 1.2rem;
+    }
+    .inner .list {
+        list-style-type: square;
+        margin-left: 1.6rem;
+        font-size: 1.0em;
+    }
+    .content .btn {
+        background-color: #f3ea28;
+        width: 12em;
+        height: 4em;
+        border: 0.5em #f3ea28;
+        border-radius: .4rem;
+        margin-top: 0.75rem;
+        cursor: pointer;
+        display: flex;
+        font-weight: bold;
+        gap: 3rem;
+        outline: none;
+        overflow: hidden;
+        padding: 1.5rem 1.2rem;
+        text-align: center;
+        text-transform: uppercase;
+    }
+    .book-immediately-btn {
+        color: #0f172a;
+        position: relative;
+        transition: all .3s ease-in-out;
+        z-index: 1;
+    }
+    .image-km {
+        position: relative;
+        width: 100%;
+        object-fit: fill;
+        padding: 1.5rem;
+        align-items: center; 
+        justify-content: center;
+    }
+    .image-km img {
+        display: flex;
+        position: relative;
+        align-items: center; 
+        justify-content: center;
+        left: 50%;
+        top: 46%;
+        transform: translate(-50%,-50%);
+        width: 100%;
+        height: 100%;
+    }
+    .khuyenmai-item-row:nth-child(2n) {
+        flex-direction: row-reverse;
+    }
+}

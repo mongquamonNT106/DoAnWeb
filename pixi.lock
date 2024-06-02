@@ -18,6 +18,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/deprecation-2.1.0-pyh9f0ad1d_0.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/noarch/exceptiongroup-1.2.0-pyhd8ed1ab_2.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/flask-3.0.3-pyhd8ed1ab_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/flask-wtf-1.2.1-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/gotrue-2.4.2-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/h11-0.14.0-pyhd8ed1ab_0.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/noarch/h2-4.1.0-pyhd8ed1ab_0.tar.bz2
@@ -60,6 +61,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/win-64/vs2015_runtime-14.38.33130-hcb4865c_18.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/websockets-12.0-py312he70551f_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/werkzeug-3.0.3-pyhd8ed1ab_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/wtforms-3.1.2-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/xz-5.2.6-h8d14728_0.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/noarch/zipp-3.17.0-pyhd8ed1ab_0.conda
       - pypi: .
@@ -170,7 +172,7 @@ packages:
   name: ci9ma
   version: 0.1.0
   path: .
-  sha256: 191848a9cb115595b47055451712205fb6dcce54c2c7a602ff2e8fc58427ca17
+  sha256: 1d7f9eda6957bec6ac8b232633c9009c9955a22929db489891465634edb78047
   requires_python: '>=3.11'
   editable: true
 - kind: conda
@@ -267,6 +269,26 @@ packages:
   - pkg:pypi/flask
   size: 80797
   timestamp: 1712667841142
+- kind: conda
+  name: flask-wtf
+  version: 1.2.1
+  build: pyhd8ed1ab_0
+  subdir: noarch
+  noarch: python
+  url: https://conda.anaconda.org/conda-forge/noarch/flask-wtf-1.2.1-pyhd8ed1ab_0.conda
+  sha256: cee583240eec93d27f262f3bb8cdecf8334e502d81923295d98f378b15fe26d5
+  md5: e7b75c25f98d7b55943466683e400529
+  depends:
+  - flask
+  - itsdangerous
+  - python >=3.8
+  - wtforms
+  license: BSD-3-Clause
+  license_family: BSD
+  purls:
+  - pkg:pypi/flask-wtf
+  size: 16570
+  timestamp: 1697216258405
 - kind: conda
   name: gotrue
   version: 2.4.2
@@ -1025,6 +1047,24 @@ packages:
   - pkg:pypi/werkzeug
   size: 242920
   timestamp: 1715000337645
+- kind: conda
+  name: wtforms
+  version: 3.1.2
+  build: pyhd8ed1ab_0
+  subdir: noarch
+  noarch: python
+  url: https://conda.anaconda.org/conda-forge/noarch/wtforms-3.1.2-pyhd8ed1ab_0.conda
+  sha256: 6d3ae74038e34945daf8e091b7fa85741162c0db6e989da4d0f8164d84a4cbce
+  md5: 1e60bfa73e13b1ca9c439c6938664ab4
+  depends:
+  - markupsafe
+  - python >=3.8
+  license: BSD-3-Clause
+  license_family: BSD
+  purls:
+  - pkg:pypi/wtforms
+  size: 73667
+  timestamp: 1708541368792
 - kind: conda
   name: xz
   version: 5.2.6

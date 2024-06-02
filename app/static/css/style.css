@@ -1,0 +1,665 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cabin', sans-serif;
+}
+
+
+body {
+    background-image: linear-gradient(225deg, rgb(8, 0, 137) 0%, rgb(0, 0, 0) 100%);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+}
+
+.main-content {
+    flex: 1;
+    margin-top: 150px;
+    margin-bottom: 4em;
+    top: 7em;
+    position: relative;
+}
+
+.menu {
+    height: 93px;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ticket {
+    color: black;
+    background-color: yellow;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    height: 46px;
+    width: 190px;
+    font-size: 150%;
+    font-weight: bold;
+    align-content: stretch;
+    flex-wrap: nowrap;
+    justify-content: center;
+    margin-left: 100px;
+    margin-right: 100px;
+
+}
+
+.box {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    color: black;
+    background-color: yellow;
+    border-radius: 4px;
+    align-items: center;
+    height: 100px;
+    width: 100px;
+    font-size: 150%;
+    font-weight: bold;
+    align-content: stretch;
+    justify-content: center;
+    margin: 0px auto;
+
+}
+
+.lichchieu {
+    display: flex;
+    justify-content: center;
+    margin: 0px auto;
+    border: 5px;
+    margin: 0px auto;
+}
+
+.menu-search {
+    width: 300px;
+    margin-left: 50px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    height: 36px;
+
+}
+
+#icon {
+    background-image: url(./assets/ic-ticket.svg);
+    background-repeat: no-repeat;
+    background-position: 2px 3px;
+    align-items: center;
+    text-indent: 25px;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+.menu_search-input {
+    height: 100%;
+    text-align: center;
+    width: 100%;
+    border: none;
+    padding-left: 20px;
+}
+
+.login-logout {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    color: aliceblue;
+    text-decoration: underline;
+}
+
+.log {
+    font-size: 150%;
+}
+
+.select_theater {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: underline;
+    padding: 10px 50px;
+}
+
+.discount {
+    margin-left: auto;
+    margin-right: 50px;
+    text-decoration: underline;
+    font-size: 100%;
+}
+
+.introduction {
+    margin-right: 50px;
+    text-decoration: underline;
+    font-size: 100%;
+}
+
+.other {
+    margin-right: 50px;
+    text-decoration: underline;
+    font-size: 100%;
+
+}
+
+.main {
+    background-color: #000000;
+    height: "1vh";
+}
+
+/* .banner_1 {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+
+} */
+
+/* .movie-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 300px;
+    width: 100%;
+} */
+
+/* .movie {
+    flex: 0 0 30%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    padding: 10px;
+    height: 60vh;
+} */
+.movie-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* Thêm scrollbar nếu nội dung vượt quá chiều rộng của container */
+}
+
+.movie {
+    /* Thiết lập kích thước hoặc tỷ lệ cố định cho mỗi phim */
+    width: 300px;
+    /* Ví dụ: Mỗi phim có chiều rộng cố định là 300px */
+    margin: 10px;
+    /* Khoảng cách giữa các phim */
+}
+
+
+
+.movie img {
+    width: 100%;
+    height: auto;
+    max-height: 350px;
+}
+
+.title,
+.trailer,
+.buy_ticket {
+    text-align: center;
+    margin-top: 10px;
+}
+
+
+.buy_ticket {
+    height: 40px;
+    width: 100px;
+    display: flex;
+    font-weight: bold;
+    font-size: 100%;
+    margin-left: 90px;
+
+    border-radius: 4px;
+    background-color: yellow;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    color: black;
+}
+
+.title {
+    font-size: larger;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin: 10px 0px
+}
+
+.trailer {
+    color: whitesmoke;
+    display: flex;
+    align-items: center;
+}
+
+.on-going {
+    color: #fff;
+    margin-bottom: 50px;
+}
+
+.movie_2 {
+    margin-left: 50px;
+}
+
+.moreinfo {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    margin-top: 50px;
+    padding-bottom: 50px;
+}
+
+.moreinfo_detail {
+    color: black;
+    text-align: center;
+    background-color: yellow;
+    border-radius: 10px;
+    font-size: smaller;
+    font-weight: bold;
+    padding: 10px 40px;
+}
+
+.premier {
+    color: #fff;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    font-size: 2em;
+}
+
+.discountbanner {
+    color: #fff;
+    font-size: 2em;
+    display: flex;
+    padding: 10px 20px;
+}
+
+.discount {
+    display: flex;
+}
+
+.discount1 {
+    justify-content: center;
+    padding: 10px 20px;
+    border-radius: 4px;
+}
+
+.contact {
+    color: #fff;
+    margin-top: 20px;
+    font-size: 2em;
+    display: flex;
+    padding: 10px 20px;
+
+}
+
+.facebook {
+
+    color: white;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    justify-content: center;
+    font-size: 300%;
+    font-weight: bold;
+    background-color: #0F172A;
+    border-radius: 10px;
+}
+
+.zalo {
+    color: white;
+    display: flex;
+    font-size: 300%;
+    font-weight: bold;
+    background-color: #0F172A;
+    border-radius: 8px;
+    justify-content: center;
+    align-items: center;
+}
+
+.hirebox {
+    color: black;
+    background-color: yellow;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    height: 26px;
+    width: 110px;
+    font-size: 60%;
+    font-weight: bolder;
+    margin-top: 10px;
+    flex-wrap: nowrap;
+    justify-content: center;
+
+}
+
+.row {
+    float: left;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.boxcenter {
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 24px;
+    background-color: #011891;
+    color: white;
+    padding: 50px 0px;
+}
+
+
+
+.boxfooter1 {
+    width: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.boxfooter2 {
+    width: 16%;
+}
+
+.boxfooter3 {
+    width: 16%;
+}
+
+.boxfooter4 {
+    width: 16%;
+}
+
+.boxfooter5 {
+    width: 16%;
+}
+
+.add {
+    margin-top: 30px;
+}
+
+.logophim {
+    padding: 20px 80px;
+    display: flex;
+    justify-content: center;
+
+}
+
+.tieude {
+    color: white;
+    font-size: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.theloai {}
+
+.icon {
+    vertical-align: baseline;
+}
+
+#wrapper {
+    display: flex;
+    padding-left: 10vh;
+    padding-right: 10vh;
+
+}
+
+#tenphim {
+    font-size: larger;
+}
+
+#xem_trailer {
+    display: flex;
+}
+
+@media only screen and (max-width: 769px) {
+    #main_content {
+        margin-bottom: 50px;
+        display: flex;
+        min-height: 500px;
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    #img_content img {
+        position: relative;
+    }
+
+    #movie_content {
+        flex-basis: 70;
+        color: #fff;
+        padding: 20px;
+        position: relative;
+        left: 0 !important;
+    }
+
+}
+
+#main_content {
+    margin-bottom: 50px;
+    display: flex;
+    min-height: 500px;
+}
+
+#img_content img {
+    position: relative;
+    min-width: 30vw;
+    max-height: 70vh;
+
+}
+
+#title_content {
+    flex-basis: 70;
+    color: #fff;
+    padding: 20px;
+}
+
+#movie_content {
+    flex-basis: 70;
+    color: #fff;
+    padding: 20px;
+}
+
+.select_seat {
+    margin: 0 auto;
+    align-items: center;
+    text-align: center;
+}
+
+#seats-container {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    /* Thay đổi số lượng ghế trong mỗi hàng tùy thuộc vào số ghế mà bạn muốn hiển thị */
+    gap: 10px;
+    /* Khoảng cách giữa các ghế */
+    justify-items: center;
+    /* Canh giữa theo chiều ngang */
+    align-items: center;
+    /* Canh giữa theo chiều dọc */
+}
+
+.seat-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Canh giữa các ghế trong cột */
+    margin-right: 10px;
+    /* Khoảng cách giữa các cột */
+}
+
+
+.seat {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 30px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.double-seat {
+    width: 100px;
+    height: 50px;
+}
+
+
+.available {
+    background-color: green;
+}
+
+.booked {
+    background-color: red;
+    cursor: not-allowed;
+}
+
+.hd_register_login_ava {
+    margin-right: 20px;
+}
+
+.logout {
+    font-size: medium;
+    color: red;
+}
+
+.showtime-button {
+    margin: 5px;
+    padding: 10px;
+    background-color: #008000;
+    border: none;
+    cursor: pointer;
+}
+
+.showtime-button:hover {
+    background-color: #1c0070;
+}
+
+.selected {
+    border: 4px solid yellow;
+}
+
+.showtime-button.selected {
+    border: 4px solid yellow;
+}
+
+
+.btn_datve {
+    margin: 0 auto;
+    align-items: center;
+    height: 100%;
+    width: 300px;
+}
+
+
+.btn.book_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background-color: #007bff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    margin-top: 300px;
+    justify-self: center;
+}
+
+.modal-content {
+    background-color: #002fbb;
+    border-radius: 15px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    text-align: center;
+}
+
+.close {
+    color: #ff0000;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.confirmseats-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 1000;
+}
+
+#confirm-seats {
+    z-index: 1000;
+
+    text-align: center;
+    display: none;
+    padding: 10px;
+    background-color: #007bff;
+    border: 1px solid #ffffff;
+    border-radius: 15px;
+    margin: 10px;
+    min-width: 200px;
+    justify-content: center;
+}
+
+#confirm-seats :hover {
+    background-color: #014996;
+    border: 1px solid #ffffff;
+}
+
+#confirm-seats select {
+    background-color: #014996;
+    border: 1px solid #ffffff;
+}
+
+.mainlogo {
+    width: 100%;
+    /* Hoặc bất kỳ giá trị nào bạn cần */
+    height: auto;
+    padding: 5px;
+    /* Tự động điều chỉnh chiều cao theo tỷ lệ ban đầu */
+    object-fit: contain;
+    /* Đảm bảo hình ảnh giữ nguyên tỷ lệ */
+}
+
+#submit-confirmation {
+    margin: 10px;
+    background-color: #0fa801;
+    padding: 10px;
+    border-radius: 15px;
+}
