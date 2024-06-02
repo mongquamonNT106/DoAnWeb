@@ -1,0 +1,679 @@
+@media only screen and (min-width: 1024px){
+    /*Body_body tab ThueSuKien*/
+    .app-main-thuesukien {
+        flex: 1;
+        position: relative;
+        left: 0;
+        top: 0;
+        width: 100%;
+        top: 16em;
+        height: auto !important;
+    }
+    .thuesukien-components {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center; 
+        justify-content: space-between;
+        gap: 2rem;
+        height: 100%;
+        width: 100%;
+        bottom: 0.2em;
+    }
+    .banner {
+        position: relative;
+        text-align: center;
+        display: block;
+        height: 100%;
+        width: 100%;
+        padding: 2rem;
+        color: #f8fafc;
+    }
+    .banner .big-title {
+        font-size: 2.8rem;
+    }
+    .banner .lead {
+        font-size: 1.4rem;
+        margin-top: 1rem;
+    }
+    .thuesukien-list {
+        justify-content: space-between; /*Khoảng cách giữa các phần tử được căn đều*/
+        height: 100%;
+        width: 100%;
+        position: relative;
+        padding: 1em;
+    }
+    .thuesukien-item-row {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 0.75rem;
+        padding: 1.5rem;
+        width: 100%;
+        position: relative;
+        box-sizing: border-box;
+    }
+    .content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem 0;
+        width: 49%;
+        height: 15rem;
+        padding: 2rem;
+    }
+    .head .sub-title {
+        text-transform: uppercase;
+        font-size: 1.4em;
+    }
+    .sub-title {
+        color: #f8fafc;
+        font-size: 1.4em;
+    }
+    .inner .tt {
+        font-size: 1.4rem;
+        margin-bottom: 1.2rem;
+    }
+    .content .btn {
+        background-color: #f3ea28;
+        width: 24rem;
+        height: 8rem;
+        border: 1.25rem #f3ea28;
+        border-radius: .4rem;
+        margin-top: 1.25rem;
+        cursor: pointer;
+        display: flex;
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: bold;
+        gap: 3rem;
+        outline: none;
+        overflow: hidden;
+        padding: 1.5rem 1.2rem;
+        text-align: center;
+        text-transform: uppercase;
+    }
+    .contact-immediately-btn {
+        color: #0f172a;
+        position: relative;
+        transition: all .3s ease-in-out;
+        z-index: 1;
+    }
+    .image-km {
+        position: relative;
+        width: 49%;
+        height: 33rem;
+        object-fit: fill;
+        padding: 1.5rem;
+        align-items: center; 
+        justify-content: center;
+    }
+    .image-km img {
+        display: block;
+        position: relative;
+        align-items: center; 
+        justify-content: center;
+        left: 50%;
+        top: 50%;
+        object-fit:none;
+        transform: translate(-50%,-50%);
+        width: 100%;
+        height: 100%;
+    }
+    .thuesukien-item-row:nth-child(2n) {
+        flex-direction: row-reverse;
+    }
+
+    .thuesukien-other-components {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .banner-lead {
+        position: relative;
+        text-align: left;
+        display: block;
+        height: 100%;
+        width: 100%;
+        padding: 1.5rem;
+        color: #f8fafc;
+    }
+    .banner-lead .big-title {
+        font-size: 2.8rem;
+    }
+    .banner-lead .lead {
+        font-size: 1.4rem;
+    }
+    .thuesukien-other-item {
+        width: calc(33.333333% - 20px);
+        height: auto;
+        margin: 10px;
+        padding: 10px;
+        box-sizing: border-box;
+        text-align: center;
+        
+    }
+    .thuesukien-other-item-img img {
+        max-height: 100%;
+        width: 100%;
+        position: relative;
+        object-fit: fill;
+        align-items: center; 
+        justify-content: center;
+        /*border-radius: 0.35rem;*/
+    }
+    .thuesukien-other-item-img .link {
+        align-items: stretch;
+        display: flex;
+        pointer-events: visible;
+    }
+    .thuesukien-other-item-name {
+        bottom: 0;
+        left: 0;
+        position: relative;
+        transition: all .3s ease-in-out;
+        width: 100%;
+        height: 70%;
+        pointer-events: visible;
+        background: linear-gradient(106deg, rgba(102, 51, 153, .8), rgba(51, 102, 204, .8) 102.69%);
+        padding: 1rem;
+        text-align: center;
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        /*border-radius: 0.35rem;*/
+    }
+    .thuesukien-other-item-name .link {
+        align-items: center;
+        color: #f8fafc;
+        display: flex;
+        gap: 0 .8rem;
+        pointer-events: visible;
+    }
+    .thuesukien-other-item-name .sub-tittle {
+        color: #f8fafc;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 2.4rem;
+        text-transform: uppercase;
+        justify-content: center;
+    }
+    .banner-end {
+        position: relative;
+        height: 15rem;
+        margin: 0 auto;
+        max-width: 120rem; 
+        width: 100%;
+        padding: 5rem;
+        flex: auto;
+        margin-top: 7rem;
+        margin-bottom: 7em;
+    }
+    .banner-end .link {
+        align-items: stretch;
+        display: flex;
+        pointer-events: visible;
+    }
+    .banner-end img {
+        height: 100%;
+        width: 96% !important;
+        align-items: center;
+        left: 50%;
+        top: 50%;
+        object-fit: cover; 
+        position: absolute;
+        transform: translate(-50%,-50%);
+        display: flex;
+        flex-wrap: nowrap;
+    }
+}
+
+@media only screen and (min-width: 770px) and (max-width: 1023px) {
+    /*Body_body tab ThueSuKien*/
+    .app-main-thuesukien {
+        flex: 1;
+        position: relative;
+        left: 0;
+        top: 0;
+        width: 100%;
+        top: 16em;
+        height: auto !important;
+    }
+    .thuesukien-components {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center; 
+        justify-content: space-between;
+        gap: 1.6rem;
+        height: 100%;
+        width: 100%;
+        bottom: 1.5em;
+    }
+    .banner {
+        position: relative;
+        text-align: center;
+        display: block;
+        height: 100%;
+        width: 100%;
+        padding: 2rem;
+        color: #f8fafc;
+    }
+    .banner .big-title {
+        font-size: 2.8rem;
+    }
+    .banner .lead {
+        font-size: 1.4rem;
+        margin-top: 1rem;
+    }
+    .thuesukien-list {
+        justify-content: space-between; /*Khoảng cách giữa các phần tử được căn đều*/
+        height: 100%;
+        width: 100%;
+        position: relative;
+        padding: 1em;
+    }
+    .thuesukien-item-row {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 1.25rem;
+        padding: 0.5rem;
+        width: 100%;
+        position: relative;
+        box-sizing: border-box;
+    }
+    .content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem 0;
+        width: 49%;
+        height: 15rem;
+        padding: 2rem;
+    }
+    .head .sub-title {
+        text-transform: uppercase;
+        font-size: 1.25em;
+    }
+    .sub-title {
+        color: #f8fafc;
+        font-size: 1.25rem;
+    }
+    .inner .tt {
+        font-size: 1.4rem;
+        margin-bottom: 1.2rem;
+    }
+    .content .btn {
+        background-color: #f3ea28;
+        width: 15em;
+        height: 6em;
+        border: 1.0em #f3ea28;
+        border-radius: .4rem;
+        margin-top: 1.25rem;
+        cursor: pointer;
+        display: flex;
+        font-weight: bold;
+        gap: 3rem;
+        outline: none;
+        overflow: hidden;
+        padding: 1.5rem 1.2rem;
+        text-align: center;
+        text-transform: uppercase;
+    }
+    .contact-immediately-btn {
+        color: #0f172a;
+        position: relative;
+        transition: all .3s ease-in-out;
+        z-index: 1;
+    }
+    .image-km {
+        position: relative;
+        width: 49%;
+        height: 33rem;
+        object-fit: fill;
+        padding: 1.5rem;
+        align-items: center; 
+        justify-content: center;
+    }
+    .image-km img {
+        display: block;
+        position: relative;
+        align-items: center; 
+        justify-content: center;
+        left: 50%;
+        top: 50%;
+        object-fit:none;
+        transform: translate(-50%,-50%);
+        width: 100%;
+        height: 100%;
+    }
+    .thuesukien-item-row:nth-child(2n) {
+        flex-direction: row-reverse;
+    }
+
+    .thuesukien-other-components {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .banner-lead {
+        position: relative;
+        text-align: left;
+        display: block;
+        height: 100%;
+        width: 100%;
+        padding: 1.5rem;
+        color: #f8fafc;
+    }
+    .banner-lead .big-title {
+        font-size: 2.8rem;
+    }
+    .banner-lead .lead {
+        font-size: 1.4rem;
+    }
+    .thuesukien-other-item {
+        width: calc(33.333333% - 20px);
+        height: auto;
+        margin: 10px;
+        padding: 10px;
+        box-sizing: border-box;
+        text-align: center;
+        
+    }
+    .thuesukien-other-item-img img {
+        max-height: 100%;
+        width: 100%;
+        position: relative;
+        object-fit: fill;
+        align-items: center; 
+        justify-content: center;
+        /*border-radius: 0.35rem;*/
+    }
+    .thuesukien-other-item-img .link {
+        align-items: stretch;
+        display: flex;
+        pointer-events: visible;
+    }
+    .thuesukien-other-item-name {
+        bottom: 0;
+        left: 0;
+        position: relative;
+        transition: all .3s ease-in-out;
+        width: 100%;
+        height: 70%;
+        pointer-events: visible;
+        background: linear-gradient(106deg, rgba(102, 51, 153, .8), rgba(51, 102, 204, .8) 102.69%);
+        padding: 1rem;
+        text-align: center;
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        /*border-radius: 0.35rem;*/
+    }
+    .thuesukien-other-item-name .link {
+        align-items: center;
+        color: #f8fafc;
+        display: flex;
+        gap: 0 .8rem;
+        pointer-events: visible;
+    }
+    .thuesukien-other-item-name .sub-tittle {
+        color: #f8fafc;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 2.4rem;
+        text-transform: uppercase;
+        justify-content: center;
+    }
+    .banner-end {
+        position: relative;
+        height: 15rem;
+        margin: 0 auto;
+        max-width: 120rem; 
+        width: 100%;
+        padding: 5rem;
+        flex: auto;
+        margin-top: 7rem;
+        margin-bottom: 7em;
+    }
+    .banner-end .link {
+        align-items: stretch;
+        display: flex;
+        pointer-events: visible;
+    }
+    .banner-end img {
+        height: 100%;
+        width: 96% !important;
+        align-items: center;
+        left: 50%;
+        top: 50%;
+        object-fit: cover; 
+        position: absolute;
+        transform: translate(-50%,-50%);
+        display: flex;
+        flex-wrap: nowrap;
+    }
+}
+
+@media only screen and (max-width: 769px){
+    /*Body_body tab ThueSuKien*/
+    .app-main-thuesukien {
+        flex: 1;
+        position: relative;
+        left: 0;
+        top: 0;
+        width: 100%;
+        top: 12em;
+        height: auto !important;
+    }
+    .thuesukien-components {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center; 
+        justify-content: space-between;
+        height: 100%;
+        width: 100%;
+    }
+    .banner {
+        position: relative;
+        text-align: center;
+        display: block;
+        height: 100%;
+        width: 100%;
+        padding: 2rem;
+        color: #f8fafc;
+    }
+    .banner .big-title {
+        font-size: 2.8rem;
+    }
+    .banner .lead {
+        font-size: 1.4rem;
+        margin-top: 1rem;
+    }
+    .thuesukien-list {
+        justify-content: space-between; /*Khoảng cách giữa các phần tử được căn đều*/
+        height: 100%;
+        width: 100%;
+        position: relative;
+    }
+    .thuesukien-item-row {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 1.25rem;
+        padding: 0.5rem;
+        width: 100%;
+        position: relative;
+        box-sizing: border-box;
+        margin-bottom: 6.5em;
+    }
+    .content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 0.15rem 0;
+        width: 90%;
+        height: 15rem;
+        left: 2em;
+    }
+    .head .sub-title {
+        text-transform: uppercase;
+        font-size: 1.25em;
+    }
+    .sub-title {
+        color: #f8fafc;
+        font-size: 1.25rem;
+    }
+    .inner .tt {
+        font-size: 1.2rem;
+        margin-bottom: 1.0rem;
+    }
+    .content .btn {
+        background-color: #f3ea28;
+        width: 12em;
+        height: 2.75em;
+        border: 0.5em #f3ea28;
+        border-radius: .4rem;
+        margin-top: 0.75rem;
+        cursor: pointer;
+        display: flex;
+        font-weight: bold;
+        gap: 3rem;
+        outline: none;
+        overflow: hidden;
+        padding: 0.5rem 0.2rem;
+        text-align: center;
+        text-transform: uppercase;
+    }
+    .contact-immediately-btn {
+        color: #0f172a;
+        position: relative;
+        transition: all .3s ease-in-out;
+        z-index: 1;
+    }
+    .image-km {
+        position: relative;
+        width: 100%;
+        height: 33rem;
+        object-fit: fill;
+        padding: 1.5rem;
+        align-items: center; 
+        justify-content: center;
+    }
+    .image-km img {
+        display: block;
+        position: relative;
+        align-items: center; 
+        justify-content: center;
+        left: 50%;
+        top: 46%;
+        object-fit:none;
+        transform: translate(-50%,-50%);
+        width: 100%;
+        height: 100%;
+    }
+    .thuesukien-item-row:nth-child(2n) {
+
+    }
+
+    .thuesukien-other-components {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .banner-lead {
+        position: relative;
+        text-align: left;
+        display: block;
+        height: 100%;
+        width: 100%;
+        padding: 1.5rem;
+        color: #f8fafc;
+    }
+    .banner-lead .big-title {
+        font-size: 2.8rem;
+    }
+    .banner-lead .lead {
+        font-size: 1.4rem;
+    }
+    .thuesukien-other-item {
+        width: calc(50% - 20px);
+        height: auto;
+        margin: 10px;
+        padding: 10px;
+        box-sizing: border-box;
+        text-align: center;
+        
+    }
+    .thuesukien-other-item-img img {
+        max-height: 100%;
+        width: 100%;
+        height: 10em;
+        position: relative;
+        object-fit: fill;
+        align-items: center; 
+        justify-content: center;
+        /*border-radius: 0.35rem;*/
+    }
+    .thuesukien-other-item-img .link {
+        align-items: stretch;
+        display: flex;
+        pointer-events: visible;
+    }
+    .thuesukien-other-item-name {
+        bottom: 0;
+        left: 0;
+        position: relative;
+        transition: all .3s ease-in-out;
+        width: 100%;
+        height: 70%;
+        pointer-events: visible;
+        background: linear-gradient(106deg, rgba(102, 51, 153, .8), rgba(51, 102, 204, .8) 102.69%);
+        padding: 1rem;
+        text-align: center;
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        /*border-radius: 0.35rem;*/
+    }
+    .thuesukien-other-item-name .link {
+        align-items: center;
+        color: #f8fafc;
+        display: flex;
+        gap: 0 .8rem;
+        pointer-events: visible;
+    }
+    .thuesukien-other-item-name .sub-tittle {
+        color: #f8fafc;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 2.4rem;
+        text-transform: uppercase;
+        justify-content: center;
+    }
+    .banner-end {
+        position: relative;
+        height: 15rem;
+        margin: 0 auto;
+        max-width: 120rem; 
+        width: 100%;
+        padding: 5rem;
+        flex: auto;
+        margin-top: 7rem;
+        margin-bottom: 7em;
+    }
+    .banner-end .link {
+        align-items: stretch;
+        display: flex;
+        pointer-events: visible;
+    }
+    .banner-end img {
+        height: 100%;
+        width: 96% !important;
+        align-items: center;
+        left: 50%;
+        top: 50%;
+        object-fit: cover; 
+        position: absolute;
+        transform: translate(-50%,-50%);
+        display: flex;
+        flex-wrap: nowrap;
+    }
+}
+
+

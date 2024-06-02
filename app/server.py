@@ -92,7 +92,7 @@ def signin():
 
 @app.route("/", methods=["GET", "POST"])
 def home():
-    print("route home: ", request.cookies.get("auth"))
+    print("route home: ", request.cookies.get("email"))
     if not request.cookies.get("email"):
         return redirect(url_for("signin"))
     movies = (
@@ -256,7 +256,7 @@ def confirm_tickets():
 @app.route("/logout", methods=["GET", "POST"])
 def logout():
     resp = redirect(url_for("signin"))
-    resp.delete_cookie("auth")
+    resp.delete_cookie("email")
     supabase.auth.sign_out()
     session.clear()
     return resp
@@ -265,6 +265,26 @@ def logout():
 def get_movies():
     response = supabase.table("phim").select("id, ten_phim").execute()
     return [(movie["id"], movie["ten_phim"]) for movie in response.data]
+
+
+@app.route("/chonrap")
+def chonrap():
+    return render_template("chonrap.html")
+
+
+@app.route("/khuyenmai")
+def khuyenmai():
+    return render_template("khuyenmai.html")
+
+
+@app.route("/thuesukien")
+def thuesukien():
+    return render_template("thuesukien.html")
+
+
+@app.route("/movetocontact", methods=["GET", "POST"])
+def movetocontact():
+    return render_template("thuesukienlienhengayform.html")
 
 
 @app.route("/admin", methods=["GET", "POST"])

@@ -1,13 +1,9 @@
 <!DOCTYPE html>
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewbox" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/style.css">
-    <link rel="stylesheet" href="../static/css/style2.css">
-    <link rel="stylesheet" href="../static/css/ChonRap_style.css">
+    <meta charset="utf-8">
+        <meta name="viewbox" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../static/css/ChonRap_style.css">
 </head>
-
 <body class="main">
     <div class="hd_chonrap">
         <div class="hd_chonrap_top">
@@ -32,13 +28,10 @@
                                 <div class="search_panel_form">
                                     <div>
                                         <div class="search_panel_form_content">
-                                            <input class="search_content" type="text" id="searchInput"
-                                                placeholder="Nhập tên phim">
-                                            <a href="#"> 
-                                                <button class="search_btn" type="submit" onclick="searchMovies()">
-                                                    <img src="../static/assets/ic-header-search.svg">
-                                                </button>
-                                            </a>
+                                            <input class="search_content" type="text" placeholder="Tìm phim, thể loại,...">
+                                            <button class="search_btn" type="submit">
+                                                <img src="../static/assets/ic-header-search.svg">
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -46,32 +39,32 @@
                         </div>
                         <!--Register/Login-->
                         <div class="hd_register_login">
-                            <div class="hd_register_login_content">
-                                <div class="hd_register_login_list">
-                                    {% if session.email %}
-                                    <div class="hd_register_login_ava">
-                                        <a href="{{url_for('user')}}">
-                                            <img src="../static/assets/ic-header-auth.svg">
-                                        </a>
-                                    </div>
-                                    <p>{{ session.email }} <br> <a class="logout" href="{{ url_for('logout') }}">Đăng
-                                            xuất</a>
-                                    </p>
-                                    {% else %}
-                                    <a class="link" href="#">
-                                        <i class="login"></i>Đăng nhập
+                        <div class="hd_register_login_content">
+                            <div class="hd_register_login_list">
+                                {% if session.email %}
+                                <div class="hd_register_login_ava">
+                                    <a href="{{url_for('user')}}">
+                                        <img src="../static/assets/ic-header-auth.svg">
                                     </a>
-                                    <span class="separate">/</span>
-                                    <a class="link" href="#">
-                                        <i class="register"></i>Đăng kí
-                                    </a>
-                                    {% endif %}
                                 </div>
+                                <p>{{ session.email }} <br> <a class="logout" href="{{ url_for('logout') }}">Đăng
+                                        xuất</a>
+                                </p>
+                                {% else %}
+                                <a class="link" href="#">
+                                    <i class="login"></i>Đăng nhập
+                                </a>
+                                <span class="separate">/</span>
+                                <a class="link" href="#">
+                                    <i class="register"></i>Đăng kí
+                                </a>
+                                {% endif %}
                             </div>
                         </div>
+                    </div>
                         <!--Language-->
                         <div class="hd_language">
-                            <div class="hd_language_action">
+                           <div class="hd_language_action">
                                 <div class="hd_language_popup">
                                     <div class="hd_language_option">
                                         <span class="image">
@@ -82,14 +75,14 @@
                                         </span>
                                     </div>
                                 </div>
-                            </div>
+                           </div>
                         </div>
                     </div>
                     <!--Nav bars-->
                     <div class="nav_bars-btn">  
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>
                     </div>
-                 
+                    
                     <div class="nav_mobile-close">                            
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"/></svg>
                     </div>
@@ -110,6 +103,7 @@
             </div>
         </div>
     </div>
+
     <div class="nav_mobile">
         <ul class="nav_mobile-list">
             <li class="nav_mobile-link"><a class="link" href="#">Người dùng<b>▼</b></a>
@@ -143,60 +137,51 @@
         </ul>
     </div>
 
-    <div class="main-content">
-        <h1 class="on-going" style="text-align: center;">
-            KẾT QUẢ TÌM KIẾM
-        </h1>
-        <div class="banner_1">
-            <div id="movies">
-                <div class="movie-container">
-                    <div id="searchResults">
-                        <!-- Kết quả tìm kiếm sẽ được hiển thị ở đây -->
+    <div class="app-main-chonrap">
+            <div class="chonrap-components"> 
+                <!--Rạp 1-->
+                <div class="chonrap-item">
+                    <div class="chonrap-item-img">
+                        <img src="../static/assets/01-Quoc-Thanh-masthead.jpg">
+                    
+                    <div class="chonrap-item-info">
+                        <div class="address-box">
+                            <div class="hd_address-box">
+                                <a class="link" href="#">
+                                    <h4 class="sub-title">CI9MA NGUYỄN TRÃI</h4>
+                                </a>
+                            </div>
+                            <div class="body_address-box"> 
+                                <ul class="list">
+                                    <!--Số phòng và số ghế-->
+                                    <li class="item">
+                                        <a class="link" href="#">
+                                            <span class="ic">
+                                                <img src="../static/assets/ic-branch-room.svg">
+                                            </span>
+                                            <span class="text">6 phòng chiếu với 930 ghế</span>
+                                        </a>
+                                    </li>
+                                    <!--Địa chỉ-->
+                                    <li class="item">
+                                        <a class="link" href="#">
+                                            <span class="ic">
+                                                <img src="../static/assets/ic-branch-map.svg">
+                                            </span>
+                                            <span class="text">271 Đường Nguyễn Trãi, P.Nguyễn Cư Trinh, Quận 1, TP. Hồ Chí Minh</span>
+                                        </a>
+                                    </li>
+                                    <!--Đặt vé ngay-->
+                                    <a button class="book-immediately-btn" href="{{ url_for('home') }}"> <!--Thay href-->
+                                        Đặt vé
+                                    </a>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <script>
-            function searchMovies() {
-                const keyword = document.getElementById('searchInput').value;
-
-                // Gửi yêu cầu tìm kiếm đến API
-                fetch(`/api/search?keyword=${keyword}`)
-                    .then(response => response.json())
-                    .then(data => {
-                        // Xử lý kết quả trả về và hiển thị lên giao diện
-                        const searchResults = document.getElementById('searchResults');
-                        searchResults.innerHTML = ''; // Xóa kết quả cũ
-                        data.forEach(movie => {
-                            console.log(movie)
-                            const movieDiv = document.createElement('div');
-                            movieDiv.classList.add('movie');
-                            movieDiv.innerHTML = `
-                                <div>
-                                    <img src="${movie.url_poster}" alt="${movie.ten_phim}">
-                                </div>
-                                <div class="title">
-                                    <p>${movie.ten_phim}</p>
-                                </div>
-                                <div class="trailer">
-                                    <a target="_blank" href="${movie.trailer}">
-                                        <div style="display: flex; align-items: center; justify-content: center;">
-                                            <img src="../static/assets/icons8-play-64.png" alt="Play" width="30">
-                                            <p style="padding-left: 5px;">Trailer</p>
-                                        </div>
-                                        <div class="buy_ticket">
-                                            <a href="/book_tickets/${movie.id}"><button type="button">Đặt vé</button></a>
-                                        </div>
-                                    </a>
-                                </div>
-                            `;
-                            searchResults.appendChild(movieDiv);
-                        });
-                    })
-                    .catch(error => console.error('Error:', error));
-            }
-        </script>
-    </div>
+            </div>                
+    </div>                               
 
     <div class="footer">
         <div>
@@ -306,7 +291,10 @@
         </ul>
     </div>
     <script src="../static/js/responsive_for_header-tablet.js"></script>
-    <script src="../static/js/responsive_for_header-mobile.js"></script> 
-    
+    <script src="../static/js/responsive_for_header-mobile.js"></script>
 </body>
 </html>
+
+
+
+<!--1/ <div class="chonrap-components row"> -->
