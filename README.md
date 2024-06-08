@@ -30,8 +30,8 @@ Cài đặt môi trường:
 •	Sử dụng Koa Router giúp bạn quản lý các route một cách có tổ chức và dễ bảo trì. Việc chia nhỏ các route theo chức năng và định nghĩa chúng trong các tệp riêng biệt giúp mã nguồn của bạn rõ ràng và dễ quản lý hơn. Koa Router cũng cung cấp nhiều tính năng mạnh mẽ như middleware, route nesting (lồng các route), và xử lý phương thức HTTP một cách hiệu quả.  
 3. Các tính năng nổi bật của middleware trong KoaJS:  
 •	Sử dụng Async/Await Natively:  
--	KoaJS sử dụng hoàn toàn async/await để xử lý bất đồng bộ, mang lại cú pháp đơn giản và dễ hiểu hơn so với cách tiếp cận dựa trên Callback hoặc Promise chaining.  
--	Điều này giúp mã nguồn dễ đọc, dễ bảo trì và tránh các vấn đề về "Callback hell" hay "Promise chaining".  
+    -	KoaJS sử dụng hoàn toàn async/await để xử lý bất đồng bộ, mang lại cú pháp đơn giản và dễ hiểu hơn so với cách tiếp cận dựa trên Callback hoặc Promise chaining.  
+    -	Điều này giúp mã nguồn dễ đọc, dễ bảo trì và tránh các vấn đề về "Callback hell" hay "Promise chaining".  
 •	Xử lý lỗi tích hợp: KoaJS tích hợp sẵn khả năng xử lý lỗi trong luồng middleware thông qua cơ chế try/catch. Điều này giúp việc quản lý và xử lý lỗi trở nên nhất quán và đơn giản hơn.  
 •	Kiến trúc middleware xếp chồng (stacked middleware): Koa sử dụng kiến trúc middleware dạng "onion" (củ hành), nơi mỗi middleware có thể chạy cả trước và sau khi các middleware kế tiếp thực hiện. Điều này mang lại sự linh hoạt và kiểm soát tốt hơn về luồng xử lý yêu cầu và phản hồi.  
 •	Context Object: KoaJS sử dụng một context object (ctx) thống nhất để chứa thông tin về request và response, giúp truy cập và thao tác với các thông tin này trở nên trực quan và nhất quán hơn.  
