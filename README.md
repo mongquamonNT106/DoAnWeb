@@ -10,9 +10,10 @@ Cài đặt môi trường:
 -  Deploy: `fly deploy`  
 1.	Làm thế nào để xử lí lỗi trong KoaJS?  
 •	Sử dụng middleware để xử lý lỗi: sử dụng một middleware để bắt và xử lý lỗi. Middleware này cần được đặt trước tất cả các middleware khác để nó có thể bắt mọi lỗi phát sinh trong các middleware hoặc route phía sau.  
-•	Ví dụ:  
-![image](https://github.com/mongquamonNT106/DoAnWeb/assets/113243759/0388ee68-44d1-4db6-9e8f-49f00de2f16e)
-
+•	Ví dụ:
+ 	<p align="center">
+      <img src="https://github.com/mongquamonNT106/DoAnWeb/assets/113243759/0388ee68-44d1-4db6-9e8f-49f00de2f16e" alt="Sublime's custom image"/>
+    </p>
 •	Quy trình:  
 -	Khi có lỗi xảy ra trong middleware thứ hai, lỗi đó sẽ được bắt và in ra console với thông điệp "Lỗi cục bộ xảy ra:".  
 -	Nếu có lỗi không được bắt trong middleware thứ hai, middleware đầu tiên sẽ bắt lỗi đó, in ra console với thông điệp "Lỗi tổng quát xảy ra:", và trả về thông điệp lỗi tổng quát.  
@@ -21,7 +22,6 @@ Cài đặt môi trường:
 •	Cài đặt Koa Router  
 `npm install @koa/router`  
 •	Tạo ứng dụng Koa và định nghĩa các route:  
-   ![image](https://github.com/mongquamonNT106/DoAnWeb/assets/113243759/50028932-fef9-49ca-861c-a38d013f8e09)
  	<p align="center">
       <img src="https://github.com/mongquamonNT106/DoAnWeb/assets/113243759/50028932-fef9-49ca-861c-a38d013f8e09" alt="Sublime's custom image"/>
     </p>
