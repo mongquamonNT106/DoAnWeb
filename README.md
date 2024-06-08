@@ -19,9 +19,13 @@ Cài đặt môi trường:
    
 2.  Cách sử dụng Koa Router để quản lý định tuyến:  
 •	Cài đặt Koa Router  
-   
+`npm install @koa/router`  
 •	Tạo ứng dụng Koa và định nghĩa các route:  
-   
+   ![image](https://github.com/mongquamonNT106/DoAnWeb/assets/113243759/50028932-fef9-49ca-861c-a38d013f8e09)
+ 	<p align="center">
+      <img src="https://github.com/mongquamonNT106/DoAnWeb/assets/113243759/50028932-fef9-49ca-861c-a38d013f8e09" alt="Sublime's custom image"/>
+    </p>
+
 •	Để quản lý các route một cách có tổ chức, bạn có thể chia các route ra thành nhiều tệp riêng biệt. Ví dụ, tạo thư mục routes và tạo các tệp home.js và user.js trong đó.  
 •	Sử dụng Koa Router giúp bạn quản lý các route một cách có tổ chức và dễ bảo trì. Việc chia nhỏ các route theo chức năng và định nghĩa chúng trong các tệp riêng biệt giúp mã nguồn của bạn rõ ràng và dễ quản lý hơn. Koa Router cũng cung cấp nhiều tính năng mạnh mẽ như middleware, route nesting (lồng các route), và xử lý phương thức HTTP một cách hiệu quả.  
 3. Các tính năng nổi bật của middleware trong KoaJS:  
